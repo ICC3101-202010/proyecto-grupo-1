@@ -8,23 +8,18 @@ namespace Proyecto_POO
 {
     public class Canciones : Multimedia
     {
-        private string Letra;
-        private string GeneroCompositor;
-        private string GeneroCantante;
-        
-        public string letra { get => Letra; set => Letra = value; }
-        public string generocompositor { get => GeneroCompositor; set => GeneroCompositor = value; }
-        public string generocantente { get => GeneroCantante; set => GeneroCantante = value; }
+        private string Letra { get; set; }
+        private string GeneroCompositor { get; set; }
+        private string GeneroCantante { get; set; }
+
+
 
         private List<string> Cantante = new List<string>();
         private List<string> Compositor = new List<string>();
         private List<string> GeneroMusical = new List<string>();
         private List<string> ComentariosDeLaCancion = new List<string>();
 
-        public List<string> cantante { get => Cantante; set => Cantante = value; }
-        public List<string> compositor { get => Compositor; set => Compositor = value; }
-        public List<string> generomusical { get => GeneroMusical; set => GeneroMusical = value; }
-        public List<string> comentariosdelacancion{ get => ComentariosDeLaCancion; set => ComentariosDeLaCancion = value; }
+
 
         public Canciones(string Letra, string GeneroCompositor, string GeneroCantante,int Duracion, string Titulo, string Fecha_Inclusion, List<string> Ranking, string Size, List<string> Genero,
             string Estudio, string Path, string Fecha_publicacion, string Descripcion, int Numero_reproducciones, List<string> Comentarios,
@@ -49,6 +44,41 @@ namespace Proyecto_POO
         public override void agregar_comentarios(string comentario)
         {
             ComentariosDeLaCancion.Add(comentario);
+        }
+
+        public string Get_Letra()
+        {
+            return this.Letra;
+        }
+
+        public string Get_Genero_Compositor()
+        {
+            return this.GeneroCompositor;
+        }
+
+        public string Get_Genero_Cantante()
+        {
+            return this.GeneroCantante;
+        }
+
+        public List<string> Get_Cantante()
+        {
+            return this.Cantante;
+        }
+
+        public List<string> Get_Compositor()
+        {
+            return this.Compositor;
+        }
+
+        public List<string> Get_Genero_Musical()
+        {
+            return this.GeneroMusical;
+        }
+
+        public List<string> Get_Comentarios_Cancion()
+        {
+            return this.ComentariosDeLaCancion;
         }
 
 

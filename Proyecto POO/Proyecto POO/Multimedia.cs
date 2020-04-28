@@ -8,31 +8,19 @@ namespace Proyecto_POO
 {
     public abstract class  Multimedia
     {   
-        protected int Duracion;
-        protected string Titulo;
-        protected string Fecha_Inclusion;
-        protected List<string> Ranking;
-        protected string Size;
-        protected List<string> Genero;
-        protected string Estudio;
-        protected string Path;
-        protected string Fecha_publicacion;
-        protected string Descripcion;
-        protected int Numero_reproducciones;
+        protected int Duracion { get; set; }
+        protected string Titulo { get; set; }
+        protected string Fecha_Inclusion { get; set; }
+        protected string Size { get; set; }
+        protected string Estudio { get; set; }
+        protected string Path { get; set; }
+        protected string Fecha_publicacion { get; set; }
+        protected string Descripcion { get; set; }
+        protected int Numero_reproducciones { get; set; }
         protected List<string> Comentarios;
+        protected List<string> Ranking;
+        protected List<string> Genero;
 
-        public int duracion { get => Duracion; set => Duracion = value; }
-        public string titulo { get => Titulo; set => Titulo = value; }
-        public string fecha_inclusion { get => Fecha_Inclusion; set => Fecha_Inclusion = value; }
-        public List<string> ranking { get => Ranking; set => Ranking = value; }
-        public string size { get => Size; set => Size = value; }
-        public List<string> genero { get => Genero; set => Genero = value; }
-        public string estudio { get => Estudio; set => Estudio = value; }
-        public string path { get => Path; set => Path = value; }
-        public string fecha_publicacion { get => Fecha_publicacion; set => Fecha_publicacion = value; }
-        public string descripcion { get => Descripcion; set => Descripcion = value; }
-        public int numero_reproducciones { get => Numero_reproducciones; set => Numero_reproducciones = value; }
-        public List<string> comentarios { get => Comentarios; set => Comentarios = value; }
 
         public Multimedia(int Duracion, string Titulo, string Fecha_Inclusion, List<string> Ranking, string Size, List<string> Genero,
             string Estudio, string Path, string Fecha_publicacion, string Descripcion, int Numero_reproducciones, List<string> Comentarios)
@@ -61,5 +49,67 @@ namespace Proyecto_POO
         {
 
         }
+
+
+        public int Get_Duracion()
+        {
+            return this.Duracion;
+        }
+
+        public string Get_Titulo()
+        {
+            return this.Titulo;
+        }
+
+        public string Get_Fecha_Inclusion()
+        {
+            return this.Fecha_Inclusion;
+        }
+
+        public string Get_Size()
+        {
+            return this.Size;
+        }
+
+        public string Get_Estudio()
+        {
+            return this.Estudio;
+        }
+
+        public string Get_Path()
+        {
+            return this.Path;
+        }
+
+        public string Get_Fecha_Publicacion()
+        {
+            return this.Fecha_publicacion;
+        }
+
+        public string Get_Descripcion()
+        {
+            return this.Descripcion;
+        }
+
+        public int Get_Reproducciones()
+        {
+            return this.Numero_reproducciones;
+        }
+
+        public List<string> Get_Comentarios()
+        {
+            return this.Comentarios;
+        }
+
+        public List<string> Get_Ranking()
+        {
+            return this.Ranking;
+        }
+
+        public List<string> Get_Genero()
+        {
+            return this.Genero;
+        }
     }
+
 }

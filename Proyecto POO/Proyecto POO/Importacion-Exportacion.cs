@@ -12,7 +12,7 @@ namespace Proyecto_POO
         public Importacion_Exportacion()
         {
 
-        }
+        }//pendiente
 
         void agregar_cancion(string path)
         {
@@ -34,7 +34,7 @@ namespace Proyecto_POO
             string letra = Console.ReadLine();
             Console.WriteLine("Genero Del Compositor");
             Console.WriteLine("Genero del Cantante");
-            Console.WriteLine()
+            Console.WriteLine();
             //Canciones canci = new Canciones();
         }
 

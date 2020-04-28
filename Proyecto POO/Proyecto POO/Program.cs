@@ -35,18 +35,14 @@ namespace Proyecto_POO
                             string nom = Console.ReadLine();
                             Console.WriteLine("Ingrese su contraseña");
                             string contra = Console.ReadLine();
-                            for (int i = 0; i <= user.nombresdeusuario.Count(); i++)
-                                if (user.nombresdeusuario[i] == nom && user.listacontraseñas[i] == contra)
-                                {
-                                    Console.WriteLine("ingreso al programa correctamente");
-                                    //numcase = 8;
-                                    break;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Nombre de usuario o contraseña incorrectas");
-                                    break;
-                                }
+                            int y = user.comprobarusuario(nom, contra);
+                            if (y == 1)
+                            {
+                                //codigo dentro del programa
+                            }
+                            else
+                                Console.WriteLine("Usuario o contraseña incorrecto");
+
                                     
 
                             break;
@@ -72,10 +68,9 @@ namespace Proyecto_POO
                             if (premium == "si")
                                 premier = true;
                             Usuario persona = new Usuario(nom,edad,boolperfil,premier,nick,contra);
-                            almacenamiento.usuario.Add(persona);
-                            user.nombresdeusuario.Add(nick);
-                            user.listacontraseñas.Add(contra);
-                           
+                            almacenamiento.AgregarPersona(persona);
+                            user.AddUserNick(nick,contra);
+                            
                             break;
                         }
                     case 9:

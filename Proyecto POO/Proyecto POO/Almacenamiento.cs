@@ -17,29 +17,20 @@ namespace Proyecto_POO
         private List<Canciones> Playlist_canciones = new List<Canciones>();
         private List<Video> Playlist_videos = new List<Video>();
 
-        public List<Canciones> lista_canciones { get => Lista_canciones; set => Lista_canciones = value; }
-        public List<Video> lista_videos { get => Lista_videos; set => Lista_videos = value; }
-        public List<string> nicknames { get => Nicknames; set => Nicknames = value; }
-        public List<Usuario> usuario { get => Usuario; set => Usuario = value; }
-        public List<Video> cola_reproduccion_videos { get => Cola_reproduccion_videos; set => Cola_reproduccion_videos = value; }
-        public List<Canciones> cola_reproduccion_canciones { get => Cola_reproduccion_canciones; set => Cola_reproduccion_canciones = value; }
-        public List<Canciones> playlist_canciones { get => Playlist_canciones; set => Playlist_canciones = value; }
-        public List<Video> playlist_videos { get => Playlist_videos; set => Playlist_videos = value; }
-
         public void buscar_videos(string video_buscado)
         {
             List<Video> ListaDeBusqueda = new List<Video>();
             int x = 1;
-            foreach (Video i in lista_videos)
+            foreach (Video video in Lista_videos)
             {
-                if(video_buscado == i.titulo)
+                if(video_buscado == video.Get_Titulo())
                 {
-                    ListaDeBusqueda.Add(i);
+                    ListaDeBusqueda.Add(video);
                 }
             }
-            foreach (Video j in ListaDeBusqueda)
+            foreach (Video video in ListaDeBusqueda)
             {
-                Console.WriteLine(x +") "+ j.titulo);
+                Console.WriteLine(x +") "+ video.Get_Titulo());
             }
         }
 
@@ -47,16 +38,16 @@ namespace Proyecto_POO
         {
             List<Canciones> ListaDeBusqueda = new List<Canciones>();
             int x = 1;
-            foreach (Canciones i in lista_canciones)
+            foreach (Canciones cancion in Lista_canciones)
             {
-                if (cancion_buscada == i.titulo)
+                if (cancion_buscada == cancion.Get_Titulo())
                 {
-                    ListaDeBusqueda.Add(i);
+                    ListaDeBusqueda.Add(cancion);
                 }
             }
-            foreach (Canciones j in ListaDeBusqueda)
+            foreach (Canciones cancion in ListaDeBusqueda)
             {
-                Console.WriteLine(x + ") " + j.titulo);
+                Console.WriteLine(x + ") " + cancion.Get_Titulo());
             }
 
 
@@ -65,7 +56,7 @@ namespace Proyecto_POO
         public void add_cancion(Canciones CancionAMeter)
         {
             int x = 0;
-            foreach (Canciones esta in lista_canciones)
+            foreach (Canciones esta in Lista_canciones)
             {
                 if (CancionAMeter == esta) 
                 x = 1;
@@ -79,7 +70,7 @@ namespace Proyecto_POO
         public void add_videos(Video VideoAMeter)
         {
             int x = 0;
-            foreach (Video esta in lista_videos)
+            foreach (Video esta in Lista_videos)
             {
                 if (VideoAMeter == esta)
                     x = 1;
@@ -88,7 +79,10 @@ namespace Proyecto_POO
                 Lista_videos.Add(VideoAMeter);
         }
         
-
+        public void AgregarPersona(Usuario user)
+        {
+            Usuario.Add(user);
+        }
         public void buscar_playlist(string nombreplaylist)
         {
 

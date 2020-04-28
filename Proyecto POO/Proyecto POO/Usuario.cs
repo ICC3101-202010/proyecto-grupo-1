@@ -9,14 +9,14 @@ namespace Proyecto_POO
     public class Usuario
     {
 
-        private string Nombre;
-        private int Edad;
-        private bool TipoDeUsuario;
-        private bool Premium;
-        private string Nickname;
-        private string Contraseña;
-        private string ColorDeFuente;
-        private string ColorDeInterfaz;
+        private string Nombre { get; set; }
+        private int Edad { get; set; }
+        private bool TipoDeUsuario { get; set; }
+        private bool Premium { get; set; }
+        private string Nickname { get; set; }
+        private string Contraseña { get; set; }
+        private string ColorDeFuente { get; set; }
+        private string ColorDeInterfaz { get; set; }
         private List<string> GenerosQueSigue = new List<string>();
         private List<string> CantantesQueSigue = new List<string>();
         private List<string> Favoritos = new List<string>();
@@ -24,40 +24,36 @@ namespace Proyecto_POO
         private List<string> NombresDeUsuario = new List<string>();
         private List<string> ListaContraseñas = new List<string>();
 
-        public string nombre { get => Nombre; set => Nombre = value; }
-        public int edad { get => Edad; set => Edad = value; }
-        public bool tipodeusuario { get => TipoDeUsuario; set => TipoDeUsuario = value; }
-        public bool premium { get => Premium; set => Premium = value; }
-        public string nickname { get => Nickname; set => Nickname = value; }
-        public string contraseña { get => Contraseña; set => Contraseña = value; }
-        public string colordefuente { get => ColorDeFuente; set => ColorDeFuente = value; }
-        public string colordeinterfaz { get => ColorDeInterfaz; set => ColorDeInterfaz = value; }
-
-
-        public List<string> generosquesigue { get => GenerosQueSigue; set => GenerosQueSigue = value; }
-        public List<string> cantantesquesigue { get => CantantesQueSigue; set => CantantesQueSigue = value; }
-        public List<string> favoritos { get => Favoritos; set => Favoritos = value; }
-        public List<string> recomendaciones { get => Recomendaciones; set => Recomendaciones = value; }
-        public List<string> nombresdeusuario { get => NombresDeUsuario; set => NombresDeUsuario = value; }
-        public List<string> listacontraseñas { get => ListaContraseñas; set => ListaContraseñas = value; }
 
         public Usuario(string name,int years,bool usertipe,bool premi, string sobrenombre,string pasword)
         {
-            nombre = name;
-            edad = years;
-            tipodeusuario = usertipe;
+            Nombre = name;
+            Edad = years;
+            TipoDeUsuario = usertipe;
             Premium = premi;
-            nickname = sobrenombre;
-            contraseña = pasword;
+            Nickname = sobrenombre;
+            Contraseña = pasword;
         }
 
         public Usuario()
         {
         }
+        public void AddUserNick(string nick, string contraseña)//añade nombre y constraseña a sus listas
+        {
+            NombresDeUsuario.Add(nick);
+            ListaContraseñas.Add(contraseña);
+        }
 
-
-
-
-
+        public int comprobarusuario(string nom, string contra)
+        {
+            for (int i = 0; i <= NombresDeUsuario.Count(); i++)
+            {
+                if (NombresDeUsuario[i] == nom && NombresDeUsuario[i] == contra)
+                {
+                    return 1;
+                }
+            }
+                return 0;
+        }
     }
 }

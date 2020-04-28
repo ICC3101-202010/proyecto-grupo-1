@@ -29,7 +29,7 @@ namespace Proyecto_POO
         }
 
 
-        public string informacion(string objeto)
+        public string informacion()
         {
             return "El titulo del video es: " + Titulo + ";Actores: " + Actores + ";Directores: " + Directores +
                "\n;Duracion del Video: " + Duracion + ";Fecha de publicacion: " + Fecha_publicacion + "Estudio : " + Estudio+
