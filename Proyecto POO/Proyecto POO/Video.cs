@@ -12,9 +12,11 @@ namespace Proyecto_POO
         private string Calidad { get; set; }
         private List<string> Actores = new List<string>();
         List<string> Directores = new List<string>();
+        private List<string> ComentariosDelVideo = new List<string>();
 
         public List<string> actores { get => Actores; set => Actores = value; }
         public string calidad { get => Calidad; set => Calidad = value; }
+        public List<string> comentariosdelvideo { get => ComentariosDelVideo; set => ComentariosDelVideo = value; }
 
         public Video(int Duracion, string Titulo, string Fecha_Inclusion, List<string> Ranking, string Size, List<string> Genero,
             string Estudio, string Path, string Fecha_publicacion, string Descripcion, int Numero_reproducciones, List<string> Comentarios,
@@ -29,7 +31,9 @@ namespace Proyecto_POO
 
         public string informacion(string objeto)
         {
-            return "";
+            return "El titulo del video es: " + Titulo + ";Actores: " + Actores + ";Directores: " + Directores +
+               "\n;Duracion del Video: " + Duracion + ";Fecha de publicacion: " + Fecha_publicacion + "Estudio : " + Estudio+
+                "\n;Reproducciones: " + Numero_reproducciones+ "Ranking : " + Ranking;
         }
 
         

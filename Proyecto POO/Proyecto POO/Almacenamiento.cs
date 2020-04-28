@@ -28,23 +28,66 @@ namespace Proyecto_POO
 
         public void buscar_videos(string video_buscado)
         {
-
+            List<Video> ListaDeBusqueda = new List<Video>();
+            int x = 1;
+            foreach (Video i in lista_videos)
+            {
+                if(video_buscado == i.titulo)
+                {
+                    ListaDeBusqueda.Add(i);
+                }
+            }
+            foreach (Video j in ListaDeBusqueda)
+            {
+                Console.WriteLine(x +") "+ j.titulo);
+            }
         }
 
         public void buscar_cancion(string cancion_buscada)
         {
+            List<Canciones> ListaDeBusqueda = new List<Canciones>();
+            int x = 1;
+            foreach (Canciones i in lista_canciones)
+            {
+                if (cancion_buscada == i.titulo)
+                {
+                    ListaDeBusqueda.Add(i);
+                }
+            }
+            foreach (Canciones j in ListaDeBusqueda)
+            {
+                Console.WriteLine(x + ") " + j.titulo);
+            }
+
 
         }
 
-        public void add_cancion(string path)
+        public void add_cancion(Canciones CancionAMeter)
         {
+            int x = 0;
+            foreach (Canciones esta in lista_canciones)
+            {
+                if (CancionAMeter == esta) 
+                x = 1;
+            }
+            if (x == 0)
+                Lista_canciones.Add(CancionAMeter);
+
 
         }
 
-        public void add_videos(string path)
+        public void add_videos(Video VideoAMeter)
         {
-
+            int x = 0;
+            foreach (Video esta in lista_videos)
+            {
+                if (VideoAMeter == esta)
+                    x = 1;
+            }
+            if (x == 0)
+                Lista_videos.Add(VideoAMeter);
         }
+        
 
         public void buscar_playlist(string nombreplaylist)
         {

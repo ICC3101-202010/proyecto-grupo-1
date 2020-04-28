@@ -39,7 +39,13 @@ namespace Proyecto_POO
                                 if (user.nombresdeusuario[i] == nom && user.listacontraseñas[i] == contra)
                                 {
                                     Console.WriteLine("ingreso al programa correctamente");
-                                    numcase = 8;
+                                    //numcase = 8;
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Nombre de usuario o contraseña incorrectas");
+                                    break;
                                 }
                                     
 
@@ -70,11 +76,6 @@ namespace Proyecto_POO
                             user.nombresdeusuario.Add(nick);
                             user.listacontraseñas.Add(contra);
                            
-                            break;
-                        }
-                    case 8:
-                        {
-                            //programa dentro de la sesion
                             break;
                         }
                     case 9:

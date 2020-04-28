@@ -52,12 +52,12 @@ namespace Proyecto_POO
 
         }
 
-        public void agregar_comentarios(string comentario)
+        public virtual void agregar_comentarios(string comentario)
         {
 
         }
 
-        public void reproduccion(string archivo)
+        public virtual void reproduccion(string archivo)
         {
 
         }
