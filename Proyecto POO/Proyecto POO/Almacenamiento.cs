@@ -23,16 +23,28 @@ namespace Proyecto_POO
             int x = 1;
             foreach (Video video in Lista_videos)
             {
-                if(video_buscado == video.Get_Titulo())
+                if (video_buscado == video.Get_Titulo())
                 {
                     ListaDeBusqueda.Add(video);
                 }
             }
             foreach (Video video in ListaDeBusqueda)
             {
-                Console.WriteLine(x +") "+ video.Get_Titulo());
+                Console.WriteLine(x + ") " + video.Get_Titulo());
             }
         }
+
+        public void Quitar_cancion(Canciones cancion)
+        {
+            Lista_canciones.Remove(cancion);
+        }
+
+        public void Quitar_videon(Video mp4)
+        {
+            Lista_videos.Remove(mp4);
+        }
+
+
 
         public void buscar_cancion(string cancion_buscada)
         {

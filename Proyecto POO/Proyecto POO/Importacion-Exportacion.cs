@@ -33,7 +33,7 @@ namespace Proyecto_POO
             Console.WriteLine("Letra de la cancion");
             string letra = Console.ReadLine();
             Console.WriteLine("Genero Del Compositor");
-            Console.WriteLine("Genero del Cantante");
+            Console.WriteLine("Genero del Cantante"); 
             Console.WriteLine();
             //Canciones canci = new Canciones();
         }
@@ -43,14 +43,14 @@ namespace Proyecto_POO
 
         }
 
-        void quitar_cancion(Canciones cancion)
+        void quitar_cancion(Canciones cancion,Almacenamiento alma)
         {
-
+            alma.Quitar_cancion(cancion);          
         }
 
-        void quitar_videos(Video mp4)
+        void quitar_videos(Video mp4, Almacenamiento alma)
         {
-
+            alma.Quitar_videon(mp4);
         }
 
         void foto_de_portada(string path)
