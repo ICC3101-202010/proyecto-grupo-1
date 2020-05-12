@@ -32,7 +32,7 @@ namespace Proyecto_POO
 
 
         public Usuario(string name,int years,bool usertipe,bool premi, string sobrenombre,string pasword, bool admin,string fotoperfil, List<Canciones> CancionesAgregadas,
-          List<Video> VideosAgregados, List<Playlist> PlaylistAgregadas)
+          List<Video> VideosAgregados, List<Playlist> PlaylistAgregadas, List<Usuario> UsuariosSeguidores)
         {
             Nombre = name;
             Edad = years;
@@ -45,6 +45,7 @@ namespace Proyecto_POO
             this.CancionesAgregadas = CancionesAgregadas;
             this.VideosAgregados = VideosAgregados;
             this.PlaylistAgregadas = PlaylistAgregadas;
+            this.UsuariosSeguidores = UsuariosSeguidores;
         }
         
         public Usuario()
@@ -52,14 +53,42 @@ namespace Proyecto_POO
         }
         public void AgregarFotoPerfil()
         {
-            Console.WriteLine("Ingrese el path del archivo que quieras que sea tu foto de perfil");
+            Console.WriteLine("Ingrese el path del archivo que quieras que sea tu foto de perfil ");
             string path = Console.ReadLine();
+            while (!File.Exists(path))
+            {
+                Console.WriteLine("La direccion ingresada no existe");
+                path = Console.ReadLine();
+            }
+            string tipo = System.IO.Path.GetExtension(path);
+            List<string> tipos = new List<string> { ".jpg", ".png", ".bmap", ".gif", ".bmp",".raw" };
+            int t = 0;
+            while (t == 0)
+            {
+                for (int i = 0; i < tipos.Count(); i++)
+                {
+                    if (tipos[i] == tipo)
+                    {
+                        t = 1;
+                    }
+                }
+                if (t == 0)
+                {
+                    Console.WriteLine("Tipo de archivo incorrecto");
+                    Console.WriteLine("Ingrese denuevo");
+                    path = Console.ReadLine();
+                    tipo = System.IO.Path.GetExtension(path);
+                }
+            }
             FotoPerfil = path;
+
             string workingDirectory = Environment.CurrentDirectory;
             string subdir = @System.IO.Directory.GetCurrentDirectory() + "\\FotosDePerfil";
             string archivo = @Path.GetFileName(path);
             string carpeta = Path.GetDirectoryName(path);
             string C = Path.GetDirectoryName(path);
+
+
 
             if (!Directory.Exists(subdir))
             {
@@ -263,11 +292,15 @@ namespace Proyecto_POO
             if (caso == 1)
             {
                 TipoDeUsuario = !TipoDeUsuario;
-                if(TipoDeUsuario == true)
+                if (TipoDeUsuario == true)
+                {
                     Console.WriteLine("Su perfil ahora es privado");
+                    Thread.Sleep(1000);
+                }
                 else
                 {
                     Console.WriteLine("Su perfil ahora es publico");
+                    Thread.Sleep(1000);
                 }
 
             }
@@ -275,10 +308,14 @@ namespace Proyecto_POO
             {
                 Premium = !Premium;
                 if (Premium == true)
+                {
                     Console.WriteLine("Su perfil ahora es Premium");
+                    Thread.Sleep(1000);
+                }
                 else
                 {
                     Console.WriteLine("Su perfil ahora no es premium");
+                    Thread.Sleep(1000);
                 }
             }
 
@@ -287,10 +324,14 @@ namespace Proyecto_POO
             {
                 Administrador = !Administrador;
                 if (Administrador == true)
+                {
                     Console.WriteLine("Su perfil ahora tiene permisos de administrador");
+                    Thread.Sleep(1000);
+                }
                 else
                 {
                     Console.WriteLine("Su perfil ahora no tiene permisos de administrador");
+                    Thread.Sleep(1000);
                 }
             }
         }

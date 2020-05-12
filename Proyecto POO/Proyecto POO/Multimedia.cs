@@ -30,7 +30,7 @@ namespace Proyecto_POO
         protected int likes;
 
         public Multimedia( int Duracion, string Titulo, string Fecha_Inclusion, List<int> Ranking, long Size, List<string> Genero,
-            string Estudio, string CarpetaArchivo, string Fecha_publicacion, string Descripcion, int Numero_reproducciones, List<string> Comentarios,string Portada)
+            string Estudio, string CarpetaArchivo, string Fecha_publicacion, string Descripcion, int Numero_reproducciones, List<string> Comentarios,string Portada,List<Usuario> Seguidores)
         {
 
             this.Duracion = Duracion;
@@ -46,6 +46,7 @@ namespace Proyecto_POO
             this.Numero_reproducciones = Numero_reproducciones;
             this.Comentarios = Comentarios;
             this.Portada = Portada;
+            this.Seguidores = Seguidores;
         }
 
 
@@ -61,11 +62,14 @@ namespace Proyecto_POO
         public void seguir(Usuario usu)
         {
             int verificador = 1;
-            foreach(Usuario data in Seguidores)
+            if (Seguidores.Count() != 0)
             {
-                if (data.Get_Nickname() == usu.Get_Nickname())
+                foreach (Usuario data in Seguidores)
                 {
-                    verificador = 0;
+                    if (data.Get_Nickname() == usu.Get_Nickname())
+                    {
+                        verificador = 0;
+                    }
                 }
             }
             if (verificador == 1)
@@ -180,7 +184,6 @@ namespace Proyecto_POO
         {
             Numero_reproducciones += 1;
         }
-
 
     }
 

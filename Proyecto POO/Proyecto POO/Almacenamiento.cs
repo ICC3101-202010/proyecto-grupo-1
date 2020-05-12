@@ -119,7 +119,6 @@ namespace Proyecto_POO
         public void ReproducirMultimedia(Multimedia multi)
         {
             System.Diagnostics.Process.Start(multi.Get_Carpeta_Archivo());
-            string tipo = System.IO.Path.GetExtension(multi.Get_Carpeta_Archivo());           
             Thread.Sleep(multi.Get_Duracion() * 1000);
             multi.Sumar_Reproducciones();
         }
@@ -130,7 +129,8 @@ namespace Proyecto_POO
 
             List<Canciones> Playlist_canciones = new List<Canciones>();
             List<Video> Playlist_videos = new List<Video>();
-            Playlist newplay = new Playlist(nombreplaylist, Playlist_canciones, Playlist_videos);
+            List<Usuario> Seguidores = new List<Usuario>();
+            Playlist newplay = new Playlist(nombreplaylist, Playlist_canciones, Playlist_videos, Seguidores);
             int operacion = 0;
 
             while (operacion == 0)
@@ -170,7 +170,9 @@ namespace Proyecto_POO
         {
             List<Canciones> Playlist_canciones = new List<Canciones>();
             List<Video> Playlist_videos = new List<Video>();
-            Playlist newplay = new Playlist(nombreplaylist, Playlist_canciones, Playlist_videos);
+            List<Usuario> Seguidores = new List<Usuario>();
+
+            Playlist newplay = new Playlist(nombreplaylist, Playlist_canciones, Playlist_videos, Seguidores);
             int operacion = 0;
 
             while (operacion == 0)
@@ -498,7 +500,7 @@ namespace Proyecto_POO
                 }
                 if (operacion == 1)
                     operacion = 0;
-                Cola.Add(Lista_videos[index]);
+                Cola.Add(Lista_videos[index - 1]);
             }
             for (int j = 0; j < Cola.Count; j++)
             {
@@ -564,7 +566,7 @@ namespace Proyecto_POO
 
 
 
-        public void filtro_busqueda(List<string>buscado, List<int> criterio, Usuario usu)
+        public void filtro_busqueda(List<string>buscado, List<int> criterio, Usuario usu, List<int> cond_Extra)
         {
             int i = 1;
             int index = 0;
@@ -642,18 +644,55 @@ namespace Proyecto_POO
 
                 if (k == 3) //Duracion
                 {
-                    foreach (Canciones data in Lista_canciones)
+                    if (cond_Extra[index] == 1)
                     {
-                        if (data.Get_Duracion() == Convert.ToInt32(buscado[index]) && !cancion_encontrada.Contains(data))
+                        foreach (Canciones data in Lista_canciones)
                         {
-                            cancion_encontrada.Add(data);
+                            if (data.Get_Duracion() == Convert.ToInt32(buscado[index]) && !cancion_encontrada.Contains(data))
+                            {
+                                cancion_encontrada.Add(data);
+                            }
+                        }
+                        foreach (Video data in Lista_videos)
+                        {
+                            if (data.Get_Duracion() == Convert.ToInt32(buscado[index]) && !videos_encontrados.Contains(data))
+                            {
+                                videos_encontrados.Add(data);
+                            }
                         }
                     }
-                    foreach (Video data in Lista_videos)
+                    if (cond_Extra[index] == 2)
                     {
-                        if (data.Get_Duracion() == Convert.ToInt32(buscado[index]) && !videos_encontrados.Contains(data))
+                        foreach (Canciones data in Lista_canciones)
                         {
-                            videos_encontrados.Add(data);
+                            if (data.Get_Duracion() >= Convert.ToInt32(buscado[index]) && !cancion_encontrada.Contains(data))
+                            {
+                                cancion_encontrada.Add(data);
+                            }
+                        }
+                        foreach (Video data in Lista_videos)
+                        {
+                            if (data.Get_Duracion() >= Convert.ToInt32(buscado[index]) && !videos_encontrados.Contains(data))
+                            {
+                                videos_encontrados.Add(data);
+                            }
+                        }
+                    }
+                    if (cond_Extra[index] == 3)
+                    {
+                        foreach (Canciones data in Lista_canciones)
+                        {
+                            if (data.Get_Duracion() <= Convert.ToInt32(buscado[index]) && !cancion_encontrada.Contains(data))
+                            {
+                                cancion_encontrada.Add(data);
+                            }
+                        }
+                        foreach (Video data in Lista_videos)
+                        {
+                            if (data.Get_Duracion() <= Convert.ToInt32(buscado[index]) && !videos_encontrados.Contains(data))
+                            {
+                                videos_encontrados.Add(data);
+                            }
                         }
                     }
                 }
@@ -694,47 +733,140 @@ namespace Proyecto_POO
                     }
                 }
 
-                if (k == 6)//Buscar Apellido
+                if (k == 6)//Buscar cancion/video por puesto de trabajo de la persona
                 {
-                    foreach (Personas data in Persona)
+                    foreach (Canciones data in Lista_canciones)
                     {
-                        if (data.Get_LastName().Contains(buscado[index]) && !personas_encontradas.Contains(data)) //Si el genero contiene el substring buscado
+                        foreach (Personas data2 in data.Get_Artistas())
                         {
-                            personas_encontradas.Add(data);
+                            if (data2.Get_Puesto().Contains(buscado[index]) && !cancion_encontrada.Contains(data))
+                            {
+                                cancion_encontrada.Add(data);
+                            }
+                        }
+                    }
+                    foreach (Video data in Lista_videos)
+                    {
+                        foreach (Personas data2 in data.Get_Staff())
+                        {
+                            if (data2.Get_Puesto().Contains(buscado[index]) && !videos_encontrados.Contains(data))
+                            {
+                                videos_encontrados.Add(data);
+                            }
                         }
                     }
                 }
 
-                if (k == 7)//Buscar por sexo
+                if (k == 7)//Buscar cancion/video por sexo de la persona involucrada
                 {
-                    foreach (Personas data in Persona)
+                    foreach (Canciones data in Lista_canciones)
                     {
-                        if (data.Get_Sex().Contains(buscado[index]) && !personas_encontradas.Contains(data)) //Si el genero contiene el substring buscado
+                        foreach (Personas data2 in data.Get_Artistas())
                         {
-                            personas_encontradas.Add(data);
+                            if (data2.Get_Sex().Contains(buscado[index]) && !cancion_encontrada.Contains(data)) //Si el genero contiene el substring buscado
+                            {
+                                cancion_encontrada.Add(data);
+                            }
+                        }
+                    }
+                    foreach (Video data in Lista_videos)
+                    {
+                        foreach (Personas data2 in data.Get_Staff())
+                        {
+                            if (data2.Get_Sex().Contains(buscado[index]) && !videos_encontrados.Contains(data)) //Si el genero contiene el substring buscado
+                            {
+                                videos_encontrados.Add(data);
+                            }
                         }
                     }
                 }
 
                 if (k == 8)//Buscar por edad
                 {
-                    foreach (Usuario data in Usuario)
+                    if (cond_Extra[index] == 1)
                     {
-                        if (data.Get_Edad() == Convert.ToInt32(buscado[index]) && !usuarios_encontrados.Contains(data)) //Si el genero contiene el substring buscado
+                        foreach (Canciones data in Lista_canciones)
                         {
-                            usuarios_encontrados.Add(data);
+                            foreach (Personas data2 in data.Get_Artistas())
+                            {
+                                int ed = 0;
+                                int.TryParse(buscado[index], out ed);
+                                if (data2.Get_Edad() == ed && !cancion_encontrada.Contains(data)) //Si el genero contiene el substring buscado
+                                {
+                                    cancion_encontrada.Add(data);
+                                }
+                            }
+                        }
+                        foreach (Video data in Lista_videos)
+                        {
+                            foreach (Personas data2 in data.Get_Staff())
+                            {
+                                int ed = 0;
+                                int.TryParse(buscado[index], out ed);
+                                if (data2.Get_Edad() == ed && !videos_encontrados.Contains(data)) //Si el genero contiene el substring buscado
+                                {
+                                    videos_encontrados.Add(data);
+                                }
+                            }
                         }
                     }
-                    foreach (Personas data in Persona)
+                    if (cond_Extra[index] == 2)
                     {
-                        if (data.Get_Edad() == Convert.ToInt32(buscado) && !personas_encontradas.Contains(data)) //Si el genero contiene el substring buscado
+                        foreach (Canciones data in Lista_canciones)
                         {
-                            personas_encontradas.Add(data);
+                            foreach (Personas data2 in data.Get_Artistas())
+                            {
+                                int ed = 0;
+                                int.TryParse(buscado[index], out ed);
+                                if (data2.Get_Edad() >= ed && !cancion_encontrada.Contains(data)) //Si el genero contiene el substring buscado
+                                {
+                                    cancion_encontrada.Add(data);
+                                }
+                            }
+                        }
+                        foreach (Video data in Lista_videos)
+                        {
+                            foreach (Personas data2 in data.Get_Staff())
+                            {
+                                int ed = 0;
+                                int.TryParse(buscado[index], out ed);
+                                if (data2.Get_Edad() >= ed && !videos_encontrados.Contains(data)) //Si el genero contiene el substring buscado
+                                {
+                                    videos_encontrados.Add(data);
+                                }
+                            }
+                        }
+                    }
+                    if (cond_Extra[index] == 3)
+                    {
+                        foreach (Canciones data in Lista_canciones)
+                        {
+                            foreach (Personas data2 in data.Get_Artistas())
+                            {
+                                int ed = 0;
+                                int.TryParse(buscado[index], out ed);
+                                if (data2.Get_Edad() <= ed && !cancion_encontrada.Contains(data)) //Si el genero contiene el substring buscado
+                                {
+                                    cancion_encontrada.Add(data);
+                                }
+                            }
+                        }
+                        foreach (Video data in Lista_videos)
+                        {
+                            foreach (Personas data2 in data.Get_Staff())
+                            {
+                                int ed = 0;
+                                int.TryParse(buscado[index], out ed);
+                                if (data2.Get_Edad() <= ed && !videos_encontrados.Contains(data)) //Si el genero contiene el substring buscado
+                                {
+                                    videos_encontrados.Add(data);
+                                }
+                            }
                         }
                     }
                 }
 
-                if(k == 9) // Buscar por personas involucradas
+                if(k == 9) // Buscar por personas involucradas (nombre)
                 {
                     foreach(Canciones data in Lista_canciones)
                     {
@@ -779,34 +911,114 @@ namespace Proyecto_POO
 
                 if (k == 11)
                 {
-                    Console.WriteLine("Videos con la siguiente calidad" + buscado);
+                    if (cond_Extra[index] == 1)
+                    {
+                        foreach (Video data in Lista_videos)
+                        {
+                            int cal = 0;
+                            int.TryParse(buscado[index], out cal);
+                            if (data.Get_Calidad() == cal && !videos_encontrados.Contains(data))
+                            {
+                                videos_encontrados.Add(data);
+                            }
+                        }
+                    }
+                    if (cond_Extra[index] == 2)
+                    {
+                        foreach (Video data in Lista_videos)
+                        {
+                            int cal = 0;
+                            int.TryParse(buscado[index], out cal);
+                            if (data.Get_Calidad() >= cal && !videos_encontrados.Contains(data))
+                            {
+                                videos_encontrados.Add(data);
+                            }
+                        }
+                    }
+                    if (cond_Extra[index] == 3)
+                    {
+                        foreach (Video data in Lista_videos)
+                        {
+                            int cal = 0;
+                            int.TryParse(buscado[index], out cal);
+                            if (data.Get_Calidad() <= cal && !videos_encontrados.Contains(data))
+                            {
+                                videos_encontrados.Add(data);
+                            }
+                        }
+                    }
+
                 }
 
                 if (k == 12)
                 {
-                    foreach (Canciones data in Lista_canciones)
+                    if (cond_Extra[index] == 1)
                     {
-                        
-                        int q;
-                        int.TryParse(buscado[index], out q);
-                        if (q == data.Get_Mean_Tier() && !cancion_encontrada.Contains(data))
+                        foreach (Canciones data in Lista_canciones)
                         {
-                            cancion_encontrada.Add(data);
+                            int q;
+                            int.TryParse(buscado[index], out q);
+                            if (q == data.Get_Mean_Tier() && !cancion_encontrada.Contains(data))
+                            {
+                                cancion_encontrada.Add(data);
+                            }
+                        }
+                        foreach (Video data in Lista_videos)
+                        {
+                            int q;
+                            int.TryParse(buscado[index], out q);
+                            if (q == data.Get_Mean_Tier() && !videos_encontrados.Contains(data))
+                            {
+                                videos_encontrados.Add(data);
+                            }
                         }
                     }
-                    foreach (Video data in Lista_videos)
+                    if (cond_Extra[index] == 2)
                     {
-                        int q;
-                        int.TryParse(buscado[index], out q);
-                        if (q == data.Get_Mean_Tier() && !videos_encontrados.Contains(data))
+                        foreach (Canciones data in Lista_canciones)
                         {
-                            videos_encontrados.Add(data);
+                            int q;
+                            int.TryParse(buscado[index], out q);
+                            if (q >= data.Get_Mean_Tier() && !cancion_encontrada.Contains(data))
+                            {
+                                cancion_encontrada.Add(data);
+                            }
+                        }
+                        foreach (Video data in Lista_videos)
+                        {
+                            int q;
+                            int.TryParse(buscado[index], out q);
+                            if (q >= data.Get_Mean_Tier() && !videos_encontrados.Contains(data))
+                            {
+                                videos_encontrados.Add(data);
+                            }
+                        }
+                    }
+                    if (cond_Extra[index] == 3)
+                    {
+                        foreach (Canciones data in Lista_canciones)
+                        {
+                            int q;
+                            int.TryParse(buscado[index], out q);
+                            if (q <= data.Get_Mean_Tier() && !cancion_encontrada.Contains(data))
+                            {
+                                cancion_encontrada.Add(data);
+                            }
+                        }
+                        foreach (Video data in Lista_videos)
+                        {
+                            int q;
+                            int.TryParse(buscado[index], out q);
+                            if (q <= data.Get_Mean_Tier() && !videos_encontrados.Contains(data))
+                            {
+                                videos_encontrados.Add(data);
+                            }
                         }
                     }
                 }
                 index++;
             }
-
+            
             //Se supone que siempre cancion <video <playlist <usuario <persona
             Console.WriteLine("Canciones encontradas con el criterio de busqueda: ");
             foreach(Canciones data in cancion_encontrada)
@@ -836,7 +1048,7 @@ namespace Proyecto_POO
                 i++;
             }
             terminoUsu = i;
-            Console.WriteLine("Videos encontrados con el criterio de busqueda: ");
+            Console.WriteLine("Personas encontrados con el criterio de busqueda: ");
             foreach (Personas data in personas_encontradas)
             {
                 Console.WriteLine(i + " )" + data.Get_Name() + data.Get_LastName());
@@ -844,216 +1056,220 @@ namespace Proyecto_POO
             }
             terminoPers = i;
 
-
-            Console.WriteLine("");
-            Console.WriteLine("Elige la opcion con un numero");
-            int opcion = 0;
-            while (opcion == 0 || opcion > i)
+            if (i > 1)
             {
-                string q = Console.ReadLine();
-                int.TryParse(q, out opcion);
-            }
-            Console.Clear();
-            int opcion_2 = 0;
-            if (opcion < terminoCan)
-            {
-                Console.WriteLine("Opciones para la cancion " + cancion_encontrada[opcion - 1].Get_Titulo());
-                Console.WriteLine("1) Reproducir la Cancion");
-                Console.WriteLine("2) Descargar la Cancion");
-                Console.WriteLine("3) Seguir la Cancion");
-                Console.WriteLine("4) Mostrar Informacion de la Cancion");
-                Console.WriteLine("5) Comentar la Cancion");
-                Console.WriteLine("6) Agregar/Eliminar cancion a favoritos");
-                Console.WriteLine("Escriba numero de la opcion: ");
-                while (opcion_2 == 0 || opcion_2 > 6)
+                Console.WriteLine("");
+                Console.WriteLine("Elige la opcion con un numero");//mmmm
+                int opcion = 0;
+                while (opcion == 0 || opcion > i)
                 {
                     string q = Console.ReadLine();
-                    int.TryParse(q, out opcion_2);
+                    int.TryParse(q, out opcion);
                 }
                 Console.Clear();
-                if (opcion_2 == 1)
+                int opcion_2 = 0;
+                if (opcion < terminoCan)
                 {
-                    ReproducirMultimedia(cancion_encontrada[opcion - 1]);
-                    Console.WriteLine("La cancion se esta reproduciendo");
-                    Console.WriteLine("Precione cualquier tecla para continuar");
-                    Console.ReadLine();
-                }
-                if (opcion_2 == 2)
-                {
-                    Importacion_Exportacion imp = new Importacion_Exportacion();
-                    imp.Descarga(cancion_encontrada[opcion-1]);
-
-                }
-                if (opcion_2 == 3)
-                {
-                    cancion_encontrada[opcion - 1].seguir(usu);
-
-                }
-                if (opcion_2 == 4)
-                {
-                    cancion_encontrada[opcion-1].informacion();
-                    Console.WriteLine("Precione cualquier tecla para continuar");
-                    Console.ReadLine();
-
-                }
-                if (opcion_2 == 5)
-                {
-                    Console.WriteLine("Escriba su comentario");
-                    string comentario = Console.ReadLine();
-                    cancion_encontrada[opcion - 1].agregar_comentarios(comentario);
-                    Console.WriteLine("comentario agregado correctamente");
-                    Console.WriteLine("Precione cualquier tecla para continuar");
-                    Console.ReadLine();
-                }
-                if (opcion_2 == 6)
-                {
-                    usu.Add_Favoritos(cancion_encontrada[opcion - 1]);                      
-                    for (int j = 0; j < Get_ListaCanciones().Count(); j++)
+                    Console.WriteLine("Opciones para la cancion " + cancion_encontrada[opcion - 1].Get_Titulo());
+                    Console.WriteLine("1) Reproducir la Cancion");
+                    Console.WriteLine("2) Descargar la Cancion");
+                    Console.WriteLine("3) Seguir la Cancion");
+                    Console.WriteLine("4) Mostrar Informacion de la Cancion");
+                    Console.WriteLine("5) Comentar la Cancion");
+                    Console.WriteLine("6) Agregar/Eliminar cancion a favoritos");
+                    Console.WriteLine("Escriba numero de la opcion: ");
+                    while (opcion_2 == 0 || opcion_2 > 6)
                     {
-                              if (cancion_encontrada[opcion - 1].Get_Genero() == Get_ListaCanciones()[j].Get_Genero())
-                                    usu.Get_Recomendacion().Add(Get_ListaCanciones()[j]);
+                        string q = Console.ReadLine();
+                        int.TryParse(q, out opcion_2);
                     }
-
-                                           
-
-                }
-
-            }
-            else if (opcion < terminoVid)
-            {
-                Console.WriteLine("Opciones para el video " + videos_encontrados[opcion - terminoCan].Get_Titulo());
-                Console.WriteLine("1) Reprdocuir el video");
-                Console.WriteLine("2) Seguir el video");
-                Console.WriteLine("3) Mostrar Informacion del video");
-                Console.WriteLine("4) Comentar el video");
-                Console.WriteLine("5) Agregar/Eliminar video a favoritos");
-                Console.WriteLine("Escriba numero de la opcion: ");
-                while (opcion_2 == 0 || opcion_2 > 5)
-                {
-                    string q = Console.ReadLine();
-                    int.TryParse(q, out opcion_2);
-                }
-                if (opcion_2 == 1)
-                {
-                    ReproducirMultimedia(videos_encontrados[opcion - terminoCan]);
-                    Thread.Sleep(2000);
-                }
-                if (opcion_2 == 2)
-                {
-                    videos_encontrados[opcion - terminoCan].seguir(usu);
-
-                }
-                if (opcion_2 == 3)
-                {
-                    videos_encontrados[opcion - terminoCan].informacion();
-                    Console.WriteLine("Precione cualquier tecla para continuar");
-                    Console.ReadLine();
-                }
-                if (opcion_2 == 4)
-                {
-                    Console.WriteLine("Escriba su comentario");
-                    string comentario = Console.ReadLine();
-                    videos_encontrados[opcion - terminoCan].agregar_comentarios(comentario);
-
-                }
-                if (opcion_2 == 5)
-                {
-                    usu.Add_Favoritos(videos_encontrados[opcion - terminoCan]);
-                    for (int j = 0; j < Get_ListaVideos().Count(); j++)
+                    Console.Clear();
+                    if (opcion_2 == 1)
                     {
-                        if (cancion_encontrada[opcion - 1].Get_Genero() ==Get_ListaVideos()[j].Get_Genero())
-                            usu.Get_Recomendacion().Add(Get_ListaVideos()[j]);
+                        ReproducirMultimedia(cancion_encontrada[opcion - 1]);
+                        Console.WriteLine("La cancion se esta reproduciendo");
+                        Console.WriteLine("Precione cualquier tecla para continuar");
+                        Console.ReadLine();
                     }
-
-                }
-            }
-            else if (opcion < terminoPlay)
-            {
-                Console.WriteLine("Opciones para la playlist " + playlist_encontradas[opcion - terminoVid].Get_Name());
-                Console.WriteLine("1) Reprdocuir la playlist");
-                Console.WriteLine("2) Seguir la playlist");
-                Console.WriteLine("3) Mostrar Informacion de la playlist");
-                Console.WriteLine("Escriba numero de la opcion: ");
-                while (opcion_2 == 0 || opcion_2 > 3)
-                {
-                    string q = Console.ReadLine();
-                    int.TryParse(q, out opcion_2);
-                }
-                if (opcion_2 == 1)
-                {
-                    if (playlist_encontradas[opcion - terminoVid].Get_Playlist_Video().Count() == 0)
+                    if (opcion_2 == 2)
                     {
-                        for (int k = 0; k < Get_Playlist()[index - 1].Get_Playlist_Canciones().Count(); k++)
+                        Importacion_Exportacion imp = new Importacion_Exportacion();
+                        imp.Descarga(cancion_encontrada[opcion - 1]);
+
+                    }
+                    if (opcion_2 == 3)
+                    {
+                        cancion_encontrada[opcion - 1].seguir(usu);
+
+                    }
+                    if (opcion_2 == 4)
+                    {
+                        cancion_encontrada[opcion - 1].informacion();
+                        Console.WriteLine("Precione cualquier tecla para continuar");
+                        Console.ReadLine();
+
+                    }
+                    if (opcion_2 == 5)
+                    {
+                        Console.WriteLine("Escriba su comentario");
+                        string comentario = Console.ReadLine();
+                        cancion_encontrada[opcion - 1].agregar_comentarios(comentario);
+                        Console.WriteLine("comentario agregado correctamente");
+                        Console.WriteLine("Precione cualquier tecla para continuar");
+                        Console.ReadLine();
+                    }
+                    if (opcion_2 == 6)
+                    {
+                        usu.Add_Favoritos(cancion_encontrada[opcion - 1]);
+                        for (int j = 0; j < Get_ListaCanciones().Count(); j++)
                         {
-                            ReproducirMultimedia(playlist_encontradas[opcion - terminoVid].Get_Playlist_Canciones()[k]);
+                            if (cancion_encontrada[opcion - 1].Get_Genero() == Get_ListaCanciones()[j].Get_Genero())
+                                usu.Get_Recomendacion().Add(Get_ListaCanciones()[j]);
                         }
                     }
-                    if (playlist_encontradas[opcion - terminoVid].Get_Playlist_Canciones().Count() == 0)
+
+                }
+                else if (opcion < terminoVid)
+                {
+                    Console.WriteLine("Opciones para el video " + videos_encontrados[opcion - terminoCan].Get_Titulo());
+                    Console.WriteLine("1) Reprdocuir el video");
+                    Console.WriteLine("2) Seguir el video");
+                    Console.WriteLine("3) Mostrar Informacion del video");
+                    Console.WriteLine("4) Comentar el video");
+                    Console.WriteLine("5) Agregar/Eliminar video a favoritos");
+                    Console.WriteLine("Escriba numero de la opcion: ");
+                    while (opcion_2 == 0 || opcion_2 > 5)
                     {
-                        for (int o = 0; i < Get_Playlist()[index - 1].Get_Playlist_Video().Count(); o++)
+                        string q = Console.ReadLine();
+                        int.TryParse(q, out opcion_2);
+                    }
+                    if (opcion_2 == 1)
+                    {
+                        ReproducirMultimedia(videos_encontrados[opcion - terminoCan]);
+                        Thread.Sleep(2000);
+                    }
+                    if (opcion_2 == 2)
+                    {
+                        videos_encontrados[opcion - terminoCan].seguir(usu);
+
+                    }
+                    if (opcion_2 == 3)
+                    {
+                        videos_encontrados[opcion - terminoCan].informacion();
+                        Console.WriteLine("Precione cualquier tecla para continuar");
+                        Console.ReadLine();
+                    }
+                    if (opcion_2 == 4)
+                    {
+                        Console.WriteLine("Escriba su comentario");
+                        string comentario = Console.ReadLine();
+                        videos_encontrados[opcion - terminoCan].agregar_comentarios(comentario);
+
+                    }
+                    if (opcion_2 == 5)
+                    {
+                        usu.Add_Favoritos(videos_encontrados[opcion - terminoCan]);
+                        for (int j = 0; j < Get_ListaVideos().Count(); j++)
                         {
-                            ReproducirMultimedia(playlist_encontradas[opcion - terminoVid].Get_Playlist_Video()[o]);
+                            if (cancion_encontrada[opcion - 1].Get_Genero() == Get_ListaVideos()[j].Get_Genero())
+                                usu.Get_Recomendacion().Add(Get_ListaVideos()[j]);
+                        }
+
+                    }
+                }
+                else if (opcion < terminoPlay)
+                {
+                    Console.WriteLine("Opciones para la playlist " + playlist_encontradas[opcion - terminoVid].Get_Name());
+                    Console.WriteLine("1) Reprdocuir la playlist");
+                    Console.WriteLine("2) Seguir la playlist");
+                    Console.WriteLine("3) Mostrar Informacion de la playlist");
+                    Console.WriteLine("Escriba numero de la opcion: ");
+                    while (opcion_2 == 0 || opcion_2 > 3)
+                    {
+                        string q = Console.ReadLine();
+                        int.TryParse(q, out opcion_2);
+                    }
+                    if (opcion_2 == 1)
+                    {
+                        if (playlist_encontradas[opcion - terminoVid].Get_Playlist_Video().Count() == 0)
+                        {
+                            for (int k = 0; k < Get_Playlist()[index - 1].Get_Playlist_Canciones().Count(); k++)
+                            {
+                                ReproducirMultimedia(playlist_encontradas[opcion - terminoVid].Get_Playlist_Canciones()[k]);
+                            }
+                        }
+                        if (playlist_encontradas[opcion - terminoVid].Get_Playlist_Canciones().Count() == 0)
+                        {
+                            for (int o = 0; i < Get_Playlist()[index - 1].Get_Playlist_Video().Count(); o++)
+                            {
+                                ReproducirMultimedia(playlist_encontradas[opcion - terminoVid].Get_Playlist_Video()[o]);
+                            }
+                        }
+                    }
+                    if (opcion_2 == 2)
+                    {
+                        playlist_encontradas[opcion - terminoVid].Seguir(usu);
+                    }
+                    if (opcion_2 == 3)
+                    {
+                        if (playlist_encontradas[opcion - terminoVid].Get_Playlist_Canciones().Count() > 0)
+                        {
+                            playlist_encontradas[opcion - terminoVid].MostrarCanciones();
+                        }
+                        if (playlist_encontradas[opcion - terminoVid].Get_Playlist_Video().Count() > 0)
+                        {
+                            playlist_encontradas[opcion - terminoVid].MostrarVideos();
                         }
                     }
                 }
-                if (opcion_2 == 2)
+                else if (opcion < terminoUsu)
                 {
-                    playlist_encontradas[opcion - terminoVid].Seguir(usu);
-                }
-                if (opcion_2 == 3)
-                {
-                    if (playlist_encontradas[opcion - terminoVid].Get_Playlist_Canciones().Count() > 0)
+                    Console.WriteLine("Opciones para el usuario " + usuarios_encontrados[opcion - terminoPlay].Get_Nickname());
+                    Console.WriteLine("1) Seguir el usuario");
+                    Console.WriteLine("2) Mostrar Informacion del Usuario");
+                    Console.WriteLine("Escriba numero de la opcion: ");
+                    while (opcion_2 == 0 || opcion_2 > 2)
                     {
-                        playlist_encontradas[opcion - terminoVid].MostrarCanciones();
+                        string q = Console.ReadLine();
+                        int.TryParse(q, out opcion_2);
                     }
-                    if (playlist_encontradas[opcion - terminoVid].Get_Playlist_Video().Count() > 0)
+                    if (opcion_2 == 1)
                     {
-                        playlist_encontradas[opcion - terminoVid].MostrarVideos();
+                        usuarios_encontrados[opcion - terminoPlay].Seguir(usu);
+                    }
+                    if (opcion_2 == 2)
+                    {
+                        usuarios_encontrados[opcion - terminoPlay].Informacion_Usuario();
+                    }
+                }
+                else if (opcion < terminoPers)
+                {
+                    Console.WriteLine("Opciones para la persona " + personas_encontradas[opcion - terminoUsu].Get_Name());
+                    Console.WriteLine("1) Seguir la persona");
+                    Console.WriteLine("2) Mostrar Informacion de la persona");
+                    Console.WriteLine("Escriba numero de la opcion: ");
+                    while (opcion_2 == 0 || opcion_2 > 2)
+                    {
+                        string q = Console.ReadLine();
+                        int.TryParse(q, out opcion_2);
+                    }
+                    if (opcion_2 == 1)
+                    {
+                        personas_encontradas[opcion - terminoUsu].Seguir(usu);
+                    }
+                    if (opcion_2 == 2)
+                    {
+                        personas_encontradas[opcion - terminoUsu].Informacion_Persona(Lista_videos, Lista_canciones);
                     }
                 }
             }
-            else if (opcion < terminoUsu)
+            else
             {
-                Console.WriteLine("Opciones para el usuario " + usuarios_encontrados[opcion - terminoPlay].Get_Nickname());
-                Console.WriteLine("1) Seguir el usuario");
-                Console.WriteLine("2) Mostrar Informacion del Usuario");
-                Console.WriteLine("Escriba numero de la opcion: ");
-                while (opcion_2 == 0 || opcion_2 > 2)
-                {
-                    string q = Console.ReadLine();
-                    int.TryParse(q, out opcion_2);
-                }
-                if (opcion_2 == 1)
-                {
-                    usuarios_encontrados[opcion - terminoPlay].Seguir(usu);
-                }
-                if (opcion_2 == 2)
-                {
-                    usuarios_encontrados[opcion - terminoPlay].Informacion_Usuario();
-                }
+                Console.WriteLine("no hay elementos con el criterio de busqueda");
+                Thread.Sleep(2000);
             }
-            else if (opcion <= terminoPers)
-            {
-                Console.WriteLine("Opciones para la persona " + personas_encontradas[opcion - terminoUsu].Get_Name());
-                Console.WriteLine("1) Seguir la persona");
-                Console.WriteLine("2) Mostrar Informacion de la persona");
-                Console.WriteLine("Escriba numero de la opcion: ");
-                while (opcion_2 == 0 || opcion_2 > 2)
-                {
-                    string q = Console.ReadLine();
-                    int.TryParse(q, out opcion_2);
-                }
-                if (opcion_2 == 1)
-                {
-                    personas_encontradas[opcion - terminoUsu].Seguir(usu);
-                }
-                if (opcion_2 == 2)
-                {
-                    personas_encontradas[opcion - terminoUsu].Informacion_Persona(Lista_videos,Lista_canciones);
-                }
-            }
-            Console.Clear();
-
+                Console.Clear();
+            
         }
 
         public void Bonus_Game(Usuario usu)

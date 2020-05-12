@@ -29,7 +29,7 @@ namespace Proyecto_POO
             string path_video = @System.IO.Directory.GetCurrentDirectory() + "\\videos.bin";
             string path_usuario = @System.IO.Directory.GetCurrentDirectory() + "\\usuarios.bin";
             string path_playlist = @System.IO.Directory.GetCurrentDirectory() + "\\playlist.bin";
-
+            
             if (File.Exists(path_song) && File.Exists(path_video) && File.Exists(path_usuario) && File.Exists(path_playlist))
             {
 
@@ -120,7 +120,8 @@ namespace Proyecto_POO
                 List<Canciones> a = new List<Canciones>();
                 List<Video> b = new List<Video>();
                 List<Playlist> c = new List<Playlist>();
-                Usuario yo = new Usuario("benja", 21, false, false, "dark", "lol", true, "",a,b,c);
+                List<Usuario> d = new List<Usuario>();
+                Usuario yo = new Usuario("benja", 21, false, false, "dark", "lol", true, "",a,b,c,d);
                 almacenamiento.AgregarUsuario(yo);
             }
             string nv = "";
@@ -304,14 +305,14 @@ namespace Proyecto_POO
                                                                 case 8://Ver informacion perfil
                                                                     {
                                                                         usu.Informacion_Usuario();
-                                                                        Thread.Sleep(5000);
+                                                                        
                                                                         break;
                                                                     }
                                                                 case 9:
                                                                     {
                                                                         if(usu.Get_Fotoperfil() == "")
                                                                         {
-                                                                            Console.WriteLine("no tiene foto de perfil, desea agregar una? (si = 1 / no = 2)");
+                                                                            Console.WriteLine("No tiene foto de perfil, desea agregar una? (si = 1 / no = 2)");
                                                                             int h=0;
                                                                             while (h == 0 || h > 2 )
                                                                             {
@@ -324,7 +325,7 @@ namespace Proyecto_POO
                                                                         }
                                                                         else
                                                                         {
-                                                                            Console.WriteLine("que quiere hacer?");
+                                                                            Console.WriteLine("Que quiere hacer?");
                                                                             Console.WriteLine("(1) Ver foto de perfil");
                                                                             Console.WriteLine("(2) Cambiar foto de perfil"  );
                                                                             int h = 0;
@@ -346,16 +347,46 @@ namespace Proyecto_POO
                                                                     }
                                                                 case 10://Borrar Usuario
                                                                     {
-                                                                        
-                                                                        for (int i = 0; i < almacenamiento.Get_Usuarios().Count; i++)
+                                                                        if (usu.Get_Admin())
                                                                         {
-                                                                            if (usu.Get_Nickname() == almacenamiento.Get_Usuarios()[i].Get_Nickname())
+                                                                            int i = 1;
+                                                                            foreach (Usuario data in almacenamiento.Get_Usuarios())
                                                                             {
-                                                                                almacenamiento.Get_Usuarios().RemoveAt(i);
+                                                                                Console.WriteLine(i + ") " + data.Get_Nickname());
+                                                                                i++;
                                                                             }
+                                                                            Console.WriteLine("Elija al usuario que desea eliminar con su numero");
+                                                                            int ban = 0;
+                                                                            while (ban == 0 || ban > i)
+                                                                            {
+                                                                                int.TryParse(Console.ReadLine(), out ban);
+                                                                            }
+                                                                            if(ban == 1)
+                                                                            {
+                                                                                almacenamiento.Get_Usuarios().RemoveAt(ban - 1);
+                                                                                pass = 11;
+                                                                                icase = 13;
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                almacenamiento.Get_Usuarios().RemoveAt(ban - 1);
+                                                                            }
+                                                                       
+
                                                                         }
-                                                                        pass = 11;
-                                                                        icase = 11;
+                                                                        else
+                                                                        {
+                                                                            for (int i = 0; i < almacenamiento.Get_Usuarios().Count; i++)
+                                                                            {
+                                                                                if (usu.Get_Nickname() == almacenamiento.Get_Usuarios()[i].Get_Nickname())
+                                                                                {
+                                                                                    almacenamiento.Get_Usuarios().RemoveAt(i);
+                                                                                }
+                                                                            }
+                                                                            pass = 11;
+                                                                            icase = 13;
+                                                                        }
+
                                                                         break;
                                                                     }
                                                                 case 11://Salir del menu
@@ -666,10 +697,10 @@ namespace Proyecto_POO
                                                         Console.WriteLine("(3) Buscar por duracion de cancion/video");
                                                         Console.WriteLine("(4) Buscar por fecha de inclusion al sistema");
                                                         Console.WriteLine("(5) Buscar por fecha de creacion al sistema");
-                                                        Console.WriteLine("(6) Buscar persona por apellido");
-                                                        Console.WriteLine("(7) Buscar persona por genero");
-                                                        Console.WriteLine("(8) Buscar persona por edad");
-                                                        Console.WriteLine("(9) Buscar cancion/video por persona involucrada");
+                                                        Console.WriteLine("(6) Buscar cancion/video por puesto de trabajo de la persona involucrada");
+                                                        Console.WriteLine("(7) Buscar cancion/video por genero de la persona involucrada");
+                                                        Console.WriteLine("(8) Buscar cancion/video por edad de la persona involucrada");
+                                                        Console.WriteLine("(9) Buscar cancion/video por nombre o apellido de la persona involucrada");
                                                         Console.WriteLine("(10) Buscar cancion/video por informacion del archivo");
                                                         Console.WriteLine("(11) Buscar video por calidad");
                                                         Console.WriteLine("(12) Buscar cancion/video por ranking");
@@ -677,9 +708,10 @@ namespace Proyecto_POO
                                                         List<int> criterios = new List<int>();
                                                         List<string> buscar = new List<string>();
                                                         int ver = 1;
+                                                        List<int> cond_extra = new List<int>();
                                                         while(ver == 1)
                                                         {
-
+                                                            int cond = 0;
                                                             int opt = 0;
                                                             while (opt == 0 || opt > 12)
                                                             {
@@ -687,8 +719,70 @@ namespace Proyecto_POO
                                                                 int.TryParse(Console.ReadLine(), out opt);
                                                             }
                                                             criterios.Add(opt);
-                                                            Console.WriteLine("Indique su palabra clave");
+                                                            if (opt == 1)
+                                                            {
+                                                                Console.WriteLine("Indique su palabra clave");
+                                                            }
+                                                            else if (opt == 2)
+                                                            {
+                                                                Console.WriteLine("Indique el genero de la cancion/video");
+                                                            }
+                                                            else if (opt == 3)
+                                                            {
+                                                                Console.WriteLine("Indique la duracion de la cancion/video en segundos");
+                                                            }
+                                                            else if (opt == 4)
+                                                            {
+                                                                Console.WriteLine("Indique la fecha de inclusion al sistema (Dia/Mes/Año)");
+                                                            }
+                                                            else if (opt == 5)
+                                                            {
+                                                                Console.WriteLine("Indique la fecha de publicacion (Dia/Mes/Año)");
+                                                            }
+                                                            else if (opt == 6)
+                                                            {
+                                                                Console.WriteLine("Indique el puesto de trabajo de la persona involucrada");
+                                                            }
+                                                            else if (opt == 7)
+                                                            {
+                                                                Console.WriteLine("Indique el genero de la persona involucrada (Hombre/Mujer)");
+                                                            }
+                                                            else if (opt == 8)
+                                                            {
+                                                                Console.WriteLine("Indique la edad de la persona involucrada");
+                                                            }
+                                                            else if (opt == 9)
+                                                            {
+                                                                Console.WriteLine("Indique el nombre de la persona involucrada");
+                                                            }
+                                                            else if (opt == 10)
+                                                            {
+                                                                Console.WriteLine("Indique alguna frase clave de la informacion");
+                                                            }
+                                                            else if (opt == 11)
+                                                            {
+                                                                Console.WriteLine("Indique la calidad del video a buscar, usando solo el modulo (Ej: 720 si quiero buscar 720p)");
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("Indique la calificacion promedio minima a buscar");
+                                                            }
+
+
                                                             buscar.Add(Console.ReadLine());
+                                                            if (opt == 3 || opt == 8 || opt == 11 || opt == 12)
+                                                            {
+                                                                Console.WriteLine("Quiere buscar algo:\n(1)Igual\n(2)Mayor\n(3)Menor\nal dato ingresado\nPonga el numero de la opcion");
+                                                                while (cond == 0 || cond > 2)
+                                                                {
+                                                                    int.TryParse(Console.ReadLine(), out cond);
+                                                                }
+                                                                cond_extra.Add(cond);
+                                                            }
+                                                            else
+                                                            {
+                                                                cond_extra.Add(0);
+                                                            }
                                                             Console.WriteLine("Quiere agregar otro criterio\n(1)SI\n(2)NO");
                                                             int op2 = 0;
                                                             while (op2 == 0 || op2 > 2) 
@@ -701,7 +795,7 @@ namespace Proyecto_POO
 
                                                         }
                                                       
-                                                        almacenamiento.filtro_busqueda(buscar, criterios, usu);
+                                                        almacenamiento.filtro_busqueda(buscar, criterios, usu, cond_extra);
                                                         Console.Clear();
                                                         
                                                     }
@@ -972,7 +1066,8 @@ namespace Proyecto_POO
                             List<Canciones> a = new List<Canciones>();
                             List<Video> b = new List<Video>();
                             List<Playlist> c = new List<Playlist>();
-                            Usuario persona = new Usuario(nom, edad, boolperfil, premier, nick, contra, false,"",a,b,c);
+                            List<Usuario> d = new List<Usuario>();
+                            Usuario persona = new Usuario(nom, edad, boolperfil, premier, nick, contra, false,"",a,b,c,d);
                             almacenamiento.AgregarUsuario(persona);
                             Console.WriteLine("Cuenta creada con exito");
                             Thread.Sleep(1000);

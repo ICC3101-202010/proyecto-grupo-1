@@ -34,6 +34,7 @@ namespace Proyecto_POO
                 Console.WriteLine("Ingrese los datos del artista de la cancion");
                 List<Personas> cantantes = new List<Personas>();
                 List<Personas> generos = new List<Personas>();
+                List<Usuario> seguidores = new List<Usuario>();
                 int resp2 = 0;
                 while (resp2 == 0)
                 {
@@ -41,7 +42,7 @@ namespace Proyecto_POO
                     string NAME_ARTISTA = Console.ReadLine();
                     Console.WriteLine("Escriba el apellido del artista: ");
                     string APELLIDO_ARTISTA = Console.ReadLine();
-                    Console.WriteLine("Escriba el sexo del artista: ");
+                    Console.WriteLine("Escriba el sexo del artista (Hombre/Mujer): ");
                     string SEXO_ARTISTA = Console.ReadLine();
                     int EDAD_ARTISTA = 0;
                     while (EDAD_ARTISTA == 0)
@@ -49,7 +50,7 @@ namespace Proyecto_POO
                         Console.WriteLine("Escriba la edad del artista: ");
                         int.TryParse(Console.ReadLine(), out EDAD_ARTISTA);
                     }
-                    Personas persona = new Personas(NAME_ARTISTA, APELLIDO_ARTISTA, SEXO_ARTISTA, "cantante", EDAD_ARTISTA);
+                    Personas persona = new Personas(NAME_ARTISTA, APELLIDO_ARTISTA, SEXO_ARTISTA, "cantante", EDAD_ARTISTA, seguidores);
                     almacenamiento.CrearPersona(persona);
                     cantantes.Add(persona);
                     Console.WriteLine("Quieres agregar otro artista?(1 = YES/2 = NO)");
@@ -63,7 +64,7 @@ namespace Proyecto_POO
 
 
 
-                Console.WriteLine("Fecha De Publicacion de la cancion");
+                Console.WriteLine("Fecha De Publicacion de la cancion (Formato Dia/Mes/Año)");
                 string PUBLICACION = Console.ReadLine();
 
                 List<string> lista_genero = new List<string>();
@@ -83,7 +84,7 @@ namespace Proyecto_POO
                 }
                 Console.WriteLine("Estudio");
                 string ESTUDIO = Console.ReadLine();
-                Console.WriteLine("Ingrese directorio del archivo");
+                Console.WriteLine("Ingrese directorio del archivo (Recuerde que los formatos validos son .mp3/.wav/.wmv/.flac)");
                 string PATH = Console.ReadLine();
                 while (!File.Exists(PATH))
                 {
@@ -143,13 +144,14 @@ namespace Proyecto_POO
                 string INCLUSION = FECHA.ToString();
 
                 List<int> ranking = new List<int>();
+                List<Usuario> Seguidores = new List<Usuario>();
 
                 try
                 {
                     long SIZE = info.Length;
                     List<string> comentarios = new List<string>();
                     int numero_reproduccion = 0;
-                    Canciones cancion = new Canciones(LETRA, cantantes, DURACION, TITULO, INCLUSION, ranking, SIZE, lista_genero, ESTUDIO, PATH, PUBLICACION, DESCRIPCION, numero_reproduccion, comentarios, album,"");
+                    Canciones cancion = new Canciones(LETRA, cantantes, DURACION, TITULO, INCLUSION, ranking, SIZE, lista_genero, ESTUDIO, PATH, PUBLICACION, DESCRIPCION, numero_reproduccion, comentarios, album,"",Seguidores);
                     cancion.Cambiar_ubicacion(subdir + "\\" + archivo);
 
                     almacenamiento.add_cancion(cancion);
@@ -186,7 +188,7 @@ namespace Proyecto_POO
             {
                 Console.WriteLine("Titulo");
                 string TITULO = Console.ReadLine();
-                Console.WriteLine("Directorio del archivo");
+                Console.WriteLine("Directorio del archivo (Recuerde que los formatos validos son .mp4/.mkv/.flv/.mov/.wmv)");
                 string PATH = Console.ReadLine();
 
 
@@ -194,7 +196,7 @@ namespace Proyecto_POO
                 var player = new WindowsMediaPlayer();
                 var clip = player.newMedia(PATH);
                 int DURACION = Convert.ToInt32(TimeSpan.FromSeconds(clip.duration).TotalSeconds);
-                
+
 
                 while (!File.Exists(PATH))
                 {
@@ -246,8 +248,12 @@ namespace Proyecto_POO
                 string PUBLICACION = Console.ReadLine();
                 Console.WriteLine("Descripcion");
                 string DESCRIPCION = Console.ReadLine();
-                Console.WriteLine("Calidad");
-                string CALIDAD = Console.ReadLine();
+                Console.WriteLine("Calidad (Tipo 720p, 1080p, etc), ponga solo el modulo");
+                int CALIDAD = 0;
+                int.TryParse(Console.ReadLine(),out CALIDAD);
+
+                //Ver como sacar la calidad
+
                 List<Personas> personasvid = new List<Personas>();
 
                 Console.WriteLine("Ingrese los Actores del video");
@@ -259,16 +265,17 @@ namespace Proyecto_POO
                     string nombre = Console.ReadLine();
                     Console.WriteLine("ingrese el apellido del actor");
                     string apellido = Console.ReadLine();
-                    Console.WriteLine("ingrese el sexo del actor");
+                    Console.WriteLine("ingrese el sexo del actor (Hombre/Mujer)");
                     string sexo = Console.ReadLine();
                     Console.WriteLine("ingrese la edad del actor");
                     int edad = 0;
+                    List<Usuario> Seguidores3 = new List<Usuario>();
                     while (edad == 0)
                     {
                         string f = Console.ReadLine();
                         int.TryParse(f, out edad);
                     }
-                    Personas actor = new Personas(nombre, apellido, sexo, "actor", edad);
+                    Personas actor = new Personas(nombre, apellido, sexo, "actor", edad, Seguidores3);
                     Console.WriteLine("Quieres agregar otro actor?(1 = YES/2 = NO)");
                     while (resp == 0 || resp > 2)
                     {
@@ -277,25 +284,27 @@ namespace Proyecto_POO
                     if (resp == 1)
                         resp = 0;
                     personasvid.Add(actor);
+                    almacenamiento.CrearPersona(actor);
                 }
                 Console.WriteLine("Directores");
                 int resp2 = 0;
-                while (yes == "yes")
+                while (resp2 == 0)
                 {
                     Console.WriteLine("ingrese el Nombre del Director");
                     string nombre = Console.ReadLine();
                     Console.WriteLine("ingrese el apellido del Director");
                     string apellido = Console.ReadLine();
-                    Console.WriteLine("ingrese el sexo del Director");
+                    Console.WriteLine("ingrese el sexo del Director (Hombre/Mujer)");
                     string sexo = Console.ReadLine();
                     Console.WriteLine("ingrese la edad del Director");
                     int edad = 0;
+                    List<Usuario> Seguidores2 = new List<Usuario>();
                     while (edad == 0)
                     {
                         string f = Console.ReadLine();
                         int.TryParse(f, out edad);
                     }
-                    Personas director = new Personas(nombre, apellido, sexo, "Director", edad);
+                    Personas director = new Personas(nombre, apellido, sexo, "Director", edad, Seguidores2);
                     Console.WriteLine("Quieres agregar otro director?(1 = YES/2 = NO)");
                     while (resp2 == 0 || resp2 > 2)
                     {
@@ -304,12 +313,14 @@ namespace Proyecto_POO
                     if (resp2 == 1)
                         resp2 = 0;
                     personasvid.Add(director);
+                    almacenamiento.CrearPersona(director);
                 }
                 List<int> ranking = new List<int>();
                 List<string> comentarios = new List<string>();
 
+                List<Usuario> Seguidores = new List<Usuario>();
 
-                Video video = new Video(DURACION, TITULO, INCLUSION, ranking, SIZE, generos, ESTUDIO, PATH, PUBLICACION, DESCRIPCION, 0, comentarios, CALIDAD, personasvid,"");
+                Video video = new Video(DURACION, TITULO, INCLUSION, ranking, SIZE, generos, ESTUDIO, PATH, PUBLICACION, DESCRIPCION, 0, comentarios, CALIDAD, personasvid,"",Seguidores);
                 almacenamiento.add_videos(video);
                 usu.Add_Video_To_My_List(video);
                 Console.WriteLine("se agrego el video correctamente");

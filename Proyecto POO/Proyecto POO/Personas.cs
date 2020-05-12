@@ -17,13 +17,14 @@ namespace Proyecto_POO
         private List<Usuario> Seguidores { get; set; }
 
 
-        public Personas(string nom,string ape ,string sex ,string puesto,int ed)
+        public Personas(string nom,string ape ,string sex ,string puesto,int ed, List<Usuario> Seguidores)
         {
             Nombre = nom;
             Apellido = ape;
             Sexo = sex;
             PuestoDeTrabajo = puesto;
             Edad = ed;
+            this.Seguidores = Seguidores;
         }
 
         public void Seguir(Usuario usu)
@@ -76,6 +77,7 @@ namespace Proyecto_POO
                     }
                 }
             }
+            Console.WriteLine("Numero de seguidores: " + Seguidores.Count());
             Console.WriteLine("");
             Console.WriteLine("Presione Enter para continuar");
             Console.ReadLine();

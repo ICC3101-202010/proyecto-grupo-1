@@ -10,15 +10,15 @@ namespace Proyecto_POO
     public class Video : Multimedia
     {
 
-        private string Calidad { get; set; }
+        private int Calidad { get; set; }
         private List<Personas> PersonaVideo = new List<Personas>();
         
 
 
         public Video(int Duracion, string Titulo, string Fecha_Inclusion, List<int> Ranking, long Size, List<string> Genero,
             string Estudio, string CarpetaArchivo, string Fecha_publicacion, string Descripcion, int Numero_reproducciones, List<string> Comentarios,
-            string Calidad, List<Personas> PersonaVideo,string Portada) : base( Duracion, Titulo,Fecha_Inclusion,
-             Ranking, Size, Genero,  Estudio, CarpetaArchivo, Fecha_publicacion, Descripcion,Numero_reproducciones, Comentarios,Portada)
+            int Calidad, List<Personas> PersonaVideo,string Portada, List<Usuario> Seguidores) : base( Duracion, Titulo,Fecha_Inclusion,
+             Ranking, Size, Genero,  Estudio, CarpetaArchivo, Fecha_publicacion, Descripcion,Numero_reproducciones, Comentarios,Portada, Seguidores)
         {
             
             this.Calidad = Calidad;
@@ -36,7 +36,7 @@ namespace Proyecto_POO
             }
             Console.WriteLine( "El titulo del video es: " + Titulo + "\nPersonal del Video: " + people +
                "\nDuracion del Video: " + Duracion + "\nFecha de publicacion: " + Fecha_publicacion + "\nEstudio : " + Estudio+
-                "\nReproducciones: " + Numero_reproducciones+ "\nRanking : " + Get_Mean_Tier());
+                "\nSeguidores" + Seguidores.Count() + "\nReproducciones: " + Numero_reproducciones+ "\nRanking : " + Get_Mean_Tier());
             Console.WriteLine("Los comentarios del video son:");
             for (int i = 0; i < Comentarios.Count(); i++)
             {
@@ -44,7 +44,7 @@ namespace Proyecto_POO
             }
         }
 
-        public string Get_Calidad()
+        public int Get_Calidad()
         {
             return Calidad;
         }

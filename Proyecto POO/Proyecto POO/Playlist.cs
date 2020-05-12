@@ -16,11 +16,12 @@ namespace Proyecto_POO
         private List<Usuario> Seguidores = new List<Usuario>();
 
 
-        public Playlist(string name, List<Canciones> Playlist_canciones, List<Video> Playlist_videos)
+        public Playlist(string name, List<Canciones> Playlist_canciones, List<Video> Playlist_videos, List<Usuario> Seguidores)
         {
             this.name = name;
             this.Playlist_canciones = Playlist_canciones;
             this.Playlist_videos = Playlist_videos;
+            this.Seguidores = Seguidores;
         }
 
         public void Seguir(Usuario usu)

@@ -22,8 +22,8 @@ namespace Proyecto_POO
 
 
         public Canciones(string Letra, List<Personas> PersonasCancion, int Duracion, string Titulo, string Fecha_Inclusion, List<int> Ranking, long Size, List<string> Genero,
-            string Estudio, string CarpetaArchivo, string Fecha_publicacion, string Descripcion, int Numero_reproducciones, List<string> Comentarios, string Album,string Portada) : base(Duracion, Titulo, Fecha_Inclusion,
-            Ranking, Size, Genero, Estudio, CarpetaArchivo, Fecha_publicacion, Descripcion, Numero_reproducciones, Comentarios,Portada)
+            string Estudio, string CarpetaArchivo, string Fecha_publicacion, string Descripcion, int Numero_reproducciones, List<string> Comentarios, string Album,string Portada, List<Usuario> Seguidores) : base(Duracion, Titulo, Fecha_Inclusion,
+            Ranking, Size, Genero, Estudio, CarpetaArchivo, Fecha_publicacion, Descripcion, Numero_reproducciones, Comentarios,Portada,Seguidores)
         {
 
             this.Letra = Letra;
@@ -41,7 +41,7 @@ namespace Proyecto_POO
             }
             Console.WriteLine("El titulo de la cancion es: " + Titulo + "\nCantada por " + persona + "\nLa cancion dura " + Duracion +
                 "\npublicada por el estudio " + Estudio + "\nPublicada en: " + Fecha_publicacion + "\nSe a reproducido " + Numero_reproducciones +
-                "\nSu ranking es " + Get_Mean_Tier() );
+                "\nSeguidores"+ Seguidores.Count() +"\nSu ranking es " + Get_Mean_Tier() );
             Console.WriteLine("Los comentarios de la cancion son:");
             for (int i = 0; i < Comentarios.Count(); i++)
             {
