@@ -110,48 +110,6 @@ namespace Proyecto_POO
             return FotoPerfil;
         }
 
-
-        public void CambirarRango()//cambia si es premium o no
-        {
-            Console.WriteLine("A que tipo de usuario quieres cambiar");
-            Console.WriteLine("Premium[0] Normal[1]");
-            int answ = Int32.Parse(Console.ReadLine());
-            if(answ == 0)
-            {
-                Premium = true;
-                Console.WriteLine("Cambiado");
-            }
-            else if(answ == 0)
-            {
-                Premium = false;
-                Console.WriteLine("Cambiado");
-            }
-            else
-            {
-                Console.WriteLine("No existe esa respuesta");
-            }
-        }
-        public void CambiarTipo()// cambia si es publico o privado
-        {
-            Console.WriteLine("A que tipo de usuario quieres cambiar");
-            Console.WriteLine("Privado[0] Publico[1]");
-            int answ = Int32.Parse(Console.ReadLine());
-            if (answ == 0)
-            {
-                Premium = true;
-                Console.WriteLine("Cambiado");
-            }
-            else if (answ == 1)
-            {
-                Premium = false;
-                Console.WriteLine("Cambiado");
-            }
-            else
-            {
-                Console.WriteLine("No existe esa respuesta");
-            }
-        }
-
         public void Seguir(Usuario usu)
         {
             int verificador = 1;
@@ -245,11 +203,6 @@ namespace Proyecto_POO
         public List<string> Get_GeneroSigue()
         {
             return GenerosQueSigue;
-        }
-
-        public List<Personas> Get_CantantesSigue()
-        {
-            return CantantesQueSigue;
         }
 
         public List<Multimedia> Get_Favoritos()

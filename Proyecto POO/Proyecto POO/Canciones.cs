@@ -62,18 +62,5 @@ namespace Proyecto_POO
         {
             return this.PersonasCancion;
         }
-
-
-        public List<string> Get_Comentarios_Cancion()
-        {
-            return this.ComentariosDeLaCancion;
-        }
-
-        public override string ToString()
-        {
-            return this.Titulo;
-        }
-
-
     }
 }

@@ -7,7 +7,6 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using System.IO;
-
 namespace Proyecto_POO
 {
     [Serializable()]
@@ -1227,6 +1226,7 @@ namespace Proyecto_POO
                     Console.WriteLine("Opciones para el usuario " + usuarios_encontrados[opcion - terminoPlay].Get_Nickname());
                     Console.WriteLine("1) Seguir el usuario");
                     Console.WriteLine("2) Mostrar Informacion del Usuario");
+                    Console.WriteLine("3) Ver Favoritos");
                     Console.WriteLine("Escriba numero de la opcion: ");
                     while (opcion_2 == 0 || opcion_2 > 2)
                     {
@@ -1239,7 +1239,25 @@ namespace Proyecto_POO
                     }
                     if (opcion_2 == 2)
                     {
-                        usuarios_encontrados[opcion - terminoPlay].Informacion_Usuario();
+                        if (usuarios_encontrados[opcion - terminoPlay].Get_TipoDeUsuario())
+                        {
+                            Console.WriteLine("No puedes ver esta informacion porque el usuario es privado");
+                        }
+                        else
+                        {
+                            usuarios_encontrados[opcion - terminoPlay].Informacion_Usuario();
+                        }
+                    }
+                    if (opcion_2 == 3)
+                    {
+                        if (usuarios_encontrados[opcion - terminoPlay].Get_TipoDeUsuario())
+                        {
+                            Console.WriteLine("No puedes ver esta informacion porque el usuario es privado");
+                        }
+                        else
+                        {
+                            usuarios_encontrados[opcion - terminoPlay].Consultar_Favoritos();
+                        }
                     }
                 }
                 else if (opcion < terminoPers)
@@ -1297,15 +1315,6 @@ namespace Proyecto_POO
             Console.Clear();
         }
 
-        public void add_cola_cancion(Canciones song)
-        {
-            Cola_reproduccion_canciones.Add(song);
-        }
-
-        public void add_cola_videos(Video mp4)
-        {
-            Cola_reproduccion_videos.Add(mp4);
-        }
 
         public List<Canciones> Get_ListaCanciones()
         {
@@ -1353,6 +1362,39 @@ namespace Proyecto_POO
                 }
             }
             return 0;
+        }
+
+        public void Save()
+        {
+            IFormatter formatter3 = new BinaryFormatter();
+            Stream stream = new FileStream("canciones.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream5 = new FileStream("videos.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream6 = new FileStream("usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream8 = new FileStream("playlist.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter3.Serialize(stream, Get_ListaCanciones().Count());
+            for (int i = 0; i < Get_ListaCanciones().Count(); i++)
+            {
+                formatter3.Serialize(stream, Get_ListaCanciones()[i]);
+            }
+            stream.Close();
+            formatter3.Serialize(stream5, Get_ListaVideos().Count());
+            for (int i = 0; i < Get_ListaVideos().Count(); i++)
+            {
+                formatter3.Serialize(stream5, Get_ListaVideos()[i]);
+            }
+            stream5.Close();
+            formatter3.Serialize(stream6, Get_Usuarios().Count());
+            for (int i = 0; i < Get_Usuarios().Count(); i++)
+            {
+                formatter3.Serialize(stream6, Get_Usuarios()[i]);
+            }
+            stream6.Close();
+            formatter3.Serialize(stream8, Get_Playlist().Count());
+            for (int i = 0; i < Get_Playlist().Count(); i++)
+            {
+                formatter3.Serialize(stream8, Get_Playlist()[i]);
+            }
+            stream8.Close();
         }
     }
 }

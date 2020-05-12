@@ -202,6 +202,7 @@ namespace Proyecto_POO
                                                             Console.WriteLine("(7) Cambiar Administrador");
                                                             Console.WriteLine("(8) Ver informacion del perfil");
                                                             Console.WriteLine("(9) Ver foto perfil");
+                                                            Console.WriteLine("(10) Consultar Favoritos");
                                                             Console.WriteLine("(10) Borrar Usuario");
                                                             Console.WriteLine("(11) Volver al menu anterior");
 
@@ -345,7 +346,12 @@ namespace Proyecto_POO
 
                                                                         break;
                                                                     }
-                                                                case 10://Borrar Usuario
+                                                                case 10: //Consultar favoritos
+                                                                    {
+                                                                        usu.Consultar_Favoritos();
+                                                                        break;
+                                                                    }
+                                                                case 11://Borrar Usuario
                                                                     {
                                                                         if (usu.Get_Admin())
                                                                         {
@@ -383,13 +389,13 @@ namespace Proyecto_POO
                                                                                     almacenamiento.Get_Usuarios().RemoveAt(i);
                                                                                 }
                                                                             }
-                                                                            pass = 11;
+                                                                            pass = 12;
                                                                             icase = 13;
                                                                         }
 
                                                                         break;
                                                                     }
-                                                                case 11://Salir del menu
+                                                                case 12://Salir del menu
                                                                     {
                                                                         break;
                                                                     }
@@ -733,11 +739,11 @@ namespace Proyecto_POO
                                                             }
                                                             else if (opt == 4)
                                                             {
-                                                                Console.WriteLine("Indique la fecha de inclusion al sistema (Dia/Mes/Año)");
+                                                                Console.WriteLine("Indique la fecha de inclusion al sistema (Dia-Mes-Año)");
                                                             }
                                                             else if (opt == 5)
                                                             {
-                                                                Console.WriteLine("Indique la fecha de publicacion (Dia/Mes/Año)");
+                                                                Console.WriteLine("Indique la fecha de publicacion (Dia-Mes-Año)");
                                                             }
                                                             else if (opt == 6)
                                                             {
@@ -800,6 +806,8 @@ namespace Proyecto_POO
                                                         
                                                     }
                                                 }
+
+
                                                 break;
                                             }
                                         case 7://subir un video
@@ -814,9 +822,13 @@ namespace Proyecto_POO
                                                         Console.ForegroundColor = ConsoleColor.Green;
                                                     }
                                                 }
+
+                                                almacenamiento.Save();
+
+
                                                 break;
                                             }
-                                        case 8:// Ver informacion del perfil
+                                        case 8:// subir cancion
                                             {
                                                 foreach (Usuario usu in almacenamiento.Get_Usuarios())
                                                 {
@@ -829,6 +841,9 @@ namespace Proyecto_POO
                                                     }
 
                                                 }
+
+                                                almacenamiento.Save();
+
                                                 break;
                                             }
                                         case 9://borrar cancion
@@ -917,7 +932,10 @@ namespace Proyecto_POO
                                                             Console.Clear();
                                                         }
                                                     }
-                                                }                                                
+                                                }
+
+                                                almacenamiento.Save();
+
                                                 break;
                                             }
 
@@ -941,72 +959,21 @@ namespace Proyecto_POO
                                                         }
                                                     }
                                                 }
+
+                                                almacenamiento.Save();
+
                                                 break;
                                             }
                                         case 13: // salir de la sesion
                                             {
-                                                Stream stream = new FileStream("canciones.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                                                Stream stream5 = new FileStream("videos.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                                                Stream stream6 = new FileStream("usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                                                Stream stream8 = new FileStream("playlist.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                                                formatter.Serialize(stream, almacenamiento.Get_ListaCanciones().Count());
-                                                for (int i = 0; i < almacenamiento.Get_ListaCanciones().Count(); i++)
-                                                {
-                                                    formatter.Serialize(stream, almacenamiento.Get_ListaCanciones()[i]);
-                                                }
-                                                stream.Close();
-                                                formatter.Serialize(stream5, almacenamiento.Get_ListaVideos().Count());
-                                                for (int i = 0; i < almacenamiento.Get_ListaVideos().Count(); i++)
-                                                {
-                                                    formatter.Serialize(stream5, almacenamiento.Get_ListaVideos()[i]);
-                                                }
-                                                stream5.Close();
-                                                formatter.Serialize(stream6, almacenamiento.Get_Usuarios().Count());
-                                                for (int i = 0; i < almacenamiento.Get_Usuarios().Count(); i++)
-                                                {
-                                                    formatter.Serialize(stream6, almacenamiento.Get_Usuarios()[i]);
-                                                }
-                                                stream6.Close();
-                                                formatter.Serialize(stream8, almacenamiento.Get_Playlist().Count());
-                                                for (int i = 0; i < almacenamiento.Get_Playlist().Count(); i++)
-                                                {
-                                                    formatter.Serialize(stream8, almacenamiento.Get_Playlist()[i]);
-                                                }
-                                                stream8.Close();
+                                                almacenamiento.Save();
                                                 icase = 13;
                                                 break;
                                             }
                                         case 14:// salir del programa
                                             {
 
-                                                Stream stream = new FileStream("canciones.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                                                Stream stream5 = new FileStream("videos.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                                                Stream stream6 = new FileStream("usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                                                Stream stream8 = new FileStream("playlist.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                                                formatter.Serialize(stream, almacenamiento.Get_ListaCanciones().Count());
-                                                for (int i = 0; i < almacenamiento.Get_ListaCanciones().Count(); i++)
-                                                {
-                                                    formatter.Serialize(stream, almacenamiento.Get_ListaCanciones()[i]);
-                                                }
-                                                stream.Close();
-                                                formatter.Serialize(stream5, almacenamiento.Get_ListaVideos().Count());
-                                                for (int i = 0; i < almacenamiento.Get_ListaVideos().Count(); i++)
-                                                {
-                                                    formatter.Serialize(stream5, almacenamiento.Get_ListaVideos()[i]);
-                                                }
-                                                stream5.Close();
-                                                formatter.Serialize(stream6, almacenamiento.Get_Usuarios().Count());
-                                                for (int i = 0; i < almacenamiento.Get_Usuarios().Count(); i++)
-                                                {
-                                                    formatter.Serialize(stream6, almacenamiento.Get_Usuarios()[i]);
-                                                }
-                                                stream6.Close();
-                                                formatter.Serialize(stream8, almacenamiento.Get_Playlist().Count());
-                                                for (int i = 0; i < almacenamiento.Get_Playlist().Count(); i++)
-                                                {
-                                                    formatter.Serialize(stream8, almacenamiento.Get_Playlist()[i]);
-                                                }
-                                                stream8.Close();
+                                                almacenamiento.Save();
 
 
                                                 icase = 13;
@@ -1072,38 +1039,16 @@ namespace Proyecto_POO
                             Console.WriteLine("Cuenta creada con exito");
                             Thread.Sleep(1000);
                             Console.Clear();
+
+                            almacenamiento.Save();
+
+
+
                             break;
                         }
                     case 3: // salir del programa
                         {
-                            Stream stream = new FileStream("canciones.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                            Stream stream5 = new FileStream("videos.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                            Stream stream6 = new FileStream("usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                            Stream stream8 = new FileStream("playlist.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                            formatter.Serialize(stream, almacenamiento.Get_ListaCanciones().Count());
-                            for (int i = 0; i < almacenamiento.Get_ListaCanciones().Count(); i++)
-                            {
-                                formatter.Serialize(stream, almacenamiento.Get_ListaCanciones()[i]);
-                            }
-                            stream.Close();
-                            formatter.Serialize(stream5, almacenamiento.Get_ListaVideos().Count());
-                            for (int i = 0; i < almacenamiento.Get_ListaVideos().Count(); i++)
-                            {
-                                formatter.Serialize(stream5, almacenamiento.Get_ListaVideos()[i]);
-                            }
-                            stream5.Close();
-                            formatter.Serialize(stream6, almacenamiento.Get_Usuarios().Count());
-                            for (int i = 0; i < almacenamiento.Get_Usuarios().Count(); i++)
-                            {
-                                formatter.Serialize(stream6, almacenamiento.Get_Usuarios()[i]);
-                            }
-                            stream6.Close();
-                            formatter.Serialize(stream8, almacenamiento.Get_Playlist().Count());
-                            for (int i = 0; i < almacenamiento.Get_Playlist().Count(); i++)
-                            {
-                                formatter.Serialize(stream8, almacenamiento.Get_Playlist()[i]);
-                            }
-                            stream8.Close();
+                            almacenamiento.Save();
                             numcase = 3;
                             break;
                         }

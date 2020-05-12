@@ -55,6 +55,7 @@ namespace Proyecto_POO
                 data.informacion();
                 i++;
             }
+            Console.WriteLine("Seguidores: " + Seguidores.Count());
         }
 
         public void MostrarVideos()
@@ -68,6 +69,7 @@ namespace Proyecto_POO
                 data.informacion();
                 i++;
             }
+            Console.WriteLine("Seguidores: " + Seguidores.Count());
         }
 
         public List<Canciones> Get_Playlist_Canciones()

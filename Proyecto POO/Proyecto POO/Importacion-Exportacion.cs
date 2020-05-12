@@ -25,8 +25,8 @@ namespace Proyecto_POO
 
         public void agregar_cancion(Almacenamiento almacenamiento, Usuario usu)
         {
-            if (usu.Get_Lista_Canciones_Agregadas().Count() < 5 && usu.Get_Premium() == false)
-            {
+            if ((usu.Get_Lista_Canciones_Agregadas().Count() < 5 && usu.Get_Premium() == false) || usu.Get_Premium())
+                {
                 Console.WriteLine("Titulo");
                 string TITULO = Console.ReadLine();
                 Console.WriteLine("Letra");
@@ -141,7 +141,8 @@ namespace Proyecto_POO
                 
                 FileInfo info = new FileInfo(@PATH);
                 var FECHA = info.LastWriteTime;
-                string INCLUSION = FECHA.ToString();
+                DateTime localDate = DateTime.Now;
+                string INCLUSION = localDate.ToString();
 
                 List<int> ranking = new List<int>();
                 List<Usuario> Seguidores = new List<Usuario>();
@@ -184,7 +185,7 @@ namespace Proyecto_POO
 
         public void agregar_video(Almacenamiento almacenamiento, Usuario usu)
         {
-            if (usu.Get_Lista_Videos_Agregados().Count() < 5)
+            if ((usu.Get_Lista_Videos_Agregados().Count() < 5 && usu.Get_Premium() == false) || usu.Get_Premium())
             {
                 Console.WriteLine("Titulo");
                 string TITULO = Console.ReadLine();
@@ -225,11 +226,11 @@ namespace Proyecto_POO
                     }
                 }
 
-
+                DateTime localDate = DateTime.Now;
 
                 FileInfo info = new FileInfo(@PATH);
                 var FECHA = info.LastWriteTime;
-                string INCLUSION = FECHA.ToString();
+                string INCLUSION = localDate.ToString();
 
                 long SIZE = 0;
                 Console.WriteLine("Generos");
