@@ -6,37 +6,55 @@ using System.Threading.Tasks;
 
 namespace Proyecto_POO
 {
+    [Serializable()]
     public class Video : Multimedia
     {
 
         private string Calidad { get; set; }
-        private List<string> Actores = new List<string>();
-        List<string> Directores = new List<string>();
-        private List<string> ComentariosDelVideo = new List<string>();
-
-        public List<string> actores { get => Actores; set => Actores = value; }
-        public string calidad { get => Calidad; set => Calidad = value; }
-        public List<string> comentariosdelvideo { get => ComentariosDelVideo; set => ComentariosDelVideo = value; }
-
-        public Video(int Duracion, string Titulo, string Fecha_Inclusion, List<string> Ranking, string Size, List<string> Genero,
-            string Estudio, string Path, string Fecha_publicacion, string Descripcion, int Numero_reproducciones, List<string> Comentarios,
-            string Calidad, List<string> Actores, List<string> Directores) : base( Duracion, Titulo,Fecha_Inclusion,
-             Ranking, Size, Genero,  Estudio, Path, Fecha_publicacion, Descripcion,Numero_reproducciones, Comentarios)
-        {
-            this.Calidad = Calidad;
-            this.Actores = Actores;
-            this.Directores = Directores;
-        }
-
-
-        public string informacion()
-        {
-            return "El titulo del video es: " + Titulo + ";Actores: " + Actores + ";Directores: " + Directores +
-               "\n;Duracion del Video: " + Duracion + ";Fecha de publicacion: " + Fecha_publicacion + "Estudio : " + Estudio+
-                "\n;Reproducciones: " + Numero_reproducciones+ "Ranking : " + Ranking;
-        }
-
+        private List<Personas> PersonaVideo = new List<Personas>();
         
+
+
+        public Video(int Duracion, string Titulo, string Fecha_Inclusion, List<int> Ranking, long Size, List<string> Genero,
+            string Estudio, string CarpetaArchivo, string Fecha_publicacion, string Descripcion, int Numero_reproducciones, List<string> Comentarios,
+            string Calidad, List<Personas> PersonaVideo,string Portada) : base( Duracion, Titulo,Fecha_Inclusion,
+             Ranking, Size, Genero,  Estudio, CarpetaArchivo, Fecha_publicacion, Descripcion,Numero_reproducciones, Comentarios,Portada)
+        {
+            
+            this.Calidad = Calidad;
+            this.PersonaVideo = PersonaVideo;
+
+        }
+
+
+        public void informacion()
+        {
+            string people = "";
+            for (int i = 0; i < PersonaVideo.Count(); i++)
+            {
+                people += PersonaVideo[i].Get_Name() + " " + PersonaVideo[i].Get_LastName()+ ": "+ PersonaVideo[i].Get_Puesto()+" ";
+            }
+            Console.WriteLine( "El titulo del video es: " + Titulo + "\nPersonal del Video: " + people +
+               "\nDuracion del Video: " + Duracion + "\nFecha de publicacion: " + Fecha_publicacion + "\nEstudio : " + Estudio+
+                "\nReproducciones: " + Numero_reproducciones+ "\nRanking : " + Get_Mean_Tier());
+            Console.WriteLine("Los comentarios del video son:");
+            for (int i = 0; i < Comentarios.Count(); i++)
+            {
+                Console.WriteLine(Comentarios[i]);
+            }
+        }
+
+        public string Get_Calidad()
+        {
+            return Calidad;
+        }
+
+        public List<Personas> Get_Staff()
+        {
+            return PersonaVideo;
+        }
+
+
 
 
     }

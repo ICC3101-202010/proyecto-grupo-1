@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Proyecto_POO
 {
+    [Serializable()]
     public class Usuario
     {
 
@@ -15,17 +18,21 @@ namespace Proyecto_POO
         private bool Premium { get; set; }
         private string Nickname { get; set; }
         private string Contraseña { get; set; }
-        private string ColorDeFuente { get; set; }
-        private string ColorDeInterfaz { get; set; }
+        private bool Administrador { get; set; }
+        private string FotoPerfil { get; set; }
         private List<string> GenerosQueSigue = new List<string>();
-        private List<string> CantantesQueSigue = new List<string>();
-        private List<string> Favoritos = new List<string>();
-        private List<string> Recomendaciones = new List<string>();
-        private List<string> NombresDeUsuario = new List<string>();
-        private List<string> ListaContraseñas = new List<string>();
+        private List<Personas> CantantesQueSigue = new List<Personas>();
+        private List<Multimedia> Favoritos = new List<Multimedia>();
+        private List<Multimedia> Recomendaciones = new List<Multimedia>();
+        private List<Usuario> UsuariosSeguidores = new List<Usuario>();
+        private int Contador = 3;
+        private List<Canciones> CancionesAgregadas = new List<Canciones>();
+        private List<Video> VideosAgregados = new List<Video>();
+        private List<Playlist> PlaylistAgregadas = new List<Playlist>();
 
 
-        public Usuario(string name,int years,bool usertipe,bool premi, string sobrenombre,string pasword)
+        public Usuario(string name,int years,bool usertipe,bool premi, string sobrenombre,string pasword, bool admin,string fotoperfil, List<Canciones> CancionesAgregadas,
+          List<Video> VideosAgregados, List<Playlist> PlaylistAgregadas)
         {
             Nombre = name;
             Edad = years;
@@ -33,27 +40,323 @@ namespace Proyecto_POO
             Premium = premi;
             Nickname = sobrenombre;
             Contraseña = pasword;
+            Administrador = admin;
+            FotoPerfil = fotoperfil;
+            this.CancionesAgregadas = CancionesAgregadas;
+            this.VideosAgregados = VideosAgregados;
+            this.PlaylistAgregadas = PlaylistAgregadas;
         }
-
+        
         public Usuario()
         {
         }
-        public void AddUserNick(string nick, string contraseña)//añade nombre y constraseña a sus listas
+        public void AgregarFotoPerfil()
         {
-            NombresDeUsuario.Add(nick);
-            ListaContraseñas.Add(contraseña);
+            Console.WriteLine("Ingrese el path del archivo que quieras que sea tu foto de perfil");
+            string path = Console.ReadLine();
+            FotoPerfil = path;
+            string workingDirectory = Environment.CurrentDirectory;
+            string subdir = @System.IO.Directory.GetCurrentDirectory() + "\\FotosDePerfil";
+            string archivo = @Path.GetFileName(path);
+            string carpeta = Path.GetDirectoryName(path);
+            string C = Path.GetDirectoryName(path);
+
+            if (!Directory.Exists(subdir))
+            {
+                Directory.CreateDirectory(subdir);
+            }
+            string sourceFile = System.IO.Path.Combine(carpeta, archivo);
+            string destFile = System.IO.Path.Combine(subdir, archivo);
+            System.IO.File.Copy(sourceFile, destFile, true);
+
+        }
+        public void CargarFotoPerfil()
+        {
+            string archivo = Path.GetFileName(FotoPerfil);
+            string carpeta = @System.IO.Directory.GetCurrentDirectory() + "\\FotosDePerfil" + "\\" + archivo;
+            System.Diagnostics.Process.Start(FotoPerfil);
+        }
+        public string Get_Fotoperfil()
+        {
+            return FotoPerfil;
         }
 
-        public int comprobarusuario(string nom, string contra)
+
+        public void CambirarRango()//cambia si es premium o no
         {
-            for (int i = 0; i <= NombresDeUsuario.Count(); i++)
+            Console.WriteLine("A que tipo de usuario quieres cambiar");
+            Console.WriteLine("Premium[0] Normal[1]");
+            int answ = Int32.Parse(Console.ReadLine());
+            if(answ == 0)
             {
-                if (NombresDeUsuario[i] == nom && NombresDeUsuario[i] == contra)
+                Premium = true;
+                Console.WriteLine("Cambiado");
+            }
+            else if(answ == 0)
+            {
+                Premium = false;
+                Console.WriteLine("Cambiado");
+            }
+            else
+            {
+                Console.WriteLine("No existe esa respuesta");
+            }
+        }
+        public void CambiarTipo()// cambia si es publico o privado
+        {
+            Console.WriteLine("A que tipo de usuario quieres cambiar");
+            Console.WriteLine("Privado[0] Publico[1]");
+            int answ = Int32.Parse(Console.ReadLine());
+            if (answ == 0)
+            {
+                Premium = true;
+                Console.WriteLine("Cambiado");
+            }
+            else if (answ == 1)
+            {
+                Premium = false;
+                Console.WriteLine("Cambiado");
+            }
+            else
+            {
+                Console.WriteLine("No existe esa respuesta");
+            }
+        }
+
+        public void Seguir(Usuario usu)
+        {
+            int verificador = 1;
+            foreach(Usuario data in UsuariosSeguidores)
+            {
+                if (data.Get_Nickname() == Nickname || usu.Get_Nickname() == data.Get_Nickname())
                 {
-                    return 1;
+                    verificador = 0;
                 }
             }
-                return 0;
+            if( verificador == 1)
+            {
+                UsuariosSeguidores.Add(usu);
+            }
+            else
+            {
+                Console.WriteLine("No puedes seguir a este usuario");
+            }
         }
+
+        public void Informacion_Usuario()
+        {
+            Console.Clear();
+            if (TipoDeUsuario == true)
+            {
+                Console.WriteLine("Esta informacion esta oculta porque es privada");
+            }
+            else
+            {
+                Console.WriteLine("Nombre: " + Nombre + "\nEdad: " + Edad + "\nEstado de Premium: " + Premium + "\nNickname: " + Nickname + "\nEs administrador: " + Administrador + "\nSeguidores: " + UsuariosSeguidores.Count() +"\nFoto de perfil");
+                try
+                {
+                    CargarFotoPerfil();
+                }
+
+                catch
+                {
+                    Console.WriteLine("Este Usuario no tiene Foto de perfil");
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Presione Enter para continuar");
+            Console.ReadLine();
+        }
+
+        public void Add_Song_To_My_List(Canciones cancion)
+        {
+            CancionesAgregadas.Add(cancion);
+        }
+
+        public void Add_Video_To_My_List(Video video)
+        {
+            VideosAgregados.Add(video);
+        }
+
+        public void Add_Playlist_To_My_List(Playlist playlist)
+        {
+            PlaylistAgregadas.Add(playlist);
+        }
+
+
+        public string Get_Nombre()
+        {
+            return Nombre;
+        }
+
+        public int Get_Edad()
+        {
+            return Edad;
+        }
+
+        public bool Get_TipoDeUsuario()
+        {
+            return TipoDeUsuario;
+        }
+
+        public bool Get_Premium()
+        {
+            return Premium;
+        }
+
+        public string Get_Nickname()
+        {
+            return Nickname;
+        }
+
+        public string Get_Password()
+        {
+            return Contraseña;
+        }
+        public List<string> Get_GeneroSigue()
+        {
+            return GenerosQueSigue;
+        }
+
+        public List<Personas> Get_CantantesSigue()
+        {
+            return CantantesQueSigue;
+        }
+
+        public List<Multimedia> Get_Favoritos()
+        {
+            return Favoritos;
+        }
+
+        public List<Multimedia> Get_Recomendacion()
+        {
+            return Recomendaciones;
+        }
+
+        public List<Usuario> Get_Seguidores()
+        {
+            return UsuariosSeguidores;
+        }
+
+        public bool Get_Admin()
+        {
+            return Administrador;
+        }
+
+        public int Get_Contador()
+        {
+            return Contador;
+        }
+
+        public void Cambiar_dato_string(int caso, string palabra)
+        {
+            if(caso == 1)
+             Nombre = palabra;
+            if (caso == 2)
+                Nickname =palabra;
+            if (caso == 3)
+                Contraseña = palabra;
+        }
+
+        public void Cambiar_dato_booleano(int caso)
+        {
+            if (caso == 1)
+            {
+                TipoDeUsuario = !TipoDeUsuario;
+                if(TipoDeUsuario == true)
+                    Console.WriteLine("Su perfil ahora es privado");
+                else
+                {
+                    Console.WriteLine("Su perfil ahora es publico");
+                }
+
+            }
+            if (caso == 2)
+            {
+                Premium = !Premium;
+                if (Premium == true)
+                    Console.WriteLine("Su perfil ahora es Premium");
+                else
+                {
+                    Console.WriteLine("Su perfil ahora no es premium");
+                }
+            }
+
+
+            if (caso == 3)
+            {
+                Administrador = !Administrador;
+                if (Administrador == true)
+                    Console.WriteLine("Su perfil ahora tiene permisos de administrador");
+                else
+                {
+                    Console.WriteLine("Su perfil ahora no tiene permisos de administrador");
+                }
+            }
+        }
+
+
+        public void Cambiar_dato_edad(int edad)
+        {
+            Edad = edad;
+        }
+
+        public void Lose_Bonus_Game()
+        {
+            Contador -= 1;
+        }
+
+        public void Add_Favoritos(Multimedia multi)
+        {
+            int verificador = 1;
+            foreach(Multimedia data in Favoritos)
+            {
+                if (data.Get_Titulo() == multi.Get_Titulo())
+                {
+                    verificador = 0;
+                }
+            }
+            if (verificador == 1)
+            {
+                Favoritos.Add(multi);
+                Console.WriteLine("Este archivo multimedia esta incluida en la lista de favoritos");
+            }
+            else
+            {
+                Favoritos.Remove(multi);
+                Console.WriteLine("Este archivo multimedia sera eliminada de favoritos");
+            }
+            Thread.Sleep(1500);
+        }
+
+        public void Consultar_Favoritos()
+        {
+            int i = 1;
+            foreach(Multimedia data in Favoritos)
+            {
+                Console.WriteLine(i + " ) " + data.Get_Titulo());
+                i++;
+            }
+        }
+
+        public List<Video> Get_Lista_Videos_Agregados()
+        {
+            return VideosAgregados;
+        }
+
+        public List<Canciones> Get_Lista_Canciones_Agregadas()
+        {
+            return CancionesAgregadas;
+        }
+
+        public List<Playlist> Get_Lista_Playlist_Agregados()
+        {
+            return PlaylistAgregadas;
+        }
+
+
+
+
+
     }
 }
