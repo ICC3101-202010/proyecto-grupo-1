@@ -36,8 +36,8 @@ namespace Proyecto_POO
                 Stream stream2 = new FileStream("canciones.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
                 Stream stream3 = new FileStream("videos.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
                 Stream stream4 = new FileStream("usuarios.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-                Stream stream7 = new FileStream("playlist.bin", FileMode.Open, FileAccess.Read, FileShare.Read);//playlist
-                //Stream stream9 = new FileStream("persona.bin", FileMode.Open, FileAccess.Read, FileShare.Read);//playlist
+                Stream stream7 = new FileStream("playlist.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+
                 try
                 {
                     int p = (int)formatter2.Deserialize(stream2);

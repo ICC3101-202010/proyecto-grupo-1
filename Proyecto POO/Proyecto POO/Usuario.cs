@@ -361,6 +361,7 @@ namespace Proyecto_POO
                 Console.WriteLine(i + " ) " + data.Get_Titulo());
                 i++;
             }
+            Console.WriteLine("");
             Console.WriteLine("Videos favoritos");
             foreach (Video data in FavoritosVideo)
             {
