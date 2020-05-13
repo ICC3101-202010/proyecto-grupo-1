@@ -121,7 +121,9 @@ namespace Proyecto_POO
                 List<Video> b = new List<Video>();
                 List<Playlist> c = new List<Playlist>();
                 List<Usuario> d = new List<Usuario>();
-                Usuario yo = new Usuario("benja", 21, false, false, "dark", "lol", true, "",a,b,c,d);
+                List<Canciones> e = new List<Canciones>();
+                List<Video> f = new List<Video>();
+                Usuario yo = new Usuario("benja", 21, false, false, "dark", "lol", true, "",a,b,c,d,e,f);
                 almacenamiento.AgregarUsuario(yo);
             }
             string nv = "";
@@ -140,7 +142,7 @@ namespace Proyecto_POO
                 }
                 switch (numcase)
                 {
-                    case 1:
+                    case 1: //ingresar como usuario
                         {
 
                             Console.Clear();
@@ -184,12 +186,14 @@ namespace Proyecto_POO
                                     {
                                         case 1://modificar Opciones de Usuario
                                             {
-                                                foreach (Usuario usu in almacenamiento.Get_Usuarios())
+
+                                                for (int i = 0; i < almacenamiento.Get_Usuarios().Count(); i++)
                                                 {
-                                                    if (usu.Get_Nickname() == nom && usu.Get_Password() == contra)
+
+                                                    if (almacenamiento.Get_Usuarios()[i].Get_Nickname() == nom && almacenamiento.Get_Usuarios()[i].Get_Password() == contra)
                                                     {
                                                         int pass = 0;
-                                                        while (pass != 11)
+                                                        while (pass != 12)
                                                         {
                                                             pass = 0;
                                                             Console.WriteLine("Que desea cambiar de su perfil?");
@@ -203,10 +207,10 @@ namespace Proyecto_POO
                                                             Console.WriteLine("(8) Ver informacion del perfil");
                                                             Console.WriteLine("(9) Ver foto perfil");
                                                             Console.WriteLine("(10) Consultar Favoritos");
-                                                            Console.WriteLine("(10) Borrar Usuario");
-                                                            Console.WriteLine("(11) Volver al menu anterior");
+                                                            Console.WriteLine("(11) Borrar Usuario");
+                                                            Console.WriteLine("(12) Volver al menu anterior");
 
-                                                            while (pass == 0 || pass >= 12)
+                                                            while (pass == 0 || pass > 12)
                                                             {
                                                                 string f = Console.ReadLine();
                                                                 int.TryParse(f, out pass);
@@ -218,7 +222,7 @@ namespace Proyecto_POO
                                                                     {
                                                                         Console.WriteLine("ingrese su nuevo nombre");
                                                                         string nombre = Console.ReadLine();
-                                                                        usu.Cambiar_dato_string(1, nombre);
+                                                                        almacenamiento.Get_Usuarios()[i].Cambiar_dato_string(1, nombre);
                                                                         Console.WriteLine("Su nombre a sido actualizado");
                                                                         Thread.Sleep(1000);
                                                                         break;
@@ -232,22 +236,22 @@ namespace Proyecto_POO
                                                                             string f = Console.ReadLine();
                                                                             int.TryParse(f, out nuevaedad);
                                                                         }
-                                                                        usu.Cambiar_dato_edad(nuevaedad);
+                                                                        almacenamiento.Get_Usuarios()[i].Cambiar_dato_edad(nuevaedad);
                                                                         Console.WriteLine("Su edad a sido actualizada");
                                                                         Thread.Sleep(1000);
                                                                         break;
                                                                     }
-                                                                case 3://cambiar perfil
+                                                                case 3://cambiar perfil publico o privado
                                                                     {
-                                                                        usu.Cambiar_dato_booleano(1);
+                                                                        almacenamiento.Get_Usuarios()[i].Cambiar_dato_booleano(1);
                                                                         break;
                                                                     }
                                                                 case 4://cambiar premium
                                                                     {
                                                                         Console.WriteLine("ingrese la clave para volverse premium");
                                                                         string resp = Console.ReadLine();
-                                                                        if(resp == "viper")
-                                                                            usu.Cambiar_dato_booleano(2);
+                                                                        if (resp == "viper")
+                                                                            almacenamiento.Get_Usuarios()[i].Cambiar_dato_booleano(2);
                                                                         else
                                                                             Console.WriteLine("clave incorrecta");
                                                                         break;
@@ -256,11 +260,11 @@ namespace Proyecto_POO
                                                                     {
                                                                         Console.WriteLine("ingrese su nuevo Nickname");
                                                                         string nickname = Console.ReadLine();
-                                                                        for (int i = 0; i < almacenamiento.Get_Usuarios().Count; i++)
+                                                                        for (int ñ = 0; ñ < almacenamiento.Get_Usuarios().Count; ñ++)
                                                                         {
-                                                                            if (usu.Get_Nickname() == almacenamiento.Get_Usuarios()[i].Get_Nickname())
+                                                                            if (almacenamiento.Get_Usuarios()[i].Get_Nickname() == almacenamiento.Get_Usuarios()[ñ].Get_Nickname())
                                                                             {
-                                                                                almacenamiento.Get_Usuarios()[i].Cambiar_dato_string(2, nickname);
+                                                                                almacenamiento.Get_Usuarios()[ñ].Cambiar_dato_string(2, nickname);
                                                                             }
 
                                                                         }
@@ -273,11 +277,11 @@ namespace Proyecto_POO
                                                                         Console.WriteLine("ingrese su nueva Contraseña");
                                                                         string nuevacontra = Console.ReadLine();
 
-                                                                        for (int i = 0; i < almacenamiento.Get_Usuarios().Count; i++)
+                                                                        for (int ñ = 0; ñ < almacenamiento.Get_Usuarios().Count; ñ++)
                                                                         {
-                                                                            if (usu.Get_Password() == almacenamiento.Get_Usuarios()[i].Get_Password())
+                                                                            if (almacenamiento.Get_Usuarios()[i].Get_Password() == almacenamiento.Get_Usuarios()[ñ].Get_Password())
                                                                             {
-                                                                                almacenamiento.Get_Usuarios()[i].Cambiar_dato_string(3, nuevacontra);
+                                                                                almacenamiento.Get_Usuarios()[ñ].Cambiar_dato_string(3, nuevacontra);
                                                                             }
 
                                                                         }
@@ -287,48 +291,33 @@ namespace Proyecto_POO
                                                                     }
                                                                 case 7://cambiar si es administrador
                                                                     {
-                                                                        if (usu.Get_Admin() == false)
+                                                                        if (almacenamiento.Get_Usuarios()[i].Get_Admin() == false)
                                                                         {
                                                                             Console.WriteLine("Escriba la clave de administrador");
                                                                             if (Console.ReadLine() == "pollo")
                                                                             {
                                                                                 Console.WriteLine("Eres un usuario autorizado para ser administrador");
-                                                                                usu.Cambiar_dato_booleano(3);
+                                                                                almacenamiento.Get_Usuarios()[i].Cambiar_dato_booleano(3);
                                                                                 Thread.Sleep(1500);
                                                                             }
                                                                         }
                                                                         else
                                                                         {
-                                                                            usu.Cambiar_dato_booleano(3);
+                                                                            almacenamiento.Get_Usuarios()[i].Cambiar_dato_booleano(3);
                                                                         }
                                                                         break;
                                                                     }
                                                                 case 8://Ver informacion perfil
                                                                     {
-                                                                        usu.Informacion_Usuario();
-                                                                        
+                                                                        almacenamiento.Get_Usuarios()[i].Informacion_Usuario();
+
                                                                         break;
                                                                     }
-                                                                case 9:
+                                                                case 9:// ver foto perfil
                                                                     {
-                                                                        if(usu.Get_Fotoperfil() == "")
+                                                                        if (almacenamiento.Get_Usuarios()[i].Get_Fotoperfil() == "")
                                                                         {
                                                                             Console.WriteLine("No tiene foto de perfil, desea agregar una? (si = 1 / no = 2)");
-                                                                            int h=0;
-                                                                            while (h == 0 || h > 2 )
-                                                                            {
-                                                                                int.TryParse(Console.ReadLine(),out h);
-                                                                            }
-                                                                            if(h == 1)
-                                                                            {
-                                                                                usu.AgregarFotoPerfil();
-                                                                            }
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            Console.WriteLine("Que quiere hacer?");
-                                                                            Console.WriteLine("(1) Ver foto de perfil");
-                                                                            Console.WriteLine("(2) Cambiar foto de perfil"  );
                                                                             int h = 0;
                                                                             while (h == 0 || h > 2)
                                                                             {
@@ -336,11 +325,26 @@ namespace Proyecto_POO
                                                                             }
                                                                             if (h == 1)
                                                                             {
-                                                                                usu.CargarFotoPerfil();
+                                                                                almacenamiento.Get_Usuarios()[i].AgregarFotoPerfil();
                                                                             }
-                                                                            if(h ==2)
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Que quiere hacer?");
+                                                                            Console.WriteLine("(1) Ver foto de perfil");
+                                                                            Console.WriteLine("(2) Cambiar foto de perfil");
+                                                                            int h = 0;
+                                                                            while (h == 0 || h > 2)
                                                                             {
-                                                                                usu.AgregarFotoPerfil();
+                                                                                int.TryParse(Console.ReadLine(), out h);
+                                                                            }
+                                                                            if (h == 1)
+                                                                            {
+                                                                                almacenamiento.Get_Usuarios()[i].CargarFotoPerfil();
+                                                                            }
+                                                                            if (h == 2)
+                                                                            {
+                                                                                almacenamiento.Get_Usuarios()[i].AgregarFotoPerfil();
                                                                             }
                                                                         }
 
@@ -348,45 +352,45 @@ namespace Proyecto_POO
                                                                     }
                                                                 case 10: //Consultar favoritos
                                                                     {
-                                                                        usu.Consultar_Favoritos();
+                                                                        almacenamiento.Get_Usuarios()[i].Consultar_Favoritos();
                                                                         break;
                                                                     }
                                                                 case 11://Borrar Usuario
                                                                     {
-                                                                        if (usu.Get_Admin())
+                                                                        if (almacenamiento.Get_Usuarios()[i].Get_Admin())
                                                                         {
-                                                                            int i = 1;
+                                                                            int k = 1;
                                                                             foreach (Usuario data in almacenamiento.Get_Usuarios())
                                                                             {
-                                                                                Console.WriteLine(i + ") " + data.Get_Nickname());
-                                                                                i++;
+                                                                                Console.WriteLine(k + ") " + data.Get_Nickname());
+                                                                                k++;
                                                                             }
                                                                             Console.WriteLine("Elija al usuario que desea eliminar con su numero");
                                                                             int ban = 0;
-                                                                            while (ban == 0 || ban > i)
+                                                                            while (ban == 0 || ban > k)
                                                                             {
                                                                                 int.TryParse(Console.ReadLine(), out ban);
                                                                             }
-                                                                            if(ban == 1)
+                                                                            if (ban == 1)
                                                                             {
                                                                                 almacenamiento.Get_Usuarios().RemoveAt(ban - 1);
-                                                                                pass = 11;
+                                                                                pass = 12;
                                                                                 icase = 13;
                                                                             }
                                                                             else
                                                                             {
                                                                                 almacenamiento.Get_Usuarios().RemoveAt(ban - 1);
                                                                             }
-                                                                       
+
 
                                                                         }
                                                                         else
                                                                         {
-                                                                            for (int i = 0; i < almacenamiento.Get_Usuarios().Count; i++)
+                                                                            for (int u = 0; u < almacenamiento.Get_Usuarios().Count; u++)
                                                                             {
-                                                                                if (usu.Get_Nickname() == almacenamiento.Get_Usuarios()[i].Get_Nickname())
+                                                                                if (almacenamiento.Get_Usuarios()[i].Get_Nickname() == almacenamiento.Get_Usuarios()[u].Get_Nickname())
                                                                                 {
-                                                                                    almacenamiento.Get_Usuarios().RemoveAt(i);
+                                                                                    almacenamiento.Get_Usuarios().RemoveAt(u);
                                                                                 }
                                                                             }
                                                                             pass = 12;
@@ -397,31 +401,33 @@ namespace Proyecto_POO
                                                                     }
                                                                 case 12://Salir del menu
                                                                     {
+                                                                        pass = 12;
                                                                         break;
                                                                     }
                                                                 default:
                                                                     break;
                                                             }
+                                                            if (pass == 12)
+                                                                icase = 13;
 
                                                             Console.Clear();
                                                         }
-                                                        if (pass == 11)
-                                                        {
 
-                                                            break;
-                                                        }
                                                     }
                                                 }
+
                                                 break;
-                                            }
+                                            }                                   
                                         case 2:// reproducir cancion
                                             {
 
                                                 Console.WriteLine("Quiere reproducir una playlist o hacer una cola de reproduccion de de canciones ");
                                                 Console.WriteLine("(1) Playlist");
                                                 Console.WriteLine("(2) Hacer cola de reproduccion");
+                                                Console.WriteLine("(3) Reproducir playlist de canciones favoritas");
+                                                Console.WriteLine("(4) Reproducir playlist de videos favoritas");
                                                 int operacion = 0;
-                                                while (operacion == 0 || operacion > 2)
+                                                while (operacion == 0 || operacion > 4)
                                                 {
                                                     int.TryParse(Console.ReadLine(), out operacion);
                                                 }
@@ -433,6 +439,7 @@ namespace Proyecto_POO
                                                         {
                                                             Console.WriteLine(i + ") " + almacenamiento.Get_Playlist()[i - 1].Get_Name());
                                                         }
+                                                        
                                                         int index = 0;
                                                         while (index == 0 || index > almacenamiento.Get_Playlist().Count())
                                                         {
@@ -465,7 +472,7 @@ namespace Proyecto_POO
                                                     Console.ForegroundColor = ConsoleColor.Green;
                                                     Console.Clear();
                                                 }
-                                                    
+
 
                                                 if (operacion == 2)
                                                 {
@@ -511,9 +518,61 @@ namespace Proyecto_POO
                                                         Thread.Sleep(1000);
                                                         Console.ForegroundColor = ConsoleColor.Green;
                                                         Console.Clear();
-                                                        
+
                                                     }
                                                 }
+                                                    if (operacion == 3)
+                                                    {
+                                                        for (int i = 0; i < almacenamiento.Get_Usuarios().Count(); i++)
+                                                        {
+
+
+                                                            if (almacenamiento.Get_Usuarios()[i].Get_Nickname() == nom && almacenamiento.Get_Usuarios()[i].Get_Password() == contra)
+                                                            {
+                                                                if (almacenamiento.Get_Usuarios()[i].Get_Lista_Canciones_Fav().Count != 0)
+                                                                {
+                                                                    for (int k = 0; k < almacenamiento.Get_Usuarios()[i].Get_Lista_Canciones_Fav().Count(); k++)
+                                                                    {
+                                                                        almacenamiento.ReproducirMultimedia(almacenamiento.Get_Usuarios()[i].Get_Lista_Canciones_Fav()[k]);
+                                                                    }
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    Console.WriteLine("No hay canciones en favorito para reproducir");
+                                                                    Thread.Sleep(2000);
+                                                                }
+                                                            }
+                                                        }
+                                                        Console.Clear();
+                                                    }
+                                                    if (operacion == 4)
+                                                    {
+                                                        for (int i = 0; i < almacenamiento.Get_Usuarios().Count(); i++)
+                                                        {
+
+
+                                                            if (almacenamiento.Get_Usuarios()[i].Get_Nombre() == nom && almacenamiento.Get_Usuarios()[i].Get_Password() == contra)
+                                                            {
+                                                                if (almacenamiento.Get_Usuarios()[i].Get_Lista_Video_Fav().Count != 0)
+                                                                {
+                                                                    for (int k = 0; k < almacenamiento.Get_Usuarios()[i].Get_Lista_Video_Fav().Count(); k++)
+                                                                    {
+                                                                        almacenamiento.ReproducirMultimedia(almacenamiento.Get_Usuarios()[i].Get_Lista_Video_Fav()[k]);
+                                                                    }
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    Console.WriteLine("No hay videos en favorito para reproducir");
+                                                                    Thread.Sleep(2000);
+                                                                }
+                                                            }
+                                                        }
+                                                        Console.Clear();
+
+                                                    }                                                   
+                                                
                                                 break;
                                             }
 
@@ -1034,7 +1093,9 @@ namespace Proyecto_POO
                             List<Video> b = new List<Video>();
                             List<Playlist> c = new List<Playlist>();
                             List<Usuario> d = new List<Usuario>();
-                            Usuario persona = new Usuario(nom, edad, boolperfil, premier, nick, contra, false,"",a,b,c,d);
+                            List<Canciones> e = new List<Canciones>();
+                            List<Video> f = new List<Video>();
+                            Usuario persona = new Usuario(nom, edad, boolperfil, premier, nick, contra, false,"",a,b,c,d,e,f);
                             almacenamiento.AgregarUsuario(persona);
                             Console.WriteLine("Cuenta creada con exito");
                             Thread.Sleep(1000);

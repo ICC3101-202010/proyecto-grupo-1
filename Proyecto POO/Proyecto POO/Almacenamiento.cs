@@ -1119,7 +1119,7 @@ namespace Proyecto_POO
                     }
                     if (opcion_2 == 6)
                     {
-                        usu.Add_Favoritos(cancion_encontrada[opcion - 1]);
+                        usu.Add_FavoritosCan(cancion_encontrada[opcion - 1]);
                         for (int j = 0; j < Get_ListaCanciones().Count(); j++)
                         {
                             if (cancion_encontrada[opcion - 1].Get_Genero() == Get_ListaCanciones()[j].Get_Genero())
@@ -1167,7 +1167,7 @@ namespace Proyecto_POO
                     }
                     if (opcion_2 == 5)
                     {
-                        usu.Add_Favoritos(videos_encontrados[opcion - terminoCan]);
+                        usu.Add_FavoritosVid(videos_encontrados[opcion - terminoCan]);
                         for (int j = 0; j < Get_ListaVideos().Count(); j++)
                         {
                             if (cancion_encontrada[opcion - 1].Get_Genero() == Get_ListaVideos()[j].Get_Genero())

@@ -22,7 +22,8 @@ namespace Proyecto_POO
         private string FotoPerfil { get; set; }
         private List<string> GenerosQueSigue = new List<string>();
         private List<Personas> CantantesQueSigue = new List<Personas>();
-        private List<Multimedia> Favoritos = new List<Multimedia>();
+        private List<Canciones> FavoritosCanciones = new List<Canciones>();
+        private List<Video> FavoritosVideo = new List<Video>();
         private List<Multimedia> Recomendaciones = new List<Multimedia>();
         private List<Usuario> UsuariosSeguidores = new List<Usuario>();
         private int Contador = 3;
@@ -32,7 +33,7 @@ namespace Proyecto_POO
 
 
         public Usuario(string name,int years,bool usertipe,bool premi, string sobrenombre,string pasword, bool admin,string fotoperfil, List<Canciones> CancionesAgregadas,
-          List<Video> VideosAgregados, List<Playlist> PlaylistAgregadas, List<Usuario> UsuariosSeguidores)
+          List<Video> VideosAgregados, List<Playlist> PlaylistAgregadas, List<Usuario> UsuariosSeguidores, List<Canciones> FavoritosCanciones, List<Video> FavoritosVideo)
         {
             Nombre = name;
             Edad = years;
@@ -46,6 +47,8 @@ namespace Proyecto_POO
             this.VideosAgregados = VideosAgregados;
             this.PlaylistAgregadas = PlaylistAgregadas;
             this.UsuariosSeguidores = UsuariosSeguidores;
+            this.FavoritosVideo = FavoritosVideo;
+            this.FavoritosCanciones = FavoritosCanciones;
         }
         
         public Usuario()
@@ -205,10 +208,6 @@ namespace Proyecto_POO
             return GenerosQueSigue;
         }
 
-        public List<Multimedia> Get_Favoritos()
-        {
-            return Favoritos;
-        }
 
         public List<Multimedia> Get_Recomendacion()
         {
@@ -300,10 +299,10 @@ namespace Proyecto_POO
             Contador -= 1;
         }
 
-        public void Add_Favoritos(Multimedia multi)
+        public void Add_FavoritosCan(Canciones multi)
         {
             int verificador = 1;
-            foreach(Multimedia data in Favoritos)
+            foreach(Canciones data in FavoritosCanciones)
             {
                 if (data.Get_Titulo() == multi.Get_Titulo())
                 {
@@ -312,21 +311,50 @@ namespace Proyecto_POO
             }
             if (verificador == 1)
             {
-                Favoritos.Add(multi);
+                FavoritosCanciones.Add(multi);
                 Console.WriteLine("Este archivo multimedia esta incluida en la lista de favoritos");
             }
             else
             {
-                Favoritos.Remove(multi);
+                FavoritosCanciones.Remove(multi);
                 Console.WriteLine("Este archivo multimedia sera eliminada de favoritos");
             }
             Thread.Sleep(1500);
         }
 
+        public void Add_FavoritosVid(Video multi)
+        {
+            int verificador = 1;
+            foreach (Video data in FavoritosVideo)
+            {
+                if (data.Get_Titulo() == multi.Get_Titulo())
+                {
+                    verificador = 0;
+                }
+            }
+            if (verificador == 1)
+            {
+                FavoritosVideo.Add(multi);
+                Console.WriteLine("Este archivo multimedia esta incluida en la lista de favoritos");
+            }
+            else
+            {
+                FavoritosVideo.Remove(multi);
+                Console.WriteLine("Este archivo multimedia sera eliminada de favoritos");
+            }
+            Thread.Sleep(1500);
+        }
         public void Consultar_Favoritos()
         {
             int i = 1;
-            foreach(Multimedia data in Favoritos)
+            Console.WriteLine("Canciones favoritas:");
+            foreach(Canciones data in FavoritosCanciones)
+            {
+                Console.WriteLine(i + " ) " + data.Get_Titulo());
+                i++;
+            }
+            Console.WriteLine("Videos favoritos");
+            foreach (Video data in FavoritosVideo)
             {
                 Console.WriteLine(i + " ) " + data.Get_Titulo());
                 i++;
@@ -348,8 +376,14 @@ namespace Proyecto_POO
             return PlaylistAgregadas;
         }
 
-
-
+        public List<Canciones> Get_Lista_Canciones_Fav()
+        {
+            return FavoritosCanciones;
+        }
+        public List<Video> Get_Lista_Video_Fav()
+        {
+            return FavoritosVideo;
+        }
 
 
     }
