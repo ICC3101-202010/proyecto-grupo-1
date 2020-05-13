@@ -521,57 +521,59 @@ namespace Proyecto_POO
 
                                                     }
                                                 }
-                                                    if (operacion == 3)
+                                                if (operacion == 3)
+                                                {
+                                                    for (int i = 0; i < almacenamiento.Get_Usuarios().Count(); i++)
                                                     {
-                                                        for (int i = 0; i < almacenamiento.Get_Usuarios().Count(); i++)
+
+
+                                                        if (almacenamiento.Get_Usuarios()[i].Get_Nickname() == nom && almacenamiento.Get_Usuarios()[i].Get_Password() == contra)
                                                         {
-
-
-                                                            if (almacenamiento.Get_Usuarios()[i].Get_Nickname() == nom && almacenamiento.Get_Usuarios()[i].Get_Password() == contra)
+                                                            if (almacenamiento.Get_Usuarios()[i].Get_Lista_Canciones_Fav().Count != 0)
                                                             {
-                                                                if (almacenamiento.Get_Usuarios()[i].Get_Lista_Canciones_Fav().Count != 0)
+                                                                for (int k = 0; k < almacenamiento.Get_Usuarios()[i].Get_Lista_Canciones_Fav().Count(); k++)
                                                                 {
-                                                                    for (int k = 0; k < almacenamiento.Get_Usuarios()[i].Get_Lista_Canciones_Fav().Count(); k++)
-                                                                    {
-                                                                        almacenamiento.ReproducirMultimedia(almacenamiento.Get_Usuarios()[i].Get_Lista_Canciones_Fav()[k]);
-                                                                    }
+                                                                    almacenamiento.ReproducirMultimedia(almacenamiento.Get_Usuarios()[i].Get_Lista_Canciones_Fav()[k]);
+                                                                }
 
-                                                                }
-                                                                else
-                                                                {
-                                                                    Console.WriteLine("No hay canciones en favorito para reproducir");
-                                                                    Thread.Sleep(2000);
-                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("No hay canciones en favorito para reproducir");
+                                                                Thread.Sleep(2000);
                                                             }
                                                         }
-                                                        Console.Clear();
                                                     }
-                                                    if (operacion == 4)
+                                                    Console.Clear();
+                                                }
+                                                if (operacion == 4)
+                                                {
+                                                    for (int i = 0; i < almacenamiento.Get_Usuarios().Count(); i++)
                                                     {
-                                                        for (int i = 0; i < almacenamiento.Get_Usuarios().Count(); i++)
+
+
+                                                        if (almacenamiento.Get_Usuarios()[i].Get_Nickname() == nom && almacenamiento.Get_Usuarios()[i].Get_Password() == contra)
                                                         {
 
-
-                                                            if (almacenamiento.Get_Usuarios()[i].Get_Nombre() == nom && almacenamiento.Get_Usuarios()[i].Get_Password() == contra)
+                                                            if (almacenamiento.Get_Usuarios()[i].Get_Lista_Video_Fav().Count != 0)
                                                             {
-                                                                if (almacenamiento.Get_Usuarios()[i].Get_Lista_Video_Fav().Count != 0)
-                                                                {
-                                                                    for (int k = 0; k < almacenamiento.Get_Usuarios()[i].Get_Lista_Video_Fav().Count(); k++)
-                                                                    {
-                                                                        almacenamiento.ReproducirMultimedia(almacenamiento.Get_Usuarios()[i].Get_Lista_Video_Fav()[k]);
-                                                                    }
 
-                                                                }
-                                                                else
+                                                                for (int k = 0; k < almacenamiento.Get_Usuarios()[i].Get_Lista_Video_Fav().Count(); k++)
                                                                 {
-                                                                    Console.WriteLine("No hay videos en favorito para reproducir");
-                                                                    Thread.Sleep(2000);
+                                                                    almacenamiento.ReproducirMultimedia(almacenamiento.Get_Usuarios()[i].Get_Lista_Video_Fav()[k]);
                                                                 }
+
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("No hay videos en favorito para reproducir");
+                                                                Thread.Sleep(2000);
                                                             }
                                                         }
-                                                        Console.Clear();
+                                                    }
+                                                    Console.Clear();
 
-                                                    }                                                   
+                                                }                                                   
                                                 
                                                 break;
                                             }

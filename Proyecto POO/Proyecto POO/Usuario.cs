@@ -208,7 +208,15 @@ namespace Proyecto_POO
             return GenerosQueSigue;
         }
 
+        public List<Canciones> Get_FavoritosCan()
+        {
+            return FavoritosCanciones;
+        }
 
+        public List<Video> Get_FavoritosVid()
+        {
+            return FavoritosVideo;
+        }
         public List<Multimedia> Get_Recomendacion()
         {
             return Recomendaciones;

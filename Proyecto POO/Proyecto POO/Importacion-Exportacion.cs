@@ -85,6 +85,7 @@ namespace Proyecto_POO
                 Console.WriteLine("Estudio");
                 string ESTUDIO = Console.ReadLine();
                 Console.WriteLine("Ingrese directorio del archivo (Recuerde que los formatos validos son .mp3/.wav/.wmv/.flac)");
+                Console.WriteLine("Formato ejemplo del Input -> C:\\Users\\Persona\\Musica\\MiMusica.mp3");
                 string PATH = Console.ReadLine();
                 while (!File.Exists(PATH))
                 {
@@ -190,6 +191,7 @@ namespace Proyecto_POO
                 Console.WriteLine("Titulo");
                 string TITULO = Console.ReadLine();
                 Console.WriteLine("Directorio del archivo (Recuerde que los formatos validos son .mp4/.mkv/.flv/.mov/.wmv)");
+                Console.WriteLine("Formato ejemplo del Input -> C:\\Users\\Persona\\Video\\MiVideo.mp4");
                 string PATH = Console.ReadLine();
 
 
