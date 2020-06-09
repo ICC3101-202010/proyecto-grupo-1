@@ -2583,13 +2583,13 @@ namespace Spotflex
         }
 
         public void Informacion_Cancion(string nombre, List<string> artistas, List<string> generos, string album,
-            int duracion, string estudio, string photo_path, decimal ranking, int visitas, string descripcion, long size)
+            int duracion, string estudio, string photo_path, decimal ranking, int visitas, string descripcion, long size,string fecha)
         {
             panel3.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
             label_info_nombre_cancion.Text = nombre;
-            label_cancion_Artistas.Text = "Artistas:\n";
+            label_cancion_Artistas.Text = "Fecha de inclusion: "+fecha+"\nArtistas:\n";
             label_cancion_Artistas.Width = 200;
             foreach(string data in artistas)
             {
@@ -2629,7 +2629,7 @@ namespace Spotflex
         }
 
         public void Informacion_video(string nombre, List<string> directores, List<string> actores, List<string> generos,
-    int duracion, string estudio, string photo_path, decimal ranking, int visitas, string descripcion)
+    int duracion, string estudio, string photo_path, decimal ranking, int visitas, string descripcion, string fecha)
         {
             panel3.Visible = true;
             panel4.Visible = true;
@@ -2639,13 +2639,13 @@ namespace Spotflex
             panel_usuario_buscado.Visible = true;
             panel_info_artista.Visible = true;
             lblTituloDelVideoAReproducir.Text = nombre;
-            lblDirectores_ReproducirVideo.Text = "Directores:\n";
+            lblDirectores_ReproducirVideo.Text ="Fecha de ingreso: "+fecha +"\nDirectores:";
             lblDirectores_ReproducirVideo.Width = 200;
             foreach (string data in directores)
             {
                 lblDirectores_ReproducirVideo.Text += data + "\n";
             }
-            lblActores_reproducirvideo.Text = "Actores:\n";
+            lblActores_reproducirvideo.Text = "Actores:";
             lblActores_reproducirvideo.Width = 200;
             foreach (string data in actores)
             {

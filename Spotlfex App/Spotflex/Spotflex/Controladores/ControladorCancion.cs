@@ -150,7 +150,7 @@ namespace Spotflex.Controladores
                         cantantes.Add(staff.Nombre + " " + staff.Apellido);
                     }
                     appform.Informacion_Cancion(data.Titulo, cantantes, data.Genero, data.Album, data.Duracion,
-                        data.Estudio, data.Portada, data.Get_Mean_Tier(), data.Numero_reproducciones, data.Descripcion, (data.Size)/1000000);
+                        data.Estudio, data.Portada, data.Get_Mean_Tier(), data.Numero_reproducciones, data.Descripcion, (data.Size)/1000000, data.Fecha_inclusion);
                 }
             }
         }
