@@ -611,13 +611,13 @@ namespace Spotflex.Controladores
         public void OnSaveData(object source, EventArgs e)
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("Canciones.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, lista_canciones.Count());
+            Stream stream2 = new FileStream("Canciones.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream2, lista_canciones.Count());
             for (int i = 0; i < lista_canciones.Count(); i++)
             {
-                formatter.Serialize(stream, lista_canciones[i]);
+                formatter.Serialize(stream2, lista_canciones[i]);
             }
-            stream.Close();
+            stream2.Close();
         }
 
 

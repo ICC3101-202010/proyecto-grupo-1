@@ -14,6 +14,9 @@ using WMPLib;
 using Spotflex.Properties;
 using Org.BouncyCastle.Pkix;
 using System.Windows.Forms.VisualStyles;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using Org.BouncyCastle.Asn1.Cms;
 
 namespace Spotflex
 {
@@ -251,8 +254,6 @@ namespace Spotflex
             pictureBox_5star_Canciones.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox_see_ranking.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox_recomendaciones.SizeMode = PictureBoxSizeMode.StretchImage;
-            Bitmap bmp = new Bitmap(new Bitmap(Properties.Resources.Cursor1),25,25);
-            this.Cursor = new Cursor(bmp.GetHicon());
             panel_playlist_mostrar.BackColor = Color.FromArgb(100, 88, 44, 55);
             Nombre_Playlist_de_Canciones.BackColor = Color.FromArgb(10, 88, 44, 55);
             Nombre_Playlist_de_Videos.BackColor = Color.FromArgb(10, 88, 44, 55);
@@ -267,8 +268,11 @@ namespace Spotflex
             Volver_Ranking_video_y_canciones.BackColor = Color.FromArgb(10, 88, 44, 55);
             panel_Ranking_de_Canciones.BackColor = Color.FromArgb(60, 88, 44, 55);
             pictureBox10.BackColor = Color.FromArgb(10, 88, 44, 55);
-        }
 
+            
+
+
+        }
 
 
         #region forms
@@ -279,12 +283,55 @@ namespace Spotflex
             this.NicknameText.Focus();
         }
 
+        bool checker25 = false;
         private void LoginUserClick(object sender, EventArgs e) //Boton que inicia sesion
         {
             string username = NicknameText.Text;
             string password = PasswordText.Text;
-            
+            FotoPerfil.BackgroundImage = Properties.Resources.foto_perfil_base;
             OnLoginButtonClicked(username, password); //Se dispara el evento, los controladores que lo escuchen haran algo
+            string path_canciones = @System.IO.Directory.GetCurrentDirectory() + "\\ReproductionTime.bin";
+            FotoPerfil.ImageLocation = photo_enter;
+            if (File.Exists(path_canciones))
+            {
+                bool truer = false;
+                List<double> times = new List<double>();
+                IFormatter formatter2 = new BinaryFormatter();
+                Stream stream2 = new FileStream("ReproductionTime.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+
+                for (int i = 0; i < 2; i++)
+                {
+                    double obj = (double)formatter2.Deserialize(stream2);
+
+
+                    times.Add(obj);
+
+                }
+                for (int i = 0; i < 3; i++)
+                {
+                    string obj2 = (string)formatter2.Deserialize(stream2);
+                    if (obj2 != "")
+                    {
+                        if (i == 0 && user_enter == obj2)
+                        {
+                            truer = true;
+                        }
+                        if (i == 1 && times.Count ==2 && truer == true)
+                        {
+                            ReproductorCancion.currentPlaylist = ReproductorCancion.newPlaylist("", "");//ingresar nombre de la cola
+                            ReproductorCancion.currentPlaylist.appendItem(ReproductorCancion.newMedia(obj2));
+                            ReproductorCancion.Ctlcontrols.currentPosition = times[0];
+                        }
+                        if (i == 2 && times.Count == 2 && truer == true)
+                        {
+                            ReproductorVideo.currentPlaylist = ReproductorVideo.newPlaylist("", "");//ingresar nombre de la col
+                            ReproductorVideo.currentPlaylist.appendItem(ReproductorVideo.newMedia(obj2));
+                            ReproductorVideo.Ctlcontrols.currentPosition = times[1];
+                        }
+                    }
+                }
+                stream2.Close();
+            }
         }
 
         private void Back_Click(object sender, EventArgs e) //Este boton ira del menu de inicio de sesion al titulo
@@ -659,6 +706,8 @@ namespace Spotflex
             panel3.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
+            panel_fijar_add_cancion.Visible = false;
+
         }
 
         private void pictureBox_back_create_music_Click(object sender, EventArgs e)
@@ -968,6 +1017,10 @@ namespace Spotflex
             panelAgregarunVid.Visible = true;
             panel_De_Agregar_Video.Visible = true;
             panel_fijar_info_cancion.Visible = false;
+            pictureBox_reproducir_cancion.Visible = false;
+            pictureBox8.Visible = false;
+            pictureBox_download.Visible = false;
+
         }
         #endregion
 
@@ -1261,6 +1314,12 @@ namespace Spotflex
                                 pictureBoxFoto_NuevoVid.ResetText();
                                 dateTimePickerNuevoVid.ResetText();
                                 pictureBox_add_video.ImageLocation = "";
+                                gender_actor.Clear();
+                                name_actor.Clear();
+                                age_actor.Clear();
+                                gender_director.Clear();
+                                name_director.Clear();
+                                age_director.Clear();
                                 SaveData(this, new EventArgs());
                                 MostrarInformacionMultimedia();
                                 label_error_add_video.Visible = false;
@@ -1297,6 +1356,8 @@ namespace Spotflex
         private void Form1_Load(object sender, EventArgs e)
         {
             MostrarInformacionMultimedia();
+
+
         }
         List<PictureBox> pictures_Galeria_Canciones = new List<PictureBox>();
         List<PictureBox> pictures_Galeria_Video = new List<PictureBox>();
@@ -1304,6 +1365,7 @@ namespace Spotflex
         List<Label> label_Galeria_Video = new List<Label>();
         public void MostrarInformacionMultimedia()
         {
+
             for (int i = 0; i < lista_fotos_biblioteca.Count(); i++)
             {
                 panel_galeria_canciones.Controls.Remove(lista_fotos_biblioteca[i]);
@@ -1312,6 +1374,7 @@ namespace Spotflex
             {
                 panel_galeria_canciones.Controls.Remove(lista_labels_biblioteca[i]);
             }
+
             lista_fotos_biblioteca.Clear();
             lista_labels_biblioteca.Clear();
             int cancion_pos_x = 50;
@@ -1773,7 +1836,7 @@ namespace Spotflex
 
                 if (p!= null)
                 {
-                    PictureBox currentable = (PictureBox)sender;
+                    //PictureBox currentable = (PictureBox)sender;
                     string url_cancion = ReproducirCancion(this, new AddMultimediaEventArgs() { name_multimedia_file = name_song });
 
                     multimedia_playing = name_song;
@@ -2025,6 +2088,7 @@ namespace Spotflex
                     MostrarInformacionMultimedia();
                 }
             }
+
         }
 
         private void OnRegistredButtonClicked(string name, int edad, string user, string password, bool premium, bool private_user)
@@ -2204,6 +2268,11 @@ namespace Spotflex
             pictureBox_reproducir_cancion.Visible = true;
             pictureBox_download.Visible = true;
             label_size_cancion.Visible = true;
+            pictureBox_1star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_2star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_3star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_4star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_5star_Canciones.Image = Properties.Resources.nostar;
             PictureBox currentable = (PictureBox)sender;
             string name_cancion = currentable.Name.Remove(0, 11);
             ShowInfoCancion(this, new AddMultimediaEventArgs() { name_multimedia_file = name_cancion });
@@ -2234,8 +2303,17 @@ namespace Spotflex
             pictureBox_reproducir_cancion.Visible = true;
             pictureBox_download.Visible = true;
             label_size_cancion.Visible = true;
-            panel_reproductor_Video.Visible = false;
+            if(checker25 == false)
+            {
+                panel_reproductor_Video.Visible = false;
+            }
             panel7.Visible = true;
+
+            pictureBoxEstrellaVideo1.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo2.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo3.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo4.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo5.Image = Properties.Resources.nostar;
 
             PictureBox currentable = (PictureBox)sender;
             string name_Video = currentable.Name.Remove(0, 11);
@@ -2957,6 +3035,13 @@ namespace Spotflex
             panel4.Visible = false;
             panel5.Visible = false;
             panel_usuario_buscado.Visible = false;
+
+            pictureBox_1star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_2star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_3star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_4star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_5star_Canciones.Image = Properties.Resources.nostar;
+
             Label currentable = (Label)sender;
             string name_cancion = currentable.Name.Remove(0, 14);
             ShowInfoCancion(this, new AddMultimediaEventArgs() { name_multimedia_file = name_cancion });
@@ -3202,13 +3287,13 @@ namespace Spotflex
             picture_multimedia.Name = "pictureBox_" + nombre;
             picture_multimedia.ImageLocation = path;
 
-            if(y == 40 && path == null)
+            if(y == 40 && (path == "" || path == null))
             {
-                picture_multimedia.ImageLocation = @System.IO.Directory.GetCurrentDirectory() + "\\default\\8250690_0.jpg";
+                picture_multimedia.Image = Properties.Resources.icon_cancion;
             }
-            else if(y == 70 && path == null)
+            else if(y == 70 && (path == "" || path == null))
             {
-                picture_multimedia.ImageLocation = @System.IO.Directory.GetCurrentDirectory() + "\\default\\video.png";
+                picture_multimedia.Image = Properties.Resources.video_icon;
             }
             picture_multimedia.Width = 140;
             picture_multimedia.Height = 140;
@@ -4179,6 +4264,7 @@ namespace Spotflex
             ReproducirPlaylist.Visible = true;
             panel_favoritos.Visible = true;
             panel_Eliminar_Playlist.Visible = true;
+            Mis_Playlist_Eliminar.Visible = true;
             panelComentarios_Video.Visible = true;
             Mis_Playlist_Eliminar.Controls.Clear();
             yPVC = -165;
@@ -4450,6 +4536,13 @@ namespace Spotflex
             pictureBox_download.Visible = true;
             PictureBox currentable = (PictureBox)sender;
             string name_cancion = currentable.Name;
+
+            pictureBox_1star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_2star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_3star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_4star_Canciones.Image = Properties.Resources.nostar;
+            pictureBox_5star_Canciones.Image = Properties.Resources.nostar;
+
             ShowInfoCancion(this, new AddMultimediaEventArgs() { name_multimedia_file = name_cancion });
             radioButton_add_favorito.Checked = CheckedFavorite(this, new AddMultimediaEventArgs() { name_multimedia_file = name_cancion, user = user_enter });
             if (reproduciendo && multimedia_playing == name_cancion)
@@ -4541,10 +4634,16 @@ namespace Spotflex
             panel_playlist.Visible = false;
             panel_busqueda_avanzada.Visible = false;
 
+            pictureBoxEstrellaVideo1.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo2.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo3.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo4.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo5.Image = Properties.Resources.nostar;
+
             PictureBox currentable = (PictureBox)sender;
             string name_Video = currentable.Name;
             ShowInfoVideo(this, new AddMultimediaEventArgs() { name_multimedia_file = name_Video });
-            radioButton_add_favorito.Checked = CheckedFavorite(this, new AddMultimediaEventArgs() { name_multimedia_file = name_Video, user = user_enter });
+            radioButtonFavoritoNuevoVideo.Checked = CheckedFavorite(this, new AddMultimediaEventArgs() { name_multimedia_file = name_Video, user = user_enter });
             if (reproduciendo && multimedia_playing == name_Video)
             {
                 panel_reproductor_Video.Visible = true;
@@ -4577,10 +4676,17 @@ namespace Spotflex
             panel_playlist_mostrar.Visible = false;
             panel_Eliminar_Playlist.Visible = false;
             panel_busqueda_avanzada.Visible = false;
+
+            pictureBoxEstrellaVideo1.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo2.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo3.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo4.Image = Properties.Resources.nostar;
+            pictureBoxEstrellaVideo5.Image = Properties.Resources.nostar;
+
             Label currentable = (Label)sender;
             string name_video = currentable.Name.Remove(0, 14);
             ShowInfoVideo(this, new AddMultimediaEventArgs() { name_multimedia_file = name_video });
-            radioButton_add_favorito.Checked = CheckedFavorite(this, new AddMultimediaEventArgs() { name_multimedia_file = name_video, user = user_enter });
+            radioButtonFavoritoNuevoVideo.Checked = CheckedFavorite(this, new AddMultimediaEventArgs() { name_multimedia_file = name_video, user = user_enter });
             if (reproduciendo && multimedia_playing == name_video)
             {
                 panel_reproductor_Video.Visible = true;
@@ -4965,6 +5071,72 @@ namespace Spotflex
 
         private void panel_de_rankings_Paint(object sender, PaintEventArgs e)
         {
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            //MessageBox.Show(ReproductorCancion.Ctlcontrols.currentPosition.ToString());
+            double time = ReproductorCancion.Ctlcontrols.currentPosition;
+            double time2 = ReproductorVideo.Ctlcontrols.currentPosition;
+            double time3 = Reproductor_de_Playlist.Ctlcontrols.currentPosition;
+            //ReproductorCancion.URL
+            //ReproductorCancion.settings.defaultFrame = 10;
+            string CancionPath = "";
+            string VideosPath = "";
+            if(ReproductorCancion.Ctlcontrols.currentItem != null)
+            {
+                CancionPath = ReproductorCancion.Ctlcontrols.currentItem.sourceURL;
+
+            }
+            if(ReproductorVideo.Ctlcontrols.currentItem != null)
+            {
+                VideosPath = ReproductorVideo.Ctlcontrols.currentItem.sourceURL;
+
+            }
+            
+
+            
+            if(user_enter != null)
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream8 = new FileStream("ReproductionTime.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(stream8, time);
+                formatter.Serialize(stream8, time2);
+                formatter.Serialize(stream8, user_enter);
+                formatter.Serialize(stream8, CancionPath);
+                formatter.Serialize(stream8, VideosPath);
+
+                stream8.Close();
+            }
+
+
+
+
+        }
+
+        private void checkBoxHActor_nuevovid_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (checkBoxMActores_nuevovid.Checked)
+                checkBoxMActores_nuevovid.Checked = false;
+        }
+
+        private void checkBoxMActores_nuevovid_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (checkBoxHActor_nuevovid.Checked)
+                checkBoxHActor_nuevovid.Checked = false;
+        }
+
+        private void checkBoxM_direcvid_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (checkbtnHdirec_vid.Checked)
+                checkbtnHdirec_vid.Checked = false;
+        }
+
+        private void checkbtnHdirec_vid_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (checkBoxM_direcvid.Checked)
+                checkBoxM_direcvid.Checked = false;
         }
     }
 }

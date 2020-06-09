@@ -153,6 +153,16 @@ namespace Spotflex.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap foto_perfil_base {
+            get {
+                object obj = ResourceManager.GetObject("foto_perfil_base", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GaleriaFC {
             get {
                 object obj = ResourceManager.GetObject("GaleriaFC", resourceCulture);
@@ -166,6 +176,16 @@ namespace Spotflex.Properties {
         internal static System.Drawing.Bitmap GaleriaFV {
             get {
                 object obj = ResourceManager.GetObject("GaleriaFV", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_cancion {
+            get {
+                object obj = ResourceManager.GetObject("icon_cancion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +296,16 @@ namespace Spotflex.Properties {
         internal static System.Drawing.Bitmap totoro {
             get {
                 object obj = ResourceManager.GetObject("totoro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap video_icon {
+            get {
+                object obj = ResourceManager.GetObject("video_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

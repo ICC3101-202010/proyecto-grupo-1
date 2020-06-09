@@ -106,14 +106,14 @@ namespace Spotflex.Controladores
                 {
                     stream2.Close();
                     IFormatter formatter = new BinaryFormatter();
-                    Stream stream = new FileStream("Usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                    formatter.Serialize(stream, usuarios.Count());
+                    Stream stream9 = new FileStream("Usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                    formatter.Serialize(stream9, usuarios.Count());
                     for (int i = 0; i < usuarios.Count(); i++)
                     {
-                        formatter.Serialize(stream, usuarios[i]);
+                        formatter.Serialize(stream9, usuarios[i]);
 
                     }
-                    stream.Close();
+                    stream9.Close();
 
                 }
             }
@@ -128,15 +128,15 @@ namespace Spotflex.Controladores
                     new List<Usuario>(), new List<Canciones>(), new List<Video>(), new List<Playlist>(), new List<Canciones>(),
                     new List<Video>()));
                 //serializar
-                Stream stream = new FileStream("Usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                Stream stream4 = new FileStream("Usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
                 IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(stream, usuarios.Count());
+                formatter.Serialize(stream4, usuarios.Count());
                 for (int i = 0; i < usuarios.Count(); i++)
                 {
-                    formatter.Serialize(stream, usuarios[i]);
+                    formatter.Serialize(stream4, usuarios[i]);
 
                 }
-                stream.Close();
+                stream4.Close();
             }
         }
 
@@ -652,13 +652,13 @@ namespace Spotflex.Controladores
         public void OnSaveData(object source, EventArgs e)
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("Usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, usuarios.Count());
+            Stream stream6 = new FileStream("Usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream6, usuarios.Count());
             for (int i = 0; i < usuarios.Count(); i++)
             {
-                formatter.Serialize(stream, usuarios[i]);
+                formatter.Serialize(stream6, usuarios[i]);
             }
-            stream.Close();
+            stream6.Close();
         }
 
         public void OnRemoveCancionFav(object source, AddMultimediaEventArgs e)

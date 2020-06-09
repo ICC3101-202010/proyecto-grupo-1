@@ -227,13 +227,13 @@ namespace Spotflex.Controladores
         public void OnSaveData(object source, EventArgs e)
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("Personas.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, personas.Count());
+            Stream stream3 = new FileStream("Personas.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream3, personas.Count());
             for (int i = 0; i < personas.Count(); i++)
             {
-                formatter.Serialize(stream, personas[i]);
+                formatter.Serialize(stream3, personas[i]);
             }
-            stream.Close();
+            stream3.Close();
         }
     }
 }

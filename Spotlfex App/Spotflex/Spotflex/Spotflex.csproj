@@ -175,5 +175,17 @@
   <ItemGroup>
     <None Include="Resources\star.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cancion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo perfil.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\176-1768859_myeong-hwan-yoo-unknown-profile-picture-png.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
