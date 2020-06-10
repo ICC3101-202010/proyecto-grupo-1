@@ -1014,6 +1014,7 @@ namespace Spotflex
             panel_title_add_cancion.Visible = true;
             panel_datos_add_cancion.Visible = true;
             panel_fijar_add_cancion.Visible = true;
+            panel_info_cancion.Visible = false;
             panelAgregarunVid.Visible = true;
             panel_De_Agregar_Video.Visible = true;
             panel_fijar_info_cancion.Visible = false;
@@ -2304,6 +2305,7 @@ namespace Spotflex
             pictureBox_reproducir_cancion.Visible = true;
             pictureBox_download.Visible = true;
             label_size_cancion.Visible = true;
+
             if(checker25 == false)
             {
                 panel_reproductor_Video.Visible = false;
@@ -2639,6 +2641,8 @@ namespace Spotflex
             panel_resultado_busqueda_general.Visible = true;
             panel_usuario_buscado.Visible = true;
             panel_info_artista.Visible = true;
+            panel7.Visible = true;
+            pictureBox8.Visible = true;
             lblTituloDelVideoAReproducir.Text = nombre;
             lblDirectores_ReproducirVideo.Text ="Fecha de publicacion: "+fecha +"\nDirectores:";
             lblDirectores_ReproducirVideo.Width = 200;

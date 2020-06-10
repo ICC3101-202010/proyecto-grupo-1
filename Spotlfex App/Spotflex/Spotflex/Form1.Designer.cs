@@ -125,6 +125,10 @@ namespace Spotflex
             this.label6 = new System.Windows.Forms.Label();
             this.textBox_buscar_ranking = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_Reproducri_vid = new System.Windows.Forms.PictureBox();
             this.panel_reproductor_Video = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.ReproductorVideo = new AxWMPLib.AxWindowsMediaPlayer();
@@ -150,10 +154,6 @@ namespace Spotflex
             this.lblDirectores_ReproducirVideo = new System.Windows.Forms.Label();
             this.lblTituloDelVideoAReproducir = new System.Windows.Forms.Label();
             this.pictureBoxregresar_desde_reproducirvideo = new System.Windows.Forms.PictureBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_Reproducri_vid = new System.Windows.Forms.PictureBox();
             this.label_trabajo_artistas = new System.Windows.Forms.Label();
             this.button_seguir_artista = new System.Windows.Forms.Button();
             this.label_info_artista_seguidores = new System.Windows.Forms.Label();
@@ -417,6 +417,10 @@ namespace Spotflex
             ((System.ComponentModel.ISupportInitialize)(this.Add_Video_Playlist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Add_Cancion_Playlist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Reproducri_vid)).BeginInit();
             this.panel_reproductor_Video.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReproductorVideo)).BeginInit();
@@ -429,10 +433,6 @@ namespace Spotflex
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEstrellaVideo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEstrellaVideo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxregresar_desde_reproducirvideo)).BeginInit();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Reproducri_vid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_foto_perfil_usuario_buscado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -702,6 +702,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelReproducirVideo.Controls.Add(this.panel_busqueda_avanzada);
+            this.panelReproducirVideo.Controls.Add(this.panel7);
             this.panelReproducirVideo.Controls.Add(this.panel_reproductor_Video);
             this.panelReproducirVideo.Controls.Add(this.pictureBox4);
             this.panelReproducirVideo.Controls.Add(this.pictureBox3);
@@ -725,7 +726,6 @@ namespace Spotflex
             this.panelReproducirVideo.Controls.Add(this.lblDirectores_ReproducirVideo);
             this.panelReproducirVideo.Controls.Add(this.lblTituloDelVideoAReproducir);
             this.panelReproducirVideo.Controls.Add(this.pictureBoxregresar_desde_reproducirvideo);
-            this.panelReproducirVideo.Controls.Add(this.panel7);
             this.panelReproducirVideo.Location = new System.Drawing.Point(0, 0);
             this.panelReproducirVideo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelReproducirVideo.Name = "panelReproducirVideo";
@@ -1233,7 +1233,7 @@ namespace Spotflex
             this.richTextBoxComentar_Video.Location = new System.Drawing.Point(148, 64);
             this.richTextBoxComentar_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBoxComentar_Video.Name = "richTextBoxComentar_Video";
-            this.richTextBoxComentar_Video.Size = new System.Drawing.Size(565, 131);
+            this.richTextBoxComentar_Video.Size = new System.Drawing.Size(520, 131);
             this.richTextBoxComentar_Video.TabIndex = 0;
             this.richTextBoxComentar_Video.Text = "";
             // 
@@ -1301,7 +1301,7 @@ namespace Spotflex
             this.Reproductor_de_Playlist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Reproductor_de_Playlist.Name = "Reproductor_de_Playlist";
             this.Reproductor_de_Playlist.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("Reproductor_de_Playlist.OcxState")));
-            this.Reproductor_de_Playlist.Size = new System.Drawing.Size(524, 327);
+            this.Reproductor_de_Playlist.Size = new System.Drawing.Size(392, 327);
             this.Reproductor_de_Playlist.TabIndex = 0;
             // 
             // label_resultado_busqueda_especifica
@@ -1717,6 +1717,54 @@ namespace Spotflex
             this.label7.TabIndex = 29;
             this.label7.Text = "Puedes buscarlo igual a una calificacion o por intervalos (ej: >4 o <4)";
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.pictureBox8);
+            this.panel7.Controls.Add(this.pictureBox7);
+            this.panel7.Controls.Add(this.pictureBox_Reproducri_vid);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel7.Location = new System.Drawing.Point(655, 0);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(91, 719);
+            this.panel7.TabIndex = 24;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Image = global::Spotflex.Properties.Resources.reproducir;
+            this.pictureBox8.InitialImage = global::Spotflex.Properties.Resources.reproducir;
+            this.pictureBox8.Location = new System.Drawing.Point(-3, 50);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(88, 92);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 2;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 1;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox_Reproducri_vid
+            // 
+            this.pictureBox_Reproducri_vid.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox_Reproducri_vid.InitialImage = null;
+            this.pictureBox_Reproducri_vid.Location = new System.Drawing.Point(-1, 32);
+            this.pictureBox_Reproducri_vid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox_Reproducri_vid.Name = "pictureBox_Reproducri_vid";
+            this.pictureBox_Reproducri_vid.Size = new System.Drawing.Size(96, 94);
+            this.pictureBox_Reproducri_vid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Reproducri_vid.TabIndex = 0;
+            this.pictureBox_Reproducri_vid.TabStop = false;
+            // 
             // panel_reproductor_Video
             // 
             this.panel_reproductor_Video.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1734,7 +1782,7 @@ namespace Spotflex
             this.pictureBox5.BackColor = System.Drawing.Color.Black;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox5.Image = global::Spotflex.Properties.Resources.pngocean_com__3_;
-            this.pictureBox5.Location = new System.Drawing.Point(565, 2);
+            this.pictureBox5.Location = new System.Drawing.Point(550, 2);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(27, 25);
@@ -2007,54 +2055,6 @@ namespace Spotflex
             this.pictureBoxregresar_desde_reproducirvideo.TabIndex = 1;
             this.pictureBoxregresar_desde_reproducirvideo.TabStop = false;
             this.pictureBoxregresar_desde_reproducirvideo.Click += new System.EventHandler(this.pictureBoxregresar_desde_reproducirvideo_Click);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.pictureBox8);
-            this.panel7.Controls.Add(this.pictureBox7);
-            this.panel7.Controls.Add(this.pictureBox_Reproducri_vid);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(655, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(91, 719);
-            this.panel7.TabIndex = 24;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = global::Spotflex.Properties.Resources.reproducir;
-            this.pictureBox8.InitialImage = global::Spotflex.Properties.Resources.reproducir;
-            this.pictureBox8.Location = new System.Drawing.Point(-3, 50);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(88, 92);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 2;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 1;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox_Reproducri_vid
-            // 
-            this.pictureBox_Reproducri_vid.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_Reproducri_vid.InitialImage = null;
-            this.pictureBox_Reproducri_vid.Location = new System.Drawing.Point(-1, 32);
-            this.pictureBox_Reproducri_vid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox_Reproducri_vid.Name = "pictureBox_Reproducri_vid";
-            this.pictureBox_Reproducri_vid.Size = new System.Drawing.Size(96, 94);
-            this.pictureBox_Reproducri_vid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_Reproducri_vid.TabIndex = 0;
-            this.pictureBox_Reproducri_vid.TabStop = false;
             // 
             // label_trabajo_artistas
             // 
@@ -2613,7 +2613,7 @@ namespace Spotflex
             this.panel_info_cancion.Controls.Add(this.label_cancion_Artistas);
             this.panel_info_cancion.Controls.Add(this.pictureBox_foto_cancion);
             this.panel_info_cancion.Controls.Add(this.label_info_nombre_cancion);
-            this.panel_info_cancion.Location = new System.Drawing.Point(0, 51);
+            this.panel_info_cancion.Location = new System.Drawing.Point(0, 0);
             this.panel_info_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_info_cancion.Name = "panel_info_cancion";
             this.panel_info_cancion.Size = new System.Drawing.Size(746, 622);
@@ -4850,6 +4850,10 @@ namespace Spotflex
             ((System.ComponentModel.ISupportInitialize)(this.Add_Video_Playlist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Add_Cancion_Playlist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Reproducri_vid)).EndInit();
             this.panel_reproductor_Video.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReproductorVideo)).EndInit();
@@ -4862,10 +4866,6 @@ namespace Spotflex
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEstrellaVideo2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEstrellaVideo1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxregresar_desde_reproducirvideo)).EndInit();
-            this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Reproducri_vid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_foto_perfil_usuario_buscado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
