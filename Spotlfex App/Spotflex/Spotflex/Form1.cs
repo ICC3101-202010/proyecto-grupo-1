@@ -1951,6 +1951,7 @@ namespace Spotflex
             pictureBox_download.Visible = false;
             label_size_cancion.Visible = false;
             label_size_cancion.Visible = true;
+            panel_De_Agregar_Video.Visible = false;
             panel4.Refresh();
             panel5.Refresh();
             OnDeleteSong();
@@ -2589,7 +2590,7 @@ namespace Spotflex
             panel4.Visible = false;
             panel5.Visible = false;
             label_info_nombre_cancion.Text = nombre;
-            label_cancion_Artistas.Text = "Fecha de inclusion: "+fecha+"\nArtistas:\n";
+            label_cancion_Artistas.Text = "Fecha de publicacion: "+fecha+"\nArtistas:\n";
             label_cancion_Artistas.Width = 200;
             foreach(string data in artistas)
             {
@@ -2639,7 +2640,7 @@ namespace Spotflex
             panel_usuario_buscado.Visible = true;
             panel_info_artista.Visible = true;
             lblTituloDelVideoAReproducir.Text = nombre;
-            lblDirectores_ReproducirVideo.Text ="Fecha de ingreso: "+fecha +"\nDirectores:";
+            lblDirectores_ReproducirVideo.Text ="Fecha de publicacion: "+fecha +"\nDirectores:";
             lblDirectores_ReproducirVideo.Width = 200;
             foreach (string data in directores)
             {
@@ -5064,14 +5065,7 @@ namespace Spotflex
             panel_informacion.Visible = false;
         }
 
-        private void pictureBox12_Click(object sender, EventArgs e)
-        {
-           
-        }
 
-        private void panel_de_rankings_Paint(object sender, PaintEventArgs e)
-        {
-        }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {

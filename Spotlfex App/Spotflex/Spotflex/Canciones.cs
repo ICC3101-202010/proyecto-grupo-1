@@ -42,7 +42,8 @@ namespace Spotflex
             string workingDirectory = Environment.CurrentDirectory;
             string C = Path.GetDirectoryName(carpeta_archivo);
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string subdir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Descargas Spotflix";
+            string newPath = Path.GetFullPath(Path.Combine(path, @"..\..\"));
+            string subdir = path + "\\Descargas Spotflix";
             string subdir2 = @C;
             if (!Directory.Exists(subdir))
             {

@@ -631,10 +631,10 @@ namespace Spotflex
             this.panel_comentarios_cancion.Controls.Add(this.button_comentar_cancion);
             this.panel_comentarios_cancion.Controls.Add(this.richTextBox_caja_de_comentarios);
             this.panel_comentarios_cancion.Controls.Add(this.label_subtitulo_comentarios_Cancion);
-            this.panel_comentarios_cancion.Location = new System.Drawing.Point(262, 2);
+            this.panel_comentarios_cancion.Location = new System.Drawing.Point(259, 4);
             this.panel_comentarios_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_comentarios_cancion.Name = "panel_comentarios_cancion";
-            this.panel_comentarios_cancion.Size = new System.Drawing.Size(746, 725);
+            this.panel_comentarios_cancion.Size = new System.Drawing.Size(746, 719);
             this.panel_comentarios_cancion.TabIndex = 2;
             this.panel_comentarios_cancion.Visible = false;
             // 
@@ -650,7 +650,7 @@ namespace Spotflex
             this.panel_resultado_busqueda_general.Location = new System.Drawing.Point(0, 0);
             this.panel_resultado_busqueda_general.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_resultado_busqueda_general.Name = "panel_resultado_busqueda_general";
-            this.panel_resultado_busqueda_general.Size = new System.Drawing.Size(743, 723);
+            this.panel_resultado_busqueda_general.Size = new System.Drawing.Size(746, 719);
             this.panel_resultado_busqueda_general.TabIndex = 4;
             this.panel_resultado_busqueda_general.Visible = false;
             // 
@@ -671,7 +671,7 @@ namespace Spotflex
             this.panel_usuario_buscado.Location = new System.Drawing.Point(0, 0);
             this.panel_usuario_buscado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_usuario_buscado.Name = "panel_usuario_buscado";
-            this.panel_usuario_buscado.Size = new System.Drawing.Size(743, 723);
+            this.panel_usuario_buscado.Size = new System.Drawing.Size(746, 719);
             this.panel_usuario_buscado.TabIndex = 6;
             this.panel_usuario_buscado.Visible = false;
             // 
@@ -692,7 +692,7 @@ namespace Spotflex
             this.panel_info_artista.Location = new System.Drawing.Point(0, 0);
             this.panel_info_artista.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_info_artista.Name = "panel_info_artista";
-            this.panel_info_artista.Size = new System.Drawing.Size(743, 723);
+            this.panel_info_artista.Size = new System.Drawing.Size(746, 719);
             this.panel_info_artista.TabIndex = 12;
             this.panel_info_artista.Visible = false;
             // 
@@ -729,7 +729,7 @@ namespace Spotflex
             this.panelReproducirVideo.Location = new System.Drawing.Point(0, 0);
             this.panelReproducirVideo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelReproducirVideo.Name = "panelReproducirVideo";
-            this.panelReproducirVideo.Size = new System.Drawing.Size(743, 723);
+            this.panelReproducirVideo.Size = new System.Drawing.Size(746, 719);
             this.panelReproducirVideo.TabIndex = 14;
             this.panelReproducirVideo.Visible = false;
             // 
@@ -770,7 +770,7 @@ namespace Spotflex
             this.panel_busqueda_avanzada.Location = new System.Drawing.Point(0, 0);
             this.panel_busqueda_avanzada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_busqueda_avanzada.Name = "panel_busqueda_avanzada";
-            this.panel_busqueda_avanzada.Size = new System.Drawing.Size(743, 723);
+            this.panel_busqueda_avanzada.Size = new System.Drawing.Size(746, 719);
             this.panel_busqueda_avanzada.TabIndex = 25;
             this.panel_busqueda_avanzada.Visible = false;
             // 
@@ -795,7 +795,7 @@ namespace Spotflex
             this.panel_playlist.Location = new System.Drawing.Point(0, 0);
             this.panel_playlist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_playlist.Name = "panel_playlist";
-            this.panel_playlist.Size = new System.Drawing.Size(743, 723);
+            this.panel_playlist.Size = new System.Drawing.Size(746, 719);
             this.panel_playlist.TabIndex = 26;
             this.panel_playlist.Visible = false;
             // 
@@ -810,7 +810,7 @@ namespace Spotflex
             this.panel_resultado_busqueda_avanzada.Location = new System.Drawing.Point(0, 0);
             this.panel_resultado_busqueda_avanzada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_resultado_busqueda_avanzada.Name = "panel_resultado_busqueda_avanzada";
-            this.panel_resultado_busqueda_avanzada.Size = new System.Drawing.Size(743, 723);
+            this.panel_resultado_busqueda_avanzada.Size = new System.Drawing.Size(746, 719);
             this.panel_resultado_busqueda_avanzada.TabIndex = 9;
             this.panel_resultado_busqueda_avanzada.Visible = false;
             // 
@@ -828,7 +828,7 @@ namespace Spotflex
             this.ReproducirPlaylist.Location = new System.Drawing.Point(0, 0);
             this.ReproducirPlaylist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReproducirPlaylist.Name = "ReproducirPlaylist";
-            this.ReproducirPlaylist.Size = new System.Drawing.Size(743, 723);
+            this.ReproducirPlaylist.Size = new System.Drawing.Size(746, 719);
             this.ReproducirPlaylist.TabIndex = 28;
             this.ReproducirPlaylist.Visible = false;
             // 
@@ -846,7 +846,7 @@ namespace Spotflex
             this.panel_favoritos.Location = new System.Drawing.Point(0, 0);
             this.panel_favoritos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_favoritos.Name = "panel_favoritos";
-            this.panel_favoritos.Size = new System.Drawing.Size(743, 723);
+            this.panel_favoritos.Size = new System.Drawing.Size(746, 719);
             this.panel_favoritos.TabIndex = 3;
             this.panel_favoritos.Visible = false;
             // 
@@ -864,7 +864,7 @@ namespace Spotflex
             this.panelComentarios_Video.Location = new System.Drawing.Point(0, 0);
             this.panelComentarios_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelComentarios_Video.Name = "panelComentarios_Video";
-            this.panelComentarios_Video.Size = new System.Drawing.Size(743, 723);
+            this.panelComentarios_Video.Size = new System.Drawing.Size(746, 719);
             this.panelComentarios_Video.TabIndex = 10;
             // 
             // panel_Eliminar_Playlist
@@ -879,7 +879,7 @@ namespace Spotflex
             this.panel_Eliminar_Playlist.Location = new System.Drawing.Point(0, 0);
             this.panel_Eliminar_Playlist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_Eliminar_Playlist.Name = "panel_Eliminar_Playlist";
-            this.panel_Eliminar_Playlist.Size = new System.Drawing.Size(743, 723);
+            this.panel_Eliminar_Playlist.Size = new System.Drawing.Size(746, 719);
             this.panel_Eliminar_Playlist.TabIndex = 13;
             this.panel_Eliminar_Playlist.Visible = false;
             // 
@@ -901,10 +901,9 @@ namespace Spotflex
             this.panel_de_rankings.Location = new System.Drawing.Point(0, 0);
             this.panel_de_rankings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_de_rankings.Name = "panel_de_rankings";
-            this.panel_de_rankings.Size = new System.Drawing.Size(743, 723);
+            this.panel_de_rankings.Size = new System.Drawing.Size(746, 719);
             this.panel_de_rankings.TabIndex = 11;
             this.panel_de_rankings.Visible = false;
-            this.panel_de_rankings.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_de_rankings_Paint);
             // 
             // panel_Ranking_de_Canciones
             // 
@@ -920,7 +919,7 @@ namespace Spotflex
             this.panel_Ranking_de_Canciones.Location = new System.Drawing.Point(0, 0);
             this.panel_Ranking_de_Canciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_Ranking_de_Canciones.Name = "panel_Ranking_de_Canciones";
-            this.panel_Ranking_de_Canciones.Size = new System.Drawing.Size(743, 723);
+            this.panel_Ranking_de_Canciones.Size = new System.Drawing.Size(746, 719);
             this.panel_Ranking_de_Canciones.TabIndex = 7;
             this.panel_Ranking_de_Canciones.Visible = false;
             // 
@@ -941,7 +940,7 @@ namespace Spotflex
             this.panelRecomendaciones.Location = new System.Drawing.Point(0, 0);
             this.panelRecomendaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelRecomendaciones.Name = "panelRecomendaciones";
-            this.panelRecomendaciones.Size = new System.Drawing.Size(743, 723);
+            this.panelRecomendaciones.Size = new System.Drawing.Size(746, 719);
             this.panelRecomendaciones.TabIndex = 8;
             this.panelRecomendaciones.Visible = false;
             // 
@@ -956,7 +955,7 @@ namespace Spotflex
             this.panel_eliminar_usuario.Location = new System.Drawing.Point(0, 0);
             this.panel_eliminar_usuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_eliminar_usuario.Name = "panel_eliminar_usuario";
-            this.panel_eliminar_usuario.Size = new System.Drawing.Size(743, 723);
+            this.panel_eliminar_usuario.Size = new System.Drawing.Size(746, 719);
             this.panel_eliminar_usuario.TabIndex = 8;
             this.panel_eliminar_usuario.Visible = false;
             // 
@@ -1234,7 +1233,7 @@ namespace Spotflex
             this.richTextBoxComentar_Video.Location = new System.Drawing.Point(148, 64);
             this.richTextBoxComentar_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBoxComentar_Video.Name = "richTextBoxComentar_Video";
-            this.richTextBoxComentar_Video.Size = new System.Drawing.Size(0, 131);
+            this.richTextBoxComentar_Video.Size = new System.Drawing.Size(565, 131);
             this.richTextBoxComentar_Video.TabIndex = 0;
             this.richTextBoxComentar_Video.Text = "";
             // 
@@ -1302,7 +1301,7 @@ namespace Spotflex
             this.Reproductor_de_Playlist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Reproductor_de_Playlist.Name = "Reproductor_de_Playlist";
             this.Reproductor_de_Playlist.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("Reproductor_de_Playlist.OcxState")));
-            this.Reproductor_de_Playlist.Size = new System.Drawing.Size(521, 327);
+            this.Reproductor_de_Playlist.Size = new System.Drawing.Size(524, 327);
             this.Reproductor_de_Playlist.TabIndex = 0;
             // 
             // label_resultado_busqueda_especifica
@@ -1727,7 +1726,7 @@ namespace Spotflex
             this.panel_reproductor_Video.Location = new System.Drawing.Point(0, 87);
             this.panel_reproductor_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_reproductor_Video.Name = "panel_reproductor_Video";
-            this.panel_reproductor_Video.Size = new System.Drawing.Size(590, 313);
+            this.panel_reproductor_Video.Size = new System.Drawing.Size(593, 313);
             this.panel_reproductor_Video.TabIndex = 23;
             // 
             // pictureBox5
@@ -1752,7 +1751,7 @@ namespace Spotflex
             this.ReproductorVideo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReproductorVideo.Name = "ReproductorVideo";
             this.ReproductorVideo.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ReproductorVideo.OcxState")));
-            this.ReproductorVideo.Size = new System.Drawing.Size(590, 313);
+            this.ReproductorVideo.Size = new System.Drawing.Size(593, 313);
             this.ReproductorVideo.TabIndex = 1;
             // 
             // pictureBox4
@@ -2014,7 +2013,8 @@ namespace Spotflex
             this.panel7.Controls.Add(this.pictureBox8);
             this.panel7.Controls.Add(this.pictureBox7);
             this.panel7.Controls.Add(this.pictureBox_Reproducri_vid);
-            this.panel7.Location = new System.Drawing.Point(666, 0);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel7.Location = new System.Drawing.Point(655, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(91, 719);
@@ -2579,10 +2579,10 @@ namespace Spotflex
             this.panel_De_Agregar_Video.Controls.Add(this.lblDirector_vid);
             this.panel_De_Agregar_Video.Controls.Add(this.lblTitulo_vid);
             this.panel_De_Agregar_Video.Controls.Add(this.lblEjemploVideo);
-            this.panel_De_Agregar_Video.Location = new System.Drawing.Point(0, 40);
+            this.panel_De_Agregar_Video.Location = new System.Drawing.Point(0, 46);
             this.panel_De_Agregar_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_De_Agregar_Video.Name = "panel_De_Agregar_Video";
-            this.panel_De_Agregar_Video.Size = new System.Drawing.Size(744, 685);
+            this.panel_De_Agregar_Video.Size = new System.Drawing.Size(746, 673);
             this.panel_De_Agregar_Video.TabIndex = 35;
             // 
             // panel_info_cancion
@@ -2613,10 +2613,10 @@ namespace Spotflex
             this.panel_info_cancion.Controls.Add(this.label_cancion_Artistas);
             this.panel_info_cancion.Controls.Add(this.pictureBox_foto_cancion);
             this.panel_info_cancion.Controls.Add(this.label_info_nombre_cancion);
-            this.panel_info_cancion.Location = new System.Drawing.Point(0, 0);
+            this.panel_info_cancion.Location = new System.Drawing.Point(0, 51);
             this.panel_info_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_info_cancion.Name = "panel_info_cancion";
-            this.panel_info_cancion.Size = new System.Drawing.Size(744, 685);
+            this.panel_info_cancion.Size = new System.Drawing.Size(746, 622);
             this.panel_info_cancion.TabIndex = 37;
             this.panel_info_cancion.Visible = false;
             // 
@@ -2624,10 +2624,11 @@ namespace Spotflex
             // 
             this.panel_fijar_add_cancion.Controls.Add(this.panel_fijar_reproducir_cancion);
             this.panel_fijar_add_cancion.Controls.Add(this.pictureBox_reproducir_cancion);
-            this.panel_fijar_add_cancion.Location = new System.Drawing.Point(603, -2);
+            this.panel_fijar_add_cancion.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel_fijar_add_cancion.Location = new System.Drawing.Point(602, 0);
             this.panel_fijar_add_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_fijar_add_cancion.Name = "panel_fijar_add_cancion";
-            this.panel_fijar_add_cancion.Size = new System.Drawing.Size(144, 687);
+            this.panel_fijar_add_cancion.Size = new System.Drawing.Size(144, 622);
             this.panel_fijar_add_cancion.TabIndex = 1;
             this.panel_fijar_add_cancion.Visible = false;
             this.panel_fijar_add_cancion.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_fijar_add_cancion_Paint);
@@ -2698,7 +2699,7 @@ namespace Spotflex
             this.panel_reproductor_cancion.Location = new System.Drawing.Point(35, 52);
             this.panel_reproductor_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_reproductor_cancion.Name = "panel_reproductor_cancion";
-            this.panel_reproductor_cancion.Size = new System.Drawing.Size(569, 382);
+            this.panel_reproductor_cancion.Size = new System.Drawing.Size(571, 382);
             this.panel_reproductor_cancion.TabIndex = 55;
             this.panel_reproductor_cancion.Visible = false;
             // 
@@ -2723,7 +2724,7 @@ namespace Spotflex
             this.ReproductorCancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReproductorCancion.Name = "ReproductorCancion";
             this.ReproductorCancion.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ReproductorCancion.OcxState")));
-            this.ReproductorCancion.Size = new System.Drawing.Size(569, 382);
+            this.ReproductorCancion.Size = new System.Drawing.Size(571, 382);
             this.ReproductorCancion.TabIndex = 0;
             // 
             // pictureBox_5star_Canciones
@@ -3036,7 +3037,7 @@ namespace Spotflex
             this.richTextBoxDescripcion_Nuevovid.Location = new System.Drawing.Point(244, 435);
             this.richTextBoxDescripcion_Nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBoxDescripcion_Nuevovid.Name = "richTextBoxDescripcion_Nuevovid";
-            this.richTextBoxDescripcion_Nuevovid.Size = new System.Drawing.Size(416, 46);
+            this.richTextBoxDescripcion_Nuevovid.Size = new System.Drawing.Size(418, 46);
             this.richTextBoxDescripcion_Nuevovid.TabIndex = 29;
             this.richTextBoxDescripcion_Nuevovid.Text = "";
             // 
@@ -3047,7 +3048,7 @@ namespace Spotflex
             this.textBoxGenero_nuevovid.Location = new System.Drawing.Point(246, 391);
             this.textBoxGenero_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxGenero_nuevovid.Name = "textBoxGenero_nuevovid";
-            this.textBoxGenero_nuevovid.Size = new System.Drawing.Size(463, 22);
+            this.textBoxGenero_nuevovid.Size = new System.Drawing.Size(465, 22);
             this.textBoxGenero_nuevovid.TabIndex = 28;
             // 
             // lblDirectorio_nuevovid
@@ -3129,7 +3130,7 @@ namespace Spotflex
             this.textBoxNombreActor_nuevovid.Location = new System.Drawing.Point(244, 212);
             this.textBoxNombreActor_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNombreActor_nuevovid.Name = "textBoxNombreActor_nuevovid";
-            this.textBoxNombreActor_nuevovid.Size = new System.Drawing.Size(465, 22);
+            this.textBoxNombreActor_nuevovid.Size = new System.Drawing.Size(467, 22);
             this.textBoxNombreActor_nuevovid.TabIndex = 20;
             // 
             // lblSexoActores_nuevovid
@@ -3190,7 +3191,7 @@ namespace Spotflex
             this.textBoxEstudio_nuevovid.Location = new System.Drawing.Point(245, 310);
             this.textBoxEstudio_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEstudio_nuevovid.Name = "textBoxEstudio_nuevovid";
-            this.textBoxEstudio_nuevovid.Size = new System.Drawing.Size(464, 22);
+            this.textBoxEstudio_nuevovid.Size = new System.Drawing.Size(466, 22);
             this.textBoxEstudio_nuevovid.TabIndex = 14;
             // 
             // dateTimePickerNuevoVid
@@ -3272,7 +3273,7 @@ namespace Spotflex
             this.textBoxnombreDirector_nuevovid.Location = new System.Drawing.Point(244, 108);
             this.textBoxnombreDirector_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxnombreDirector_nuevovid.Name = "textBoxnombreDirector_nuevovid";
-            this.textBoxnombreDirector_nuevovid.Size = new System.Drawing.Size(393, 22);
+            this.textBoxnombreDirector_nuevovid.Size = new System.Drawing.Size(395, 22);
             this.textBoxnombreDirector_nuevovid.TabIndex = 6;
             // 
             // textBoxtitulo_nuevovid
@@ -3282,7 +3283,7 @@ namespace Spotflex
             this.textBoxtitulo_nuevovid.Location = new System.Drawing.Point(246, 68);
             this.textBoxtitulo_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxtitulo_nuevovid.Name = "textBoxtitulo_nuevovid";
-            this.textBoxtitulo_nuevovid.Size = new System.Drawing.Size(414, 22);
+            this.textBoxtitulo_nuevovid.Size = new System.Drawing.Size(416, 22);
             this.textBoxtitulo_nuevovid.TabIndex = 5;
             // 
             // lblSexo_direc_vid
@@ -3355,10 +3356,10 @@ namespace Spotflex
             this.panel3.Controls.Add(this.panel_label_borrar_Cancion);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(547, 417);
+            this.panel3.Location = new System.Drawing.Point(-2, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(744, 274);
+            this.panel3.Size = new System.Drawing.Size(750, 717);
             this.panel3.TabIndex = 57;
             this.panel3.Visible = false;
             // 
@@ -3427,7 +3428,7 @@ namespace Spotflex
             this.panel5.Location = new System.Drawing.Point(0, 358);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1010, 268);
+            this.panel5.Size = new System.Drawing.Size(1016, 268);
             this.panel5.TabIndex = 1;
             // 
             // panel4
@@ -3439,7 +3440,7 @@ namespace Spotflex
             this.panel4.Location = new System.Drawing.Point(3, 42);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1006, 281);
+            this.panel4.Size = new System.Drawing.Size(1012, 281);
             this.panel4.TabIndex = 0;
             // 
             // label_add_genero

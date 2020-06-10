@@ -485,7 +485,7 @@ namespace Spotflex.Controladores
                         }
                     }
                     appform.Informacion_video(data.Titulo, directores, actores,data.Genero, data.Duracion,
-                        data.Estudio, data.Portada, data.Get_Mean_Tier(), data.Numero_reproducciones, data.Descripcion,data.Fecha_inclusion);
+                        data.Estudio, data.Portada, data.Get_Mean_Tier(), data.Numero_reproducciones, data.Descripcion,data.Fecha_publicacion);
                 }
             }
         }
