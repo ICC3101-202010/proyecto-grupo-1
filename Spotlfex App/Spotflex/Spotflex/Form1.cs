@@ -794,6 +794,8 @@ namespace Spotflex
 
         private void pictureBox_add_song_to_data_Click(object sender, EventArgs e)
         {
+            pictureBox8.Visible = true;
+            panel3.Visible = false;
             try
             {
                 if (File.Exists(textBox_add_directorio_cancion.Text))
@@ -1019,7 +1021,7 @@ namespace Spotflex
             panel_De_Agregar_Video.Visible = true;
             panel_fijar_info_cancion.Visible = false;
             pictureBox_reproducir_cancion.Visible = false;
-            pictureBox8.Visible = false;
+            pictureBox8.Visible = true;
             pictureBox_download.Visible = false;
 
         }
@@ -2305,7 +2307,6 @@ namespace Spotflex
             pictureBox_reproducir_cancion.Visible = true;
             pictureBox_download.Visible = true;
             label_size_cancion.Visible = true;
-
             if(checker25 == false)
             {
                 panel_reproductor_Video.Visible = false;
@@ -2642,7 +2643,7 @@ namespace Spotflex
             panel_usuario_buscado.Visible = true;
             panel_info_artista.Visible = true;
             panel7.Visible = true;
-            pictureBox8.Visible = true;
+            pictureBox_Reproducri_vid.Visible = true;
             lblTituloDelVideoAReproducir.Text = nombre;
             lblDirectores_ReproducirVideo.Text ="Fecha de publicacion: "+fecha +"\nDirectores:";
             lblDirectores_ReproducirVideo.Width = 200;
@@ -3290,6 +3291,7 @@ namespace Spotflex
             PictureBox picture_multimedia = new PictureBox();
 
             picture_multimedia.Name = "pictureBox_" + nombre;
+            
             picture_multimedia.ImageLocation = path;
 
             if(y == 40 && (path == "" || path == null))
@@ -5136,5 +5138,137 @@ namespace Spotflex
             if (checkBoxM_direcvid.Checked)
                 checkBoxM_direcvid.Checked = false;
         }
+
+        private void go_to_tier_list_Click(object sender, EventArgs e)
+        {
+            panel_Ranking_de_Canciones.Visible = true;
+            panelRecomendaciones.Visible = true;
+            panel_eliminar_usuario.Visible = true;
+            tier_list.Visible = true;
+
+        }
+
+        private void Canciones_Click(object sender, EventArgs e)
+        {
+            panel_imagenes_tier.Controls.Clear();
+            tier_list_foto_panel.Controls.Clear();
+            check.Clear();
+            List<Canciones> can = GetAllSongs(this, new GetMultimediaDataEventArgs());
+            //List<Video> vid = GetAllVideos(this, new GetMultimediaDataEventArgs());
+            int variable = 0;
+
+            foreach(Canciones item in can)
+            {
+                PictureBox pic = add_multimedia_image(variable, 30,item.Titulo,item.Portada);
+                pic.Height = 100;
+                pic.Width = 110;
+                //pic.Image = Properties.Resources.totoro;
+                
+                variable += 150;
+                panel_imagenes_tier.Controls.Add(pic);
+                pic.Click += Pic_Click;
+            }
+
+
+        }
+
+        private void Videos_Click(object sender, EventArgs e)
+        {
+            panel_imagenes_tier.Controls.Clear();
+            tier_list_foto_panel.Controls.Clear();
+            check.Clear();
+            List<Video> vid = GetAllVideos(this, new GetMultimediaDataEventArgs());
+            int variable = 0;
+
+            foreach (Video item in vid)
+            {
+                PictureBox pic = add_multimedia_image(variable, 30, item.Titulo, item.Portada);
+                pic.Height = 100;
+                pic.Width = 110;
+                //pic.Image = Properties.Resources.totoro;
+
+                variable += 150;
+                panel_imagenes_tier.Controls.Add(pic);
+                pic.Click += Pic_Click;
+            }
+
+        }
+        private void Pic_Click(object sender, EventArgs e)
+        {
+            PictureBox currentable = (PictureBox)sender;
+
+            PictureBox pic2 = new PictureBox();
+            pic2.Image = currentable.Image;
+            pic2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pic2.Width = 40;
+            pic2.Height = 30;
+            pic2.Location = new Point(100, panel1.Height - 40);
+            pic2.Name = currentable.Name;
+            pic2.Click += Pic2_Click;
+            //truer2 = true;
+            //truer = true;
+            tier_list_foto_panel.Controls.Add(pic2);
+            panel_imagenes_tier.Controls.Remove(currentable);
+            //X -= 120;
+        }
+        List<string> check = new List<string>();
+        private void Pic2_Click(object sender, EventArgs e)
+        {
+            PictureBox currentable = (PictureBox)sender;
+
+            if (check.Contains(currentable.Name) == false)
+            {
+                currentable.MouseMove += Currentable_MouseMove;
+                check.Add(currentable.Name);
+            }
+
+        }
+
+        bool truer = true;
+
+        bool truer2 = true;
+        private void Currentable_MouseMove(object sender, MouseEventArgs e)
+        {
+            PictureBox currentable = (PictureBox)sender;
+            //MessageBox.Show(e.Button.ToString());
+
+
+            /*if (e.Button.ToString() == "Left")
+            {
+                truer2 = false;
+            }*/
+            if (truer2 == true && e.Button.ToString() == "Left")
+            {
+                truer2 = true;
+                int centrox = currentable.Size.Width / 2;
+                int centroy = currentable.Size.Height / 2;
+                currentable.Location = new Point(currentable.Location.X + e.X - currentable.Width / 2, currentable.Location.Y + e.Y - currentable.Height / 2);
+            }
+
+
+
+
+        }
+        private void Download_Click(object sender, EventArgs e)
+        {
+            Bitmap bmp = new Bitmap(tier_list_foto_panel.Width, tier_list_foto_panel.Height);
+            tier_list_foto_panel.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Image File (*.jpg) |*.jpg; *.jpeg"; 
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                bmp.Save(saveFileDialog.FileName);
+                //bmp.Save(@"C:\Users\carlo\Downloads\MyPanelImage.png");
+            }
+
+
+
+        }
+        
+        ///        using (Stream s = File.Open(saveFileDialog.FileName, FileMode.CreateNew))
+        ///using (StreamWriter sw = new StreamWriter(s))
+        ///{
+           /// MessageBox.Show(s);
+        ///}///
     }
 }
