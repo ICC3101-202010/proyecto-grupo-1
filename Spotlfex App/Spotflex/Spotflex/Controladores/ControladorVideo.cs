@@ -48,6 +48,7 @@ namespace Spotflex.Controladores
             this.appform.GetRankingVideo += OnGetRankingVideo;
             this.appform.OnChangingAllData += OnChangingAllData;
             this.appform.ChangedPhoto += OnChangedPhotoComent;
+            this.appform.VerVideo += OnVerVideo;
         }
 
         private Video  OnAddVideoToData(object source, Eventos.AddVideoUserDataEventArgs e)
@@ -288,6 +289,18 @@ namespace Spotflex.Controladores
                 }
 
             }
+        }
+
+        public bool OnVerVideo(object source, AddMultimediaEventArgs e)
+        {
+            foreach (Video data in Lista_video)
+            {
+                if (data.Titulo == e.name_multimedia_file)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public void OnAndVideoSearch(object sender, Eventos.DetailSearchEventArgs e)

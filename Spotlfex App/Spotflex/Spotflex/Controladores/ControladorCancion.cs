@@ -56,6 +56,7 @@ namespace Spotflex.Controladores
             this.appform.CheckWin += OnCheckWin;
             this.appform.RandomSong += OnRandomSong;
             this.appform.GetHint += OnGetPista;
+            this.appform.VerSong += OnVerSong;
         }
 
         private Canciones OnAddSongToData(object source, AddSongUserDataEventArgs e) {
@@ -173,6 +174,18 @@ namespace Spotflex.Controladores
                 }
             }
             return "";
+        }
+
+        public bool OnVerSong(object source, AddMultimediaEventArgs e)
+        {
+            foreach(Canciones data in lista_canciones)
+            {
+                if (data.Titulo == e.name_multimedia_file)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public void OnDownloadSong(object source, AddMultimediaEventArgs e)

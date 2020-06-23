@@ -161,6 +161,9 @@ namespace Spotflex
         public delegate Video GetVideoEventHandler(object source, AddMultimediaEventArgs args);
         public event GetVideoEventHandler GetVideo;
 
+        public delegate bool VerificadorMultimediaEventHandler(object source, AddMultimediaEventArgs args);
+        public event VerificadorMultimediaEventHandler VerSong;
+        public event VerificadorMultimediaEventHandler VerVideo;
 
         public delegate void AddComentarioEventHandler(object source, AddComentarioEventArgs args);
         public event AddComentarioEventHandler CommentAdded;
@@ -881,6 +884,7 @@ namespace Spotflex
                     string estudio_song = textBox_add_estudio_cancion.Text;
                     string fecha_publicacion_song = dateTimePicker_add_fecha_publicacion_cancion.Text;
                     fecha_publicacion_song = fecha_publicacion_song.Substring(fecha_publicacion_song.IndexOf(',') + 2);
+                    fecha_publicacion_song = fecha_publicacion_song.Replace("de", "");
                     string descripcion_song = richTextBox_add_descripcion_cancion.Text;
                     string photo_song = pictureBox_add_portada_cancion.ImageLocation;
 
@@ -918,10 +922,17 @@ namespace Spotflex
                     if (CanAddSong != null)
                     {
                         bool result = CanAddSong(this, new LoginEventArgs() { Nickname = user_enter });
+                        bool result2 = VerSong(this, new AddMultimediaEventArgs() { name_multimedia_file = title_song });
                         if (result == false)
                         {
                             label_error_add_cancion.ForeColor = Color.Red;
                             label_error_add_cancion.Text = "No puede ingresar mas canciones\nal sistema, cambiese a premium";
+                            label_error_add_cancion.Visible = true;
+                        }
+                        else if (result2 == false)
+                        {
+                            label_error_add_cancion.ForeColor = Color.Red;
+                            label_error_add_cancion.Text = "Hay una cancion con el mismo titulo";
                             label_error_add_cancion.Visible = true;
                         }
                         else if (textBox_add_titulo_cancion.Text == "")
@@ -1266,6 +1277,7 @@ namespace Spotflex
                     string estudio_song = textBoxEstudio_nuevovid.Text;
                     string fecha_publicacion_song = dateTimePickerNuevoVid.Text;
                     fecha_publicacion_song = fecha_publicacion_song.Substring(fecha_publicacion_song.IndexOf(',') + 2);
+                    fecha_publicacion_song = fecha_publicacion_song.Replace("de", "");
                     string descripcion_song = richTextBoxDescripcion_Nuevovid.Text;
                     string photo_song = pictureBoxFoto_NuevoVid.ImageLocation;
                     string directory_song = textBoxDirecorio_nuevovid.Text;
@@ -1291,10 +1303,17 @@ namespace Spotflex
                     if (CanAddVideo != null)
                     {
                         bool result = CanAddVideo(this, new LoginEventArgs() { Nickname = user_enter });
+                        bool result2 = VerVideo(this, new AddMultimediaEventArgs() { name_multimedia_file = title_song });
                         if (result == false)
                         {
                             label_error_add_video.ForeColor = Color.Red;
-                            label_error_add_video.Text = "No puede ingresar mas canciones\nal sistema, cambiese a premium";
+                            label_error_add_video.Text = "No puede ingresar mas videos\nal sistema, cambiese a premium";
+                            label_error_add_video.Visible = true;
+                        }
+                        else if (result2 == false)
+                        {
+                            label_error_add_video.ForeColor = Color.Red;
+                            label_error_add_video.Text = "Hay un video con el mismo titulo";
                             label_error_add_video.Visible = true;
                         }
                         else if (textBoxtitulo_nuevovid.Text == "")
