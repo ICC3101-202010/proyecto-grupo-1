@@ -58,6 +58,7 @@ namespace Spotflex.Controladores
             this.appform.SaveData += OnSaveData;
             this.controlador.GetUsers += OnGetPlatformUsers;
             this.appform.DetectPrivate += OnDetectPrivate;
+            this.appform.DetectPremium += OnDetectPremium;
             this.appform.MyFavs += OnGetMyFavs;
             this.appform.MyRecomendaciones += OnGetMyRecomendaciones;
             this.appform.PutFavoriteVideo += OnPutFavoriteVideo;
@@ -72,6 +73,8 @@ namespace Spotflex.Controladores
             this.appform.DeleteFavoriteVideo += OnDeleteFavoriteVideo;
             this.appform.Admin += OnCheckAdmin;
             this.appform.GetUsers += OnGetUsers;
+            this.appform.CanPlay += OnCanPlay;
+            this.appform.MyLives += OnMyLives;
 
         }
 
@@ -160,6 +163,17 @@ namespace Spotflex.Controladores
                 if(user.Nickname == e.Nickname)
                 {
                     return user.User_type;
+                }
+            }
+            return false;
+        }
+        private bool OnDetectPremium(object sender, LoginEventArgs e)
+        {
+            foreach (Usuario user in usuarios)
+            {
+                if (user.Nickname == e.Nickname)
+                {
+                    return user.Premium;
                 }
             }
             return false;
@@ -746,6 +760,34 @@ namespace Spotflex.Controladores
                 if (data.Nickname == e.user)
                 {
                     data.Cola_video.Add(e.Video);
+                }
+            }
+        }
+
+        public bool OnCanPlay(object source, LoginEventArgs e)
+        {
+            foreach(Usuario data in usuarios)
+            {
+                if (data.Nickname == e.Nickname)
+                {
+                    if (data.Contador > 0)
+                    {
+                        data.Contador--;
+                        appform.Show_Lives(data.Contador);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public void OnMyLives(object source, LoginEventArgs e)
+        {
+            foreach (Usuario data in usuarios)
+            {
+                if (data.Nickname == e.Nickname)
+                {
+                    appform.Show_Lives(data.Contador);
                 }
             }
         }

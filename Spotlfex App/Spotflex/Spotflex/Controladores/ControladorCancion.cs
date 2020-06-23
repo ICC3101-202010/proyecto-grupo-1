@@ -53,6 +53,9 @@ namespace Spotflex.Controladores
             this.appform.GetSong += OnGetSong;
             this.appform.OnChangingAllData += OnChangingAllData;
             this.appform.ChangedPhoto += OnChangedPhotoComent;
+            this.appform.CheckWin += OnCheckWin;
+            this.appform.RandomSong += OnRandomSong;
+            this.appform.GetHint += OnGetPista;
         }
 
         private Canciones OnAddSongToData(object source, AddSongUserDataEventArgs e) {
@@ -606,6 +609,44 @@ namespace Spotflex.Controladores
                     }
                 }
             }
+        }
+
+        public bool OnCheckWin(object source, BonusGameEventArgs e)
+        {
+            foreach(Canciones data in lista_canciones)
+            {
+                if (data.Carpeta_archivo == e.song_url && data.Titulo == e.name_song)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public string OnRandomSong(object source, EventArgs e)
+        {
+            Random rand = new Random();
+            int can_rand = rand.Next(0, lista_canciones.Count());
+            try
+            {
+                return lista_canciones[can_rand].Carpeta_archivo;
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        public string OnGetPista(object source, AddMultimediaEventArgs e)
+        {
+            foreach(Canciones data in lista_canciones)
+            {
+                if(data.Carpeta_archivo == e.name_multimedia_file)
+                {
+                    return data.Letra;
+                }
+            }
+            return "";
         }
 
         public void OnSaveData(object source, EventArgs e)

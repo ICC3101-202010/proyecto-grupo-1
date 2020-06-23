@@ -47,13 +47,37 @@ namespace Spotflex.Controladores
                 if (name_andlastname.Count() == 1)
                 {
                     Personas persona = new Personas(name_andlastname[0], "", e.Genero_Artistas[i], "Cantante", e.Edad_Artistas[i], new List<Usuario>());
-                    personas.Add(persona);
+                    int verificador = 1;
+                    foreach(Personas data in personas)
+                    {
+                        if(data.Nombre == name_andlastname[0] && data.Apellido == "")
+                        {
+                            verificador = 0;
+                        }
+                    }
+                    if (verificador == 1)
+                    {
+                        personas.Add(persona);
+                        
+                    }
                     artists.Add(persona);
                 }
                 else
                 {
                     Personas persona = new Personas(name_andlastname[0], name_andlastname[1], e.Genero_Artistas[i], "Cantante", e.Edad_Artistas[i], new List<Usuario>());
-                    personas.Add(persona);
+                    int verificador = 1;
+                    foreach (Personas data in personas)
+                    {
+                        if (data.Nombre == name_andlastname[0] && data.Apellido == name_andlastname[1])
+                        {
+                            verificador = 0;
+                        }
+                    }
+                    if (verificador == 1)
+                    {
+                        personas.Add(persona);
+
+                    }
                     artists.Add(persona);
                 }
             }
@@ -71,13 +95,37 @@ namespace Spotflex.Controladores
                 if (name_andlastname.Count() == 1)
                 {
                     Personas persona = new Personas(name_andlastname[0], "", e.Genero_Director[i], "Director", e.Edad_Director[i], new List<Usuario>());
-                    personas.Add(persona);
+                    int verificador = 1;
+                    foreach (Personas data in personas)
+                    {
+                        if (data.Nombre == name_andlastname[0] && data.Apellido == "")
+                        {
+                            verificador = 0;
+                        }
+                    }
+                    if (verificador == 1)
+                    {
+                        personas.Add(persona);
+
+                    }
                     staff.Add(persona);
                 }
                 else
                 {
                     Personas persona = new Personas(name_andlastname[0], name_andlastname[1], e.Genero_Director[i], "Director", e.Edad_Director[i], new List<Usuario>());
-                    personas.Add(persona);
+                    int verificador = 1;
+                    foreach (Personas data in personas)
+                    {
+                        if (data.Nombre == name_andlastname[0] && data.Apellido == name_andlastname[1])
+                        {
+                            verificador = 0;
+                        }
+                    }
+                    if (verificador == 1)
+                    {
+                        personas.Add(persona);
+
+                    }
                     staff.Add(persona);
                 }
             }
@@ -88,13 +136,37 @@ namespace Spotflex.Controladores
                 if (name_andlastname.Count() == 1)
                 {
                     Personas persona = new Personas(name_andlastname[0], "", e.Genero_Actor[i], "Actor", e.Edad_Actor[i], new List<Usuario>());
-                    personas.Add(persona);
+                    int verificador = 1;
+                    foreach (Personas data in personas)
+                    {
+                        if (data.Nombre == name_andlastname[0] && data.Apellido == "")
+                        {
+                            verificador = 0;
+                        }
+                    }
+                    if (verificador == 1)
+                    {
+                        personas.Add(persona);
+
+                    }
                     staff.Add(persona);
                 }
                 else
                 {
                     Personas persona = new Personas(name_andlastname[0], name_andlastname[1], e.Genero_Actor[i], "Actor", e.Edad_Actor[i], new List<Usuario>());
-                    personas.Add(persona);
+                    int verificador = 1;
+                    foreach (Personas data in personas)
+                    {
+                        if (data.Nombre == name_andlastname[0] && data.Apellido == name_andlastname[1])
+                        {
+                            verificador = 0;
+                        }
+                    }
+                    if (verificador == 1)
+                    {
+                        personas.Add(persona);
+
+                    }
                     staff.Add(persona);
                 }
             }
@@ -189,7 +261,7 @@ namespace Spotflex.Controladores
         {
             foreach(Personas data in personas)
             {
-                if(data.Nombre.ToUpper().Contains(e.palabra_clave.ToUpper()) || data.Apellido.ToUpper().Contains(e.palabra_clave.ToUpper()))
+                if(data.Nombre.ToUpper().Contains(e.palabra_clave.ToUpper()) || data.Apellido.ToUpper().Contains(e.palabra_clave.ToUpper()) && !e.nombre_buscado.Contains(data.Nombre + " " + data.Apellido))
                 {
                     e.nombre_buscado.Add(data.Nombre + " " + data.Apellido);
                 }

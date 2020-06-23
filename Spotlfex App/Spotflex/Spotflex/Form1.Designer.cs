@@ -53,6 +53,27 @@ namespace Spotflex
             this.panel_Ranking_de_Canciones = new System.Windows.Forms.Panel();
             this.panelRecomendaciones = new System.Windows.Forms.Panel();
             this.panel_eliminar_usuario = new System.Windows.Forms.Panel();
+            this.tier_list = new System.Windows.Forms.Panel();
+            this.tier_list_foto_panel = new System.Windows.Forms.Panel();
+            this.panel_reproductor_bonus_game = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.reproductor_bonus = new AxWMPLib.AxWindowsMediaPlayer();
+            this.label_bonus_game = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel_hud_bonus_game = new System.Windows.Forms.Panel();
+            this.pictureBox_atras_bonus = new System.Windows.Forms.PictureBox();
+            this.label_intentos = new System.Windows.Forms.Label();
+            this.pictureBox_corazon = new System.Windows.Forms.PictureBox();
+            this.label_pista = new System.Windows.Forms.Label();
+            this.button_pista_adivinar = new System.Windows.Forms.Button();
+            this.button_confirmar_adivinar = new System.Windows.Forms.Button();
+            this.label_adivina_label = new System.Windows.Forms.Label();
+            this.textBox_cancion_adivinar = new System.Windows.Forms.TextBox();
+            this.Videos = new System.Windows.Forms.Button();
+            this.Canciones = new System.Windows.Forms.Button();
+            this.panel_imagenes_tier = new System.Windows.Forms.Panel();
+            this.Download = new System.Windows.Forms.Button();
+            this.atras_tier = new System.Windows.Forms.PictureBox();
             this.pictureBox_atras_eliminar_usuario = new System.Windows.Forms.PictureBox();
             this.label_eliminar_usuario = new System.Windows.Forms.Label();
             this.labelText5 = new System.Windows.Forms.Label();
@@ -69,6 +90,7 @@ namespace Spotflex
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Mostrar_Ranking_Video = new System.Windows.Forms.PictureBox();
+            this.go_to_tier_list = new System.Windows.Forms.PictureBox();
             this.Musica = new System.Windows.Forms.Label();
             this.Mostrar_Ranking_Musica = new System.Windows.Forms.PictureBox();
             this.Ranking = new System.Windows.Forms.Label();
@@ -188,6 +210,14 @@ namespace Spotflex
             this.panel_ajustes = new System.Windows.Forms.Panel();
             this.panel_informacion = new System.Windows.Forms.Panel();
             this.panel_datos_add_cancion = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Volver_de_Borrar_VidYCan = new System.Windows.Forms.PictureBox();
+            this.panel_label_borrar_video = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel_label_borrar_Cancion = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel_De_Agregar_Video = new System.Windows.Forms.Panel();
             this.panel_info_cancion = new System.Windows.Forms.Panel();
             this.panel_fijar_add_cancion = new System.Windows.Forms.Panel();
@@ -258,14 +288,6 @@ namespace Spotflex
             this.lblDirector_vid = new System.Windows.Forms.Label();
             this.lblTitulo_vid = new System.Windows.Forms.Label();
             this.lblEjemploVideo = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.Volver_de_Borrar_VidYCan = new System.Windows.Forms.PictureBox();
-            this.panel_label_borrar_video = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel_label_borrar_Cancion = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.label_add_genero = new System.Windows.Forms.Label();
             this.pictureBox_back_create_music = new System.Windows.Forms.PictureBox();
             this.button_add_more_artists = new System.Windows.Forms.Button();
@@ -380,14 +402,7 @@ namespace Spotflex
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.NicknameLabel = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.tier_list = new System.Windows.Forms.Panel();
-            this.tier_list_foto_panel = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.Canciones = new System.Windows.Forms.Button();
-            this.panel_imagenes_tier = new System.Windows.Forms.Panel();
-            this.Download = new System.Windows.Forms.Button();
-            this.go_to_tier_list = new System.Windows.Forms.PictureBox();
-            this.Videos = new System.Windows.Forms.Button();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel_iniciar_sesion.SuspendLayout();
             this.panel_crear_sesion.SuspendLayout();
             this.panel_datos_usuario.SuspendLayout();
@@ -407,12 +422,23 @@ namespace Spotflex
             this.panel_Ranking_de_Canciones.SuspendLayout();
             this.panelRecomendaciones.SuspendLayout();
             this.panel_eliminar_usuario.SuspendLayout();
+            this.tier_list.SuspendLayout();
+            this.tier_list_foto_panel.SuspendLayout();
+            this.panel_reproductor_bonus_game.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reproductor_bonus)).BeginInit();
+            this.panel9.SuspendLayout();
+            this.panel_hud_bonus_game.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_atras_bonus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_corazon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atras_tier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_atras_eliminar_usuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturelogoRecomendados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRetroceder_Recomendaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Volver_Ranking_video_y_canciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mostrar_Ranking_Video)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.go_to_tier_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mostrar_Ranking_Musica)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VolverDeBorrarPlaylist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -454,6 +480,10 @@ namespace Spotflex
             this.panel_ajustes.SuspendLayout();
             this.panel_informacion.SuspendLayout();
             this.panel_datos_add_cancion.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Volver_de_Borrar_VidYCan)).BeginInit();
+            this.panel_label_borrar_video.SuspendLayout();
+            this.panel_label_borrar_Cancion.SuspendLayout();
             this.panel_De_Agregar_Video.SuspendLayout();
             this.panel_info_cancion.SuspendLayout();
             this.panel_fijar_add_cancion.SuspendLayout();
@@ -474,10 +504,6 @@ namespace Spotflex
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_foto_cancion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureboxAtras_nuevovid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto_NuevoVid)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Volver_de_Borrar_VidYCan)).BeginInit();
-            this.panel_label_borrar_video.SuspendLayout();
-            this.panel_label_borrar_Cancion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_back_create_music)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_add_portada_cancion)).BeginInit();
             this.panel_title_add_cancion.SuspendLayout();
@@ -495,9 +521,7 @@ namespace Spotflex
             this.panel_secc_cancion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_add_music)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FotoPerfil)).BeginInit();
-            this.tier_list.SuspendLayout();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.go_to_tier_list)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // button_iniciar_sesion
@@ -584,7 +608,7 @@ namespace Spotflex
             this.panel_crear_sesion.Controls.Add(this.label_ingrese_edad);
             this.panel_crear_sesion.Location = new System.Drawing.Point(0, 0);
             this.panel_crear_sesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel_crear_sesion.MinimumSize = new System.Drawing.Size(1005, 721);
+            this.panel_crear_sesion.MinimumSize = new System.Drawing.Size(10, 7);
             this.panel_crear_sesion.Name = "panel_crear_sesion";
             this.panel_crear_sesion.Size = new System.Drawing.Size(1005, 721);
             this.panel_crear_sesion.TabIndex = 8;
@@ -636,16 +660,16 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_comentarios_cancion.AutoScroll = true;
-            this.panel_comentarios_cancion.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel_comentarios_cancion.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_comentarios_cancion.Controls.Add(this.panel_resultado_busqueda_general);
             this.panel_comentarios_cancion.Controls.Add(this.pictureBox_atras_comentarios_cancion);
             this.panel_comentarios_cancion.Controls.Add(this.button_comentar_cancion);
             this.panel_comentarios_cancion.Controls.Add(this.richTextBox_caja_de_comentarios);
             this.panel_comentarios_cancion.Controls.Add(this.label_subtitulo_comentarios_Cancion);
-            this.panel_comentarios_cancion.Location = new System.Drawing.Point(259, 4);
+            this.panel_comentarios_cancion.Location = new System.Drawing.Point(261, 0);
             this.panel_comentarios_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_comentarios_cancion.Name = "panel_comentarios_cancion";
-            this.panel_comentarios_cancion.Size = new System.Drawing.Size(746, 719);
+            this.panel_comentarios_cancion.Size = new System.Drawing.Size(748, 725);
             this.panel_comentarios_cancion.TabIndex = 2;
             this.panel_comentarios_cancion.Visible = false;
             // 
@@ -655,13 +679,14 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_resultado_busqueda_general.AutoScroll = true;
+            this.panel_resultado_busqueda_general.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_resultado_busqueda_general.Controls.Add(this.panel_usuario_buscado);
             this.panel_resultado_busqueda_general.Controls.Add(this.label_resultados_busquedas_general);
             this.panel_resultado_busqueda_general.Controls.Add(this.pictureBox_atras_busqueda_general);
             this.panel_resultado_busqueda_general.Location = new System.Drawing.Point(0, 0);
             this.panel_resultado_busqueda_general.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_resultado_busqueda_general.Name = "panel_resultado_busqueda_general";
-            this.panel_resultado_busqueda_general.Size = new System.Drawing.Size(746, 719);
+            this.panel_resultado_busqueda_general.Size = new System.Drawing.Size(748, 725);
             this.panel_resultado_busqueda_general.TabIndex = 4;
             this.panel_resultado_busqueda_general.Visible = false;
             // 
@@ -671,6 +696,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_usuario_buscado.AutoScroll = true;
+            this.panel_usuario_buscado.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_usuario_buscado.Controls.Add(this.panel_info_artista);
             this.panel_usuario_buscado.Controls.Add(this.label_archivos_subidos_por_usuario);
             this.panel_usuario_buscado.Controls.Add(this.label_info_usuario);
@@ -682,7 +708,7 @@ namespace Spotflex
             this.panel_usuario_buscado.Location = new System.Drawing.Point(0, 0);
             this.panel_usuario_buscado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_usuario_buscado.Name = "panel_usuario_buscado";
-            this.panel_usuario_buscado.Size = new System.Drawing.Size(746, 719);
+            this.panel_usuario_buscado.Size = new System.Drawing.Size(748, 725);
             this.panel_usuario_buscado.TabIndex = 6;
             this.panel_usuario_buscado.Visible = false;
             // 
@@ -692,6 +718,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_info_artista.AutoScroll = true;
+            this.panel_info_artista.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_info_artista.Controls.Add(this.panelReproducirVideo);
             this.panel_info_artista.Controls.Add(this.label_trabajo_artistas);
             this.panel_info_artista.Controls.Add(this.button_seguir_artista);
@@ -703,15 +730,13 @@ namespace Spotflex
             this.panel_info_artista.Location = new System.Drawing.Point(0, 0);
             this.panel_info_artista.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_info_artista.Name = "panel_info_artista";
-            this.panel_info_artista.Size = new System.Drawing.Size(746, 719);
+            this.panel_info_artista.Size = new System.Drawing.Size(748, 725);
             this.panel_info_artista.TabIndex = 12;
             this.panel_info_artista.Visible = false;
             // 
             // panelReproducirVideo
             // 
-            this.panelReproducirVideo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelReproducirVideo.BackColor = System.Drawing.Color.MidnightBlue;
             this.panelReproducirVideo.Controls.Add(this.panel_busqueda_avanzada);
             this.panelReproducirVideo.Controls.Add(this.panel7);
             this.panelReproducirVideo.Controls.Add(this.panel_reproductor_Video);
@@ -740,7 +765,7 @@ namespace Spotflex
             this.panelReproducirVideo.Location = new System.Drawing.Point(0, 0);
             this.panelReproducirVideo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelReproducirVideo.Name = "panelReproducirVideo";
-            this.panelReproducirVideo.Size = new System.Drawing.Size(746, 719);
+            this.panelReproducirVideo.Size = new System.Drawing.Size(748, 721);
             this.panelReproducirVideo.TabIndex = 14;
             this.panelReproducirVideo.Visible = false;
             // 
@@ -749,6 +774,7 @@ namespace Spotflex
             this.panel_busqueda_avanzada.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_busqueda_avanzada.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_busqueda_avanzada.Controls.Add(this.panel_playlist);
             this.panel_busqueda_avanzada.Controls.Add(this.pictureBox6);
             this.panel_busqueda_avanzada.Controls.Add(this.button2);
@@ -781,7 +807,7 @@ namespace Spotflex
             this.panel_busqueda_avanzada.Location = new System.Drawing.Point(0, 0);
             this.panel_busqueda_avanzada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_busqueda_avanzada.Name = "panel_busqueda_avanzada";
-            this.panel_busqueda_avanzada.Size = new System.Drawing.Size(746, 719);
+            this.panel_busqueda_avanzada.Size = new System.Drawing.Size(748, 721);
             this.panel_busqueda_avanzada.TabIndex = 25;
             this.panel_busqueda_avanzada.Visible = false;
             // 
@@ -806,7 +832,7 @@ namespace Spotflex
             this.panel_playlist.Location = new System.Drawing.Point(0, 0);
             this.panel_playlist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_playlist.Name = "panel_playlist";
-            this.panel_playlist.Size = new System.Drawing.Size(746, 719);
+            this.panel_playlist.Size = new System.Drawing.Size(748, 721);
             this.panel_playlist.TabIndex = 26;
             this.panel_playlist.Visible = false;
             // 
@@ -815,13 +841,14 @@ namespace Spotflex
             this.panel_resultado_busqueda_avanzada.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_resultado_busqueda_avanzada.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_resultado_busqueda_avanzada.Controls.Add(this.ReproducirPlaylist);
             this.panel_resultado_busqueda_avanzada.Controls.Add(this.label_resultado_busqueda_especifica);
             this.panel_resultado_busqueda_avanzada.Controls.Add(this.pictureBox_atras_busqueda_especifica);
             this.panel_resultado_busqueda_avanzada.Location = new System.Drawing.Point(0, 0);
             this.panel_resultado_busqueda_avanzada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_resultado_busqueda_avanzada.Name = "panel_resultado_busqueda_avanzada";
-            this.panel_resultado_busqueda_avanzada.Size = new System.Drawing.Size(746, 719);
+            this.panel_resultado_busqueda_avanzada.Size = new System.Drawing.Size(748, 721);
             this.panel_resultado_busqueda_avanzada.TabIndex = 9;
             this.panel_resultado_busqueda_avanzada.Visible = false;
             // 
@@ -839,7 +866,7 @@ namespace Spotflex
             this.ReproducirPlaylist.Location = new System.Drawing.Point(0, 0);
             this.ReproducirPlaylist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReproducirPlaylist.Name = "ReproducirPlaylist";
-            this.ReproducirPlaylist.Size = new System.Drawing.Size(746, 719);
+            this.ReproducirPlaylist.Size = new System.Drawing.Size(748, 721);
             this.ReproducirPlaylist.TabIndex = 28;
             this.ReproducirPlaylist.Visible = false;
             // 
@@ -857,7 +884,7 @@ namespace Spotflex
             this.panel_favoritos.Location = new System.Drawing.Point(0, 0);
             this.panel_favoritos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_favoritos.Name = "panel_favoritos";
-            this.panel_favoritos.Size = new System.Drawing.Size(746, 719);
+            this.panel_favoritos.Size = new System.Drawing.Size(748, 721);
             this.panel_favoritos.TabIndex = 3;
             this.panel_favoritos.Visible = false;
             // 
@@ -867,6 +894,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelComentarios_Video.AutoScroll = true;
+            this.panelComentarios_Video.BackColor = System.Drawing.Color.MidnightBlue;
             this.panelComentarios_Video.Controls.Add(this.panel_Eliminar_Playlist);
             this.panelComentarios_Video.Controls.Add(this.pictureBox9);
             this.panelComentarios_Video.Controls.Add(this.labelComentarios_Video);
@@ -875,7 +903,7 @@ namespace Spotflex
             this.panelComentarios_Video.Location = new System.Drawing.Point(0, 0);
             this.panelComentarios_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelComentarios_Video.Name = "panelComentarios_Video";
-            this.panelComentarios_Video.Size = new System.Drawing.Size(746, 719);
+            this.panelComentarios_Video.Size = new System.Drawing.Size(748, 721);
             this.panelComentarios_Video.TabIndex = 10;
             // 
             // panel_Eliminar_Playlist
@@ -883,14 +911,14 @@ namespace Spotflex
             this.panel_Eliminar_Playlist.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Eliminar_Playlist.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel_Eliminar_Playlist.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_Eliminar_Playlist.Controls.Add(this.panel_de_rankings);
             this.panel_Eliminar_Playlist.Controls.Add(this.VolverDeBorrarPlaylist);
             this.panel_Eliminar_Playlist.Controls.Add(this.Mis_Playlist_Eliminar);
             this.panel_Eliminar_Playlist.Location = new System.Drawing.Point(0, 0);
             this.panel_Eliminar_Playlist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_Eliminar_Playlist.Name = "panel_Eliminar_Playlist";
-            this.panel_Eliminar_Playlist.Size = new System.Drawing.Size(746, 719);
+            this.panel_Eliminar_Playlist.Size = new System.Drawing.Size(748, 721);
             this.panel_Eliminar_Playlist.TabIndex = 13;
             this.panel_Eliminar_Playlist.Visible = false;
             // 
@@ -913,7 +941,7 @@ namespace Spotflex
             this.panel_de_rankings.Location = new System.Drawing.Point(0, 0);
             this.panel_de_rankings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_de_rankings.Name = "panel_de_rankings";
-            this.panel_de_rankings.Size = new System.Drawing.Size(746, 719);
+            this.panel_de_rankings.Size = new System.Drawing.Size(748, 721);
             this.panel_de_rankings.TabIndex = 11;
             this.panel_de_rankings.Visible = false;
             // 
@@ -931,7 +959,7 @@ namespace Spotflex
             this.panel_Ranking_de_Canciones.Location = new System.Drawing.Point(0, 0);
             this.panel_Ranking_de_Canciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_Ranking_de_Canciones.Name = "panel_Ranking_de_Canciones";
-            this.panel_Ranking_de_Canciones.Size = new System.Drawing.Size(746, 719);
+            this.panel_Ranking_de_Canciones.Size = new System.Drawing.Size(748, 721);
             this.panel_Ranking_de_Canciones.TabIndex = 7;
             this.panel_Ranking_de_Canciones.Visible = false;
             // 
@@ -952,7 +980,7 @@ namespace Spotflex
             this.panelRecomendaciones.Location = new System.Drawing.Point(0, 0);
             this.panelRecomendaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelRecomendaciones.Name = "panelRecomendaciones";
-            this.panelRecomendaciones.Size = new System.Drawing.Size(746, 719);
+            this.panelRecomendaciones.Size = new System.Drawing.Size(748, 721);
             this.panelRecomendaciones.TabIndex = 8;
             this.panelRecomendaciones.Visible = false;
             // 
@@ -968,9 +996,237 @@ namespace Spotflex
             this.panel_eliminar_usuario.Location = new System.Drawing.Point(0, 0);
             this.panel_eliminar_usuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_eliminar_usuario.Name = "panel_eliminar_usuario";
-            this.panel_eliminar_usuario.Size = new System.Drawing.Size(746, 719);
+            this.panel_eliminar_usuario.Size = new System.Drawing.Size(748, 721);
             this.panel_eliminar_usuario.TabIndex = 8;
             this.panel_eliminar_usuario.Visible = false;
+            // 
+            // tier_list
+            // 
+            this.tier_list.Controls.Add(this.tier_list_foto_panel);
+            this.tier_list.Controls.Add(this.panel9);
+            this.tier_list.Location = new System.Drawing.Point(0, 0);
+            this.tier_list.Name = "tier_list";
+            this.tier_list.Size = new System.Drawing.Size(748, 721);
+            this.tier_list.TabIndex = 6;
+            this.tier_list.Visible = false;
+            // 
+            // tier_list_foto_panel
+            // 
+            this.tier_list_foto_panel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tier_list_foto_panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tier_list_foto_panel.BackgroundImage")));
+            this.tier_list_foto_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tier_list_foto_panel.Controls.Add(this.panel_reproductor_bonus_game);
+            this.tier_list_foto_panel.Location = new System.Drawing.Point(0, -1);
+            this.tier_list_foto_panel.Name = "tier_list_foto_panel";
+            this.tier_list_foto_panel.Size = new System.Drawing.Size(746, 421);
+            this.tier_list_foto_panel.TabIndex = 2;
+            // 
+            // panel_reproductor_bonus_game
+            // 
+            this.panel_reproductor_bonus_game.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel_reproductor_bonus_game.Controls.Add(this.panel8);
+            this.panel_reproductor_bonus_game.Controls.Add(this.label_bonus_game);
+            this.panel_reproductor_bonus_game.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_reproductor_bonus_game.Location = new System.Drawing.Point(0, 0);
+            this.panel_reproductor_bonus_game.Name = "panel_reproductor_bonus_game";
+            this.panel_reproductor_bonus_game.Size = new System.Drawing.Size(746, 421);
+            this.panel_reproductor_bonus_game.TabIndex = 0;
+            this.panel_reproductor_bonus_game.Visible = false;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Black;
+            this.panel8.Controls.Add(this.reproductor_bonus);
+            this.panel8.Location = new System.Drawing.Point(53, 65);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(660, 325);
+            this.panel8.TabIndex = 1;
+            // 
+            // reproductor_bonus
+            // 
+            this.reproductor_bonus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reproductor_bonus.Enabled = true;
+            this.reproductor_bonus.Location = new System.Drawing.Point(0, 0);
+            this.reproductor_bonus.Name = "reproductor_bonus";
+            this.reproductor_bonus.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("reproductor_bonus.OcxState")));
+            this.reproductor_bonus.Size = new System.Drawing.Size(660, 325);
+            this.reproductor_bonus.TabIndex = 0;
+            // 
+            // label_bonus_game
+            // 
+            this.label_bonus_game.AutoSize = true;
+            this.label_bonus_game.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_bonus_game.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label_bonus_game.Location = new System.Drawing.Point(278, 19);
+            this.label_bonus_game.Name = "label_bonus_game";
+            this.label_bonus_game.Size = new System.Drawing.Size(226, 34);
+            this.label_bonus_game.TabIndex = 0;
+            this.label_bonus_game.Text = "BONUS GAME";
+            // 
+            // panel9
+            // 
+            this.panel9.AutoScroll = true;
+            this.panel9.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel9.Controls.Add(this.panel_hud_bonus_game);
+            this.panel9.Controls.Add(this.Videos);
+            this.panel9.Controls.Add(this.Canciones);
+            this.panel9.Controls.Add(this.panel_imagenes_tier);
+            this.panel9.Controls.Add(this.Download);
+            this.panel9.Controls.Add(this.atras_tier);
+            this.panel9.Location = new System.Drawing.Point(0, 421);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(747, 300);
+            this.panel9.TabIndex = 3;
+            // 
+            // panel_hud_bonus_game
+            // 
+            this.panel_hud_bonus_game.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel_hud_bonus_game.Controls.Add(this.pictureBox_atras_bonus);
+            this.panel_hud_bonus_game.Controls.Add(this.label_intentos);
+            this.panel_hud_bonus_game.Controls.Add(this.pictureBox_corazon);
+            this.panel_hud_bonus_game.Controls.Add(this.label_pista);
+            this.panel_hud_bonus_game.Controls.Add(this.button_pista_adivinar);
+            this.panel_hud_bonus_game.Controls.Add(this.button_confirmar_adivinar);
+            this.panel_hud_bonus_game.Controls.Add(this.label_adivina_label);
+            this.panel_hud_bonus_game.Controls.Add(this.textBox_cancion_adivinar);
+            this.panel_hud_bonus_game.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_hud_bonus_game.Location = new System.Drawing.Point(0, 0);
+            this.panel_hud_bonus_game.Name = "panel_hud_bonus_game";
+            this.panel_hud_bonus_game.Size = new System.Drawing.Size(747, 300);
+            this.panel_hud_bonus_game.TabIndex = 4;
+            this.panel_hud_bonus_game.Visible = false;
+            // 
+            // pictureBox_atras_bonus
+            // 
+            this.pictureBox_atras_bonus.Image = global::Spotflex.Properties.Resources._25618;
+            this.pictureBox_atras_bonus.Location = new System.Drawing.Point(56, 199);
+            this.pictureBox_atras_bonus.Name = "pictureBox_atras_bonus";
+            this.pictureBox_atras_bonus.Size = new System.Drawing.Size(98, 56);
+            this.pictureBox_atras_bonus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_atras_bonus.TabIndex = 7;
+            this.pictureBox_atras_bonus.TabStop = false;
+            this.pictureBox_atras_bonus.Click += new System.EventHandler(this.pictureBox_atras_bonus_Click);
+            // 
+            // label_intentos
+            // 
+            this.label_intentos.AutoSize = true;
+            this.label_intentos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_intentos.Location = new System.Drawing.Point(504, 197);
+            this.label_intentos.Name = "label_intentos";
+            this.label_intentos.Size = new System.Drawing.Size(192, 50);
+            this.label_intentos.TabIndex = 6;
+            this.label_intentos.Text = "Intentos";
+            // 
+            // pictureBox_corazon
+            // 
+            this.pictureBox_corazon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_corazon.Image")));
+            this.pictureBox_corazon.Location = new System.Drawing.Point(422, 196);
+            this.pictureBox_corazon.Name = "pictureBox_corazon";
+            this.pictureBox_corazon.Size = new System.Drawing.Size(71, 60);
+            this.pictureBox_corazon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_corazon.TabIndex = 5;
+            this.pictureBox_corazon.TabStop = false;
+            // 
+            // label_pista
+            // 
+            this.label_pista.AutoSize = true;
+            this.label_pista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_pista.Location = new System.Drawing.Point(59, 142);
+            this.label_pista.Name = "label_pista";
+            this.label_pista.Size = new System.Drawing.Size(323, 20);
+            this.label_pista.TabIndex = 4;
+            this.label_pista.Text = "Pista: La letra de la cancion empieza asi: ";
+            this.label_pista.Visible = false;
+            // 
+            // button_pista_adivinar
+            // 
+            this.button_pista_adivinar.Location = new System.Drawing.Point(162, 83);
+            this.button_pista_adivinar.Name = "button_pista_adivinar";
+            this.button_pista_adivinar.Size = new System.Drawing.Size(211, 31);
+            this.button_pista_adivinar.TabIndex = 3;
+            this.button_pista_adivinar.Text = "Pista";
+            this.button_pista_adivinar.UseVisualStyleBackColor = true;
+            this.button_pista_adivinar.Click += new System.EventHandler(this.button_pista_adivinar_Click);
+            // 
+            // button_confirmar_adivinar
+            // 
+            this.button_confirmar_adivinar.Location = new System.Drawing.Point(394, 83);
+            this.button_confirmar_adivinar.Name = "button_confirmar_adivinar";
+            this.button_confirmar_adivinar.Size = new System.Drawing.Size(211, 31);
+            this.button_confirmar_adivinar.TabIndex = 2;
+            this.button_confirmar_adivinar.Text = "Confirmar";
+            this.button_confirmar_adivinar.UseVisualStyleBackColor = true;
+            this.button_confirmar_adivinar.Click += new System.EventHandler(this.button_confirmar_adivinar_Click);
+            // 
+            // label_adivina_label
+            // 
+            this.label_adivina_label.AutoSize = true;
+            this.label_adivina_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_adivina_label.ForeColor = System.Drawing.Color.Black;
+            this.label_adivina_label.Location = new System.Drawing.Point(212, 19);
+            this.label_adivina_label.Name = "label_adivina_label";
+            this.label_adivina_label.Size = new System.Drawing.Size(316, 20);
+            this.label_adivina_label.TabIndex = 1;
+            this.label_adivina_label.Text = "Escriba el nombre de la cancion aca";
+            // 
+            // textBox_cancion_adivinar
+            // 
+            this.textBox_cancion_adivinar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_cancion_adivinar.Location = new System.Drawing.Point(64, 48);
+            this.textBox_cancion_adivinar.Name = "textBox_cancion_adivinar";
+            this.textBox_cancion_adivinar.Size = new System.Drawing.Size(640, 27);
+            this.textBox_cancion_adivinar.TabIndex = 0;
+            // 
+            // Videos
+            // 
+            this.Videos.Location = new System.Drawing.Point(233, 232);
+            this.Videos.Name = "Videos";
+            this.Videos.Size = new System.Drawing.Size(97, 28);
+            this.Videos.TabIndex = 3;
+            this.Videos.Text = "Videos";
+            this.Videos.UseVisualStyleBackColor = true;
+            this.Videos.Click += new System.EventHandler(this.Videos_Click);
+            // 
+            // Canciones
+            // 
+            this.Canciones.Location = new System.Drawing.Point(125, 232);
+            this.Canciones.Name = "Canciones";
+            this.Canciones.Size = new System.Drawing.Size(99, 27);
+            this.Canciones.TabIndex = 2;
+            this.Canciones.Text = "Canciones";
+            this.Canciones.UseVisualStyleBackColor = true;
+            this.Canciones.Click += new System.EventHandler(this.Canciones_Click);
+            // 
+            // panel_imagenes_tier
+            // 
+            this.panel_imagenes_tier.AutoScroll = true;
+            this.panel_imagenes_tier.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel_imagenes_tier.Location = new System.Drawing.Point(12, 15);
+            this.panel_imagenes_tier.Name = "panel_imagenes_tier";
+            this.panel_imagenes_tier.Size = new System.Drawing.Size(708, 179);
+            this.panel_imagenes_tier.TabIndex = 1;
+            // 
+            // Download
+            // 
+            this.Download.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Download.Location = new System.Drawing.Point(14, 233);
+            this.Download.Name = "Download";
+            this.Download.Size = new System.Drawing.Size(102, 27);
+            this.Download.TabIndex = 0;
+            this.Download.Text = "Download";
+            this.Download.UseVisualStyleBackColor = true;
+            this.Download.Click += new System.EventHandler(this.Download_Click);
+            // 
+            // atras_tier
+            // 
+            this.atras_tier.Image = global::Spotflex.Properties.Resources._25618;
+            this.atras_tier.Location = new System.Drawing.Point(599, 206);
+            this.atras_tier.Name = "atras_tier";
+            this.atras_tier.Size = new System.Drawing.Size(121, 54);
+            this.atras_tier.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.atras_tier.TabIndex = 5;
+            this.atras_tier.TabStop = false;
+            this.atras_tier.Click += new System.EventHandler(this.atras_tier_Click);
             // 
             // pictureBox_atras_eliminar_usuario
             // 
@@ -1001,6 +1257,7 @@ namespace Spotflex
             // labelText5
             // 
             this.labelText5.AutoSize = true;
+            this.labelText5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.labelText5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelText5.Location = new System.Drawing.Point(-1, 153);
             this.labelText5.Name = "labelText5";
@@ -1011,6 +1268,7 @@ namespace Spotflex
             // labelText4
             // 
             this.labelText4.AutoSize = true;
+            this.labelText4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.labelText4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelText4.Location = new System.Drawing.Point(19, 286);
             this.labelText4.Name = "labelText4";
@@ -1021,6 +1279,7 @@ namespace Spotflex
             // labelText3
             // 
             this.labelText3.AutoSize = true;
+            this.labelText3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.labelText3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelText3.Location = new System.Drawing.Point(19, 241);
             this.labelText3.Name = "labelText3";
@@ -1031,6 +1290,7 @@ namespace Spotflex
             // labelText2
             // 
             this.labelText2.AutoSize = true;
+            this.labelText2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.labelText2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelText2.Location = new System.Drawing.Point(20, 190);
             this.labelText2.Name = "labelText2";
@@ -1062,6 +1322,7 @@ namespace Spotflex
             // labelRecomendados
             // 
             this.labelRecomendados.AutoSize = true;
+            this.labelRecomendados.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.labelRecomendados.Font = new System.Drawing.Font("Arial Rounded MT Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRecomendados.Location = new System.Drawing.Point(329, 34);
             this.labelRecomendados.Name = "labelRecomendados";
@@ -1106,7 +1367,7 @@ namespace Spotflex
             // label_ranking_canciones
             // 
             this.label_ranking_canciones.AutoSize = true;
-            this.label_ranking_canciones.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label_ranking_canciones.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label_ranking_canciones.Font = new System.Drawing.Font("Viner Hand ITC", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_ranking_canciones.Location = new System.Drawing.Point(260, 23);
             this.label_ranking_canciones.Name = "label_ranking_canciones";
@@ -1148,6 +1409,17 @@ namespace Spotflex
             this.Mostrar_Ranking_Video.TabIndex = 3;
             this.Mostrar_Ranking_Video.TabStop = false;
             this.Mostrar_Ranking_Video.Click += new System.EventHandler(this.Mostrar_Ranking_Video_Click);
+            // 
+            // go_to_tier_list
+            // 
+            this.go_to_tier_list.Image = ((System.Drawing.Image)(resources.GetObject("go_to_tier_list.Image")));
+            this.go_to_tier_list.Location = new System.Drawing.Point(17, 653);
+            this.go_to_tier_list.Name = "go_to_tier_list";
+            this.go_to_tier_list.Size = new System.Drawing.Size(58, 48);
+            this.go_to_tier_list.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.go_to_tier_list.TabIndex = 8;
+            this.go_to_tier_list.TabStop = false;
+            this.go_to_tier_list.Click += new System.EventHandler(this.go_to_tier_list_Click);
             // 
             // Musica
             // 
@@ -1209,10 +1481,10 @@ namespace Spotflex
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox9.Image = global::Spotflex.Properties.Resources._25618;
-            this.pictureBox9.Location = new System.Drawing.Point(41, 18);
+            this.pictureBox9.Location = new System.Drawing.Point(15, 8);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(113, 50);
+            this.pictureBox9.Size = new System.Drawing.Size(123, 55);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 3;
             this.pictureBox9.TabStop = false;
@@ -1222,6 +1494,7 @@ namespace Spotflex
             // 
             this.labelComentarios_Video.AutoSize = true;
             this.labelComentarios_Video.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelComentarios_Video.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelComentarios_Video.Location = new System.Drawing.Point(41, 262);
             this.labelComentarios_Video.Name = "labelComentarios_Video";
             this.labelComentarios_Video.Size = new System.Drawing.Size(119, 20);
@@ -1243,10 +1516,11 @@ namespace Spotflex
             // 
             this.richTextBoxComentar_Video.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBoxComentar_Video.Location = new System.Drawing.Point(148, 64);
+            this.richTextBoxComentar_Video.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxComentar_Video.Location = new System.Drawing.Point(66, 64);
             this.richTextBoxComentar_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBoxComentar_Video.Name = "richTextBoxComentar_Video";
-            this.richTextBoxComentar_Video.Size = new System.Drawing.Size(974, 131);
+            this.richTextBoxComentar_Video.Size = new System.Drawing.Size(580, 131);
             this.richTextBoxComentar_Video.TabIndex = 0;
             this.richTextBoxComentar_Video.Text = "";
             // 
@@ -1266,6 +1540,7 @@ namespace Spotflex
             // 
             this.label_tus_favoritos.AutoSize = true;
             this.label_tus_favoritos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tus_favoritos.ForeColor = System.Drawing.Color.White;
             this.label_tus_favoritos.Location = new System.Drawing.Point(493, 46);
             this.label_tus_favoritos.Name = "label_tus_favoritos";
             this.label_tus_favoritos.Size = new System.Drawing.Size(151, 34);
@@ -1299,6 +1574,7 @@ namespace Spotflex
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(99, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(206, 34);
@@ -1314,13 +1590,14 @@ namespace Spotflex
             this.Reproductor_de_Playlist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Reproductor_de_Playlist.Name = "Reproductor_de_Playlist";
             this.Reproductor_de_Playlist.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("Reproductor_de_Playlist.OcxState")));
-            this.Reproductor_de_Playlist.Size = new System.Drawing.Size(392, 327);
+            this.Reproductor_de_Playlist.Size = new System.Drawing.Size(450, 327);
             this.Reproductor_de_Playlist.TabIndex = 0;
             // 
             // label_resultado_busqueda_especifica
             // 
             this.label_resultado_busqueda_especifica.AutoSize = true;
             this.label_resultado_busqueda_especifica.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_resultado_busqueda_especifica.ForeColor = System.Drawing.Color.White;
             this.label_resultado_busqueda_especifica.Location = new System.Drawing.Point(189, 41);
             this.label_resultado_busqueda_especifica.Name = "label_resultado_busqueda_especifica";
             this.label_resultado_busqueda_especifica.Size = new System.Drawing.Size(449, 28);
@@ -1363,7 +1640,7 @@ namespace Spotflex
             this.Nombre_Playlist_de_Videos.Name = "Nombre_Playlist_de_Videos";
             this.Nombre_Playlist_de_Videos.Size = new System.Drawing.Size(240, 20);
             this.Nombre_Playlist_de_Videos.TabIndex = 8;
-            this.Nombre_Playlist_de_Videos.Text = "Nombre_Playlist_de_Videos";
+            this.Nombre_Playlist_de_Videos.Text = "Nombre Playlist de Videos";
             // 
             // Nombre_Playlist_de_Canciones
             // 
@@ -1373,22 +1650,24 @@ namespace Spotflex
             this.Nombre_Playlist_de_Canciones.Name = "Nombre_Playlist_de_Canciones";
             this.Nombre_Playlist_de_Canciones.Size = new System.Drawing.Size(270, 20);
             this.Nombre_Playlist_de_Canciones.TabIndex = 7;
-            this.Nombre_Playlist_de_Canciones.Text = "Nombre_Playlist_de_Canciones";
+            this.Nombre_Playlist_de_Canciones.Text = "Nombre Playlist de Canciones";
             // 
             // textBox_Nombre_playlist_videos
             // 
+            this.textBox_Nombre_playlist_videos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Nombre_playlist_videos.Location = new System.Drawing.Point(425, 332);
             this.textBox_Nombre_playlist_videos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_Nombre_playlist_videos.Name = "textBox_Nombre_playlist_videos";
-            this.textBox_Nombre_playlist_videos.Size = new System.Drawing.Size(237, 22);
+            this.textBox_Nombre_playlist_videos.Size = new System.Drawing.Size(237, 27);
             this.textBox_Nombre_playlist_videos.TabIndex = 6;
             // 
             // textBox_Nombre_playlist_canciones
             // 
+            this.textBox_Nombre_playlist_canciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Nombre_playlist_canciones.Location = new System.Drawing.Point(425, 49);
             this.textBox_Nombre_playlist_canciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_Nombre_playlist_canciones.Name = "textBox_Nombre_playlist_canciones";
-            this.textBox_Nombre_playlist_canciones.Size = new System.Drawing.Size(237, 22);
+            this.textBox_Nombre_playlist_canciones.Size = new System.Drawing.Size(237, 27);
             this.textBox_Nombre_playlist_canciones.TabIndex = 5;
             // 
             // Add_Video_Playlist
@@ -1496,24 +1775,27 @@ namespace Spotflex
             // 
             this.label_hint_genero_busqueda.AutoSize = true;
             this.label_hint_genero_busqueda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_hint_genero_busqueda.ForeColor = System.Drawing.Color.White;
             this.label_hint_genero_busqueda.Location = new System.Drawing.Point(61, 501);
             this.label_hint_genero_busqueda.Name = "label_hint_genero_busqueda";
-            this.label_hint_genero_busqueda.Size = new System.Drawing.Size(575, 17);
+            this.label_hint_genero_busqueda.Size = new System.Drawing.Size(519, 17);
             this.label_hint_genero_busqueda.TabIndex = 21;
-            this.label_hint_genero_busqueda.Text = "Si quiere poner mas de una palabra clave separelo por coma ej: accion,terror";
+            this.label_hint_genero_busqueda.Text = "Si quiere poner mas de un genero separelo por coma ej: accion,terror";
             // 
             // textBox_genero_busqueda
             // 
+            this.textBox_genero_busqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_genero_busqueda.Location = new System.Drawing.Point(149, 469);
             this.textBox_genero_busqueda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_genero_busqueda.Name = "textBox_genero_busqueda";
-            this.textBox_genero_busqueda.Size = new System.Drawing.Size(479, 22);
+            this.textBox_genero_busqueda.Size = new System.Drawing.Size(479, 27);
             this.textBox_genero_busqueda.TabIndex = 20;
             // 
             // label_genero_busqueda
             // 
             this.label_genero_busqueda.AutoSize = true;
             this.label_genero_busqueda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_genero_busqueda.ForeColor = System.Drawing.Color.White;
             this.label_genero_busqueda.Location = new System.Drawing.Point(59, 471);
             this.label_genero_busqueda.Name = "label_genero_busqueda";
             this.label_genero_busqueda.Size = new System.Drawing.Size(69, 20);
@@ -1524,6 +1806,7 @@ namespace Spotflex
             // 
             this.label_hint_busqueda_duracion.AutoSize = true;
             this.label_hint_busqueda_duracion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_hint_busqueda_duracion.ForeColor = System.Drawing.Color.White;
             this.label_hint_busqueda_duracion.Location = new System.Drawing.Point(245, 383);
             this.label_hint_busqueda_duracion.Name = "label_hint_busqueda_duracion";
             this.label_hint_busqueda_duracion.Size = new System.Drawing.Size(462, 16);
@@ -1532,16 +1815,18 @@ namespace Spotflex
             // 
             // textBox_buscar_Calidad
             // 
+            this.textBox_buscar_Calidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_buscar_Calidad.Location = new System.Drawing.Point(149, 379);
             this.textBox_buscar_Calidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_buscar_Calidad.Name = "textBox_buscar_Calidad";
-            this.textBox_buscar_Calidad.Size = new System.Drawing.Size(80, 22);
+            this.textBox_buscar_Calidad.Size = new System.Drawing.Size(80, 27);
             this.textBox_buscar_Calidad.TabIndex = 17;
             // 
             // label_busqueda_calidad
             // 
             this.label_busqueda_calidad.AutoSize = true;
             this.label_busqueda_calidad.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_busqueda_calidad.ForeColor = System.Drawing.Color.White;
             this.label_busqueda_calidad.Location = new System.Drawing.Point(30, 380);
             this.label_busqueda_calidad.Name = "label_busqueda_calidad";
             this.label_busqueda_calidad.Size = new System.Drawing.Size(100, 20);
@@ -1552,6 +1837,7 @@ namespace Spotflex
             // 
             this.label_buscar_hint_duracion.AutoSize = true;
             this.label_buscar_hint_duracion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscar_hint_duracion.ForeColor = System.Drawing.Color.White;
             this.label_buscar_hint_duracion.Location = new System.Drawing.Point(242, 337);
             this.label_buscar_hint_duracion.Name = "label_buscar_hint_duracion";
             this.label_buscar_hint_duracion.Size = new System.Drawing.Size(462, 16);
@@ -1560,16 +1846,18 @@ namespace Spotflex
             // 
             // textBox_buscar_duracion
             // 
+            this.textBox_buscar_duracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_buscar_duracion.Location = new System.Drawing.Point(149, 332);
             this.textBox_buscar_duracion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_buscar_duracion.Name = "textBox_buscar_duracion";
-            this.textBox_buscar_duracion.Size = new System.Drawing.Size(80, 22);
+            this.textBox_buscar_duracion.Size = new System.Drawing.Size(80, 27);
             this.textBox_buscar_duracion.TabIndex = 14;
             // 
             // label_busqueda_duracion
             // 
             this.label_busqueda_duracion.AutoSize = true;
             this.label_busqueda_duracion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_busqueda_duracion.ForeColor = System.Drawing.Color.White;
             this.label_busqueda_duracion.Location = new System.Drawing.Point(45, 332);
             this.label_busqueda_duracion.Name = "label_busqueda_duracion";
             this.label_busqueda_duracion.Size = new System.Drawing.Size(84, 20);
@@ -1579,6 +1867,7 @@ namespace Spotflex
             // checkBox_buscar_mujer
             // 
             this.checkBox_buscar_mujer.AutoSize = true;
+            this.checkBox_buscar_mujer.ForeColor = System.Drawing.Color.White;
             this.checkBox_buscar_mujer.Location = new System.Drawing.Point(269, 290);
             this.checkBox_buscar_mujer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox_buscar_mujer.Name = "checkBox_buscar_mujer";
@@ -1590,6 +1879,7 @@ namespace Spotflex
             // checkBox_buscar_hombre
             // 
             this.checkBox_buscar_hombre.AutoSize = true;
+            this.checkBox_buscar_hombre.ForeColor = System.Drawing.Color.White;
             this.checkBox_buscar_hombre.Location = new System.Drawing.Point(165, 288);
             this.checkBox_buscar_hombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox_buscar_hombre.Name = "checkBox_buscar_hombre";
@@ -1602,6 +1892,7 @@ namespace Spotflex
             // 
             this.label_hint_edad_persona.AutoSize = true;
             this.label_hint_edad_persona.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_hint_edad_persona.ForeColor = System.Drawing.Color.White;
             this.label_hint_edad_persona.Location = new System.Drawing.Point(247, 250);
             this.label_hint_edad_persona.Name = "label_hint_edad_persona";
             this.label_hint_edad_persona.Size = new System.Drawing.Size(446, 16);
@@ -1610,24 +1901,27 @@ namespace Spotflex
             // 
             // textBox_edad_personas_buscar
             // 
+            this.textBox_edad_personas_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_edad_personas_buscar.Location = new System.Drawing.Point(162, 245);
             this.textBox_edad_personas_buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_edad_personas_buscar.Name = "textBox_edad_personas_buscar";
-            this.textBox_edad_personas_buscar.Size = new System.Drawing.Size(80, 22);
+            this.textBox_edad_personas_buscar.Size = new System.Drawing.Size(80, 27);
             this.textBox_edad_personas_buscar.TabIndex = 9;
             // 
             // textBox_nombre_personas_buscar
             // 
+            this.textBox_nombre_personas_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_nombre_personas_buscar.Location = new System.Drawing.Point(160, 191);
             this.textBox_nombre_personas_buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_nombre_personas_buscar.Name = "textBox_nombre_personas_buscar";
-            this.textBox_nombre_personas_buscar.Size = new System.Drawing.Size(479, 22);
+            this.textBox_nombre_personas_buscar.Size = new System.Drawing.Size(479, 27);
             this.textBox_nombre_personas_buscar.TabIndex = 8;
             // 
             // label_hint_nombre_busqueda
             // 
             this.label_hint_nombre_busqueda.AutoSize = true;
             this.label_hint_nombre_busqueda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_hint_nombre_busqueda.ForeColor = System.Drawing.Color.White;
             this.label_hint_nombre_busqueda.Location = new System.Drawing.Point(160, 221);
             this.label_hint_nombre_busqueda.Name = "label_hint_nombre_busqueda";
             this.label_hint_nombre_busqueda.Size = new System.Drawing.Size(448, 16);
@@ -1638,6 +1932,7 @@ namespace Spotflex
             // 
             this.label_busqueda_genero_persona.AutoSize = true;
             this.label_busqueda_genero_persona.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_busqueda_genero_persona.ForeColor = System.Drawing.Color.White;
             this.label_busqueda_genero_persona.Location = new System.Drawing.Point(90, 289);
             this.label_busqueda_genero_persona.Name = "label_busqueda_genero_persona";
             this.label_busqueda_genero_persona.Size = new System.Drawing.Size(63, 17);
@@ -1648,6 +1943,7 @@ namespace Spotflex
             // 
             this.label_busqueda_edad_personas.AutoSize = true;
             this.label_busqueda_edad_personas.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_busqueda_edad_personas.ForeColor = System.Drawing.Color.White;
             this.label_busqueda_edad_personas.Location = new System.Drawing.Point(112, 247);
             this.label_busqueda_edad_personas.Name = "label_busqueda_edad_personas";
             this.label_busqueda_edad_personas.Size = new System.Drawing.Size(45, 17);
@@ -1658,6 +1954,7 @@ namespace Spotflex
             // 
             this.label_busqueda_personas_involucradas_nombre.AutoSize = true;
             this.label_busqueda_personas_involucradas_nombre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_busqueda_personas_involucradas_nombre.ForeColor = System.Drawing.Color.White;
             this.label_busqueda_personas_involucradas_nombre.Location = new System.Drawing.Point(86, 193);
             this.label_busqueda_personas_involucradas_nombre.Name = "label_busqueda_personas_involucradas_nombre";
             this.label_busqueda_personas_involucradas_nombre.Size = new System.Drawing.Size(74, 17);
@@ -1668,6 +1965,7 @@ namespace Spotflex
             // 
             this.label_busqueda_personas_involucradas.AutoSize = true;
             this.label_busqueda_personas_involucradas.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_busqueda_personas_involucradas.ForeColor = System.Drawing.Color.White;
             this.label_busqueda_personas_involucradas.Location = new System.Drawing.Point(40, 162);
             this.label_busqueda_personas_involucradas.Name = "label_busqueda_personas_involucradas";
             this.label_busqueda_personas_involucradas.Size = new System.Drawing.Size(195, 20);
@@ -1678,6 +1976,7 @@ namespace Spotflex
             // 
             this.label_busqueda_palabras_clave_hint.AutoSize = true;
             this.label_busqueda_palabras_clave_hint.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_busqueda_palabras_clave_hint.ForeColor = System.Drawing.Color.White;
             this.label_busqueda_palabras_clave_hint.Location = new System.Drawing.Point(41, 129);
             this.label_busqueda_palabras_clave_hint.Name = "label_busqueda_palabras_clave_hint";
             this.label_busqueda_palabras_clave_hint.Size = new System.Drawing.Size(609, 17);
@@ -1688,6 +1987,7 @@ namespace Spotflex
             // 
             this.label_busqueda_palabras_clave.AutoSize = true;
             this.label_busqueda_palabras_clave.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_busqueda_palabras_clave.ForeColor = System.Drawing.Color.White;
             this.label_busqueda_palabras_clave.Location = new System.Drawing.Point(40, 100);
             this.label_busqueda_palabras_clave.Name = "label_busqueda_palabras_clave";
             this.label_busqueda_palabras_clave.Size = new System.Drawing.Size(133, 20);
@@ -1696,16 +1996,18 @@ namespace Spotflex
             // 
             // textBox_palabras_clave_buscar
             // 
+            this.textBox_palabras_clave_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_palabras_clave_buscar.Location = new System.Drawing.Point(189, 100);
             this.textBox_palabras_clave_buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_palabras_clave_buscar.Name = "textBox_palabras_clave_buscar";
-            this.textBox_palabras_clave_buscar.Size = new System.Drawing.Size(479, 22);
+            this.textBox_palabras_clave_buscar.Size = new System.Drawing.Size(479, 27);
             this.textBox_palabras_clave_buscar.TabIndex = 0;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(45, 423);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 20);
@@ -1714,21 +2016,23 @@ namespace Spotflex
             // 
             // textBox_buscar_ranking
             // 
+            this.textBox_buscar_ranking.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_buscar_ranking.Location = new System.Drawing.Point(151, 422);
             this.textBox_buscar_ranking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_buscar_ranking.Name = "textBox_buscar_ranking";
-            this.textBox_buscar_ranking.Size = new System.Drawing.Size(80, 22);
+            this.textBox_buscar_ranking.Size = new System.Drawing.Size(80, 27);
             this.textBox_buscar_ranking.TabIndex = 28;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(247, 424);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(471, 16);
+            this.label7.Size = new System.Drawing.Size(363, 16);
             this.label7.TabIndex = 29;
-            this.label7.Text = "Puedes buscarlo igual a una calificacion o por intervalos (ej: >4 o <4)";
+            this.label7.Text = "Tambien puedes buscarlo por intervalos (ej: >4 o <4)";
             // 
             // panel7
             // 
@@ -1736,10 +2040,10 @@ namespace Spotflex
             this.panel7.Controls.Add(this.pictureBox7);
             this.panel7.Controls.Add(this.pictureBox_Reproducri_vid);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(655, 0);
+            this.panel7.Location = new System.Drawing.Point(657, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(91, 719);
+            this.panel7.Size = new System.Drawing.Size(91, 721);
             this.panel7.TabIndex = 24;
             // 
             // pictureBox8
@@ -1787,7 +2091,7 @@ namespace Spotflex
             this.panel_reproductor_Video.Location = new System.Drawing.Point(0, 87);
             this.panel_reproductor_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_reproductor_Video.Name = "panel_reproductor_Video";
-            this.panel_reproductor_Video.Size = new System.Drawing.Size(593, 313);
+            this.panel_reproductor_Video.Size = new System.Drawing.Size(748, 313);
             this.panel_reproductor_Video.TabIndex = 23;
             // 
             // pictureBox5
@@ -1812,7 +2116,7 @@ namespace Spotflex
             this.ReproductorVideo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReproductorVideo.Name = "ReproductorVideo";
             this.ReproductorVideo.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ReproductorVideo.OcxState")));
-            this.ReproductorVideo.Size = new System.Drawing.Size(593, 313);
+            this.ReproductorVideo.Size = new System.Drawing.Size(748, 313);
             this.ReproductorVideo.TabIndex = 1;
             // 
             // pictureBox4
@@ -1937,6 +2241,7 @@ namespace Spotflex
             // 
             this.lblCalificacion_ReproducirVideo.AutoSize = true;
             this.lblCalificacion_ReproducirVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCalificacion_ReproducirVideo.ForeColor = System.Drawing.Color.White;
             this.lblCalificacion_ReproducirVideo.Location = new System.Drawing.Point(237, 640);
             this.lblCalificacion_ReproducirVideo.Name = "lblCalificacion_ReproducirVideo";
             this.lblCalificacion_ReproducirVideo.Size = new System.Drawing.Size(108, 20);
@@ -1969,6 +2274,7 @@ namespace Spotflex
             // 
             this.lblDescripcionReproducirVideo.AutoSize = true;
             this.lblDescripcionReproducirVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcionReproducirVideo.ForeColor = System.Drawing.Color.White;
             this.lblDescripcionReproducirVideo.Location = new System.Drawing.Point(76, 415);
             this.lblDescripcionReproducirVideo.Name = "lblDescripcionReproducirVideo";
             this.lblDescripcionReproducirVideo.Size = new System.Drawing.Size(109, 20);
@@ -1979,6 +2285,7 @@ namespace Spotflex
             // 
             this.lblVisitasReproducirVideo.AutoSize = true;
             this.lblVisitasReproducirVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVisitasReproducirVideo.ForeColor = System.Drawing.Color.White;
             this.lblVisitasReproducirVideo.Location = new System.Drawing.Point(476, 347);
             this.lblVisitasReproducirVideo.Name = "lblVisitasReproducirVideo";
             this.lblVisitasReproducirVideo.Size = new System.Drawing.Size(70, 20);
@@ -1989,6 +2296,7 @@ namespace Spotflex
             // 
             this.lblNotaReproducirvideo.AutoSize = true;
             this.lblNotaReproducirvideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotaReproducirvideo.ForeColor = System.Drawing.Color.White;
             this.lblNotaReproducirvideo.Location = new System.Drawing.Point(227, 351);
             this.lblNotaReproducirvideo.Name = "lblNotaReproducirvideo";
             this.lblNotaReproducirvideo.Size = new System.Drawing.Size(53, 20);
@@ -1999,6 +2307,7 @@ namespace Spotflex
             // 
             this.lblDuracionReproducirvideo.AutoSize = true;
             this.lblDuracionReproducirvideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuracionReproducirvideo.ForeColor = System.Drawing.Color.White;
             this.lblDuracionReproducirvideo.Location = new System.Drawing.Point(309, 300);
             this.lblDuracionReproducirvideo.Name = "lblDuracionReproducirvideo";
             this.lblDuracionReproducirvideo.Size = new System.Drawing.Size(84, 20);
@@ -2009,6 +2318,7 @@ namespace Spotflex
             // 
             this.lblEstudioReproducirVideo.AutoSize = true;
             this.lblEstudioReproducirVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstudioReproducirVideo.ForeColor = System.Drawing.Color.White;
             this.lblEstudioReproducirVideo.Location = new System.Drawing.Point(309, 272);
             this.lblEstudioReproducirVideo.Name = "lblEstudioReproducirVideo";
             this.lblEstudioReproducirVideo.Size = new System.Drawing.Size(71, 20);
@@ -2019,6 +2329,7 @@ namespace Spotflex
             // 
             this.lblGeneroReproducirVideo.AutoSize = true;
             this.lblGeneroReproducirVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGeneroReproducirVideo.ForeColor = System.Drawing.Color.White;
             this.lblGeneroReproducirVideo.Location = new System.Drawing.Point(308, 239);
             this.lblGeneroReproducirVideo.Name = "lblGeneroReproducirVideo";
             this.lblGeneroReproducirVideo.Size = new System.Drawing.Size(83, 20);
@@ -2029,6 +2340,7 @@ namespace Spotflex
             // 
             this.lblActores_reproducirvideo.AutoSize = true;
             this.lblActores_reproducirvideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActores_reproducirvideo.ForeColor = System.Drawing.Color.White;
             this.lblActores_reproducirvideo.Location = new System.Drawing.Point(308, 182);
             this.lblActores_reproducirvideo.Name = "lblActores_reproducirvideo";
             this.lblActores_reproducirvideo.Size = new System.Drawing.Size(73, 20);
@@ -2039,6 +2351,7 @@ namespace Spotflex
             // 
             this.lblDirectores_ReproducirVideo.AutoSize = true;
             this.lblDirectores_ReproducirVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDirectores_ReproducirVideo.ForeColor = System.Drawing.Color.White;
             this.lblDirectores_ReproducirVideo.Location = new System.Drawing.Point(305, 97);
             this.lblDirectores_ReproducirVideo.Name = "lblDirectores_ReproducirVideo";
             this.lblDirectores_ReproducirVideo.Size = new System.Drawing.Size(101, 20);
@@ -2049,6 +2362,7 @@ namespace Spotflex
             // 
             this.lblTituloDelVideoAReproducir.AutoSize = true;
             this.lblTituloDelVideoAReproducir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.lblTituloDelVideoAReproducir.ForeColor = System.Drawing.Color.White;
             this.lblTituloDelVideoAReproducir.Location = new System.Drawing.Point(79, 50);
             this.lblTituloDelVideoAReproducir.Name = "lblTituloDelVideoAReproducir";
             this.lblTituloDelVideoAReproducir.Size = new System.Drawing.Size(82, 29);
@@ -2075,6 +2389,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_trabajo_artistas.AutoSize = true;
             this.label_trabajo_artistas.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_trabajo_artistas.ForeColor = System.Drawing.Color.White;
             this.label_trabajo_artistas.Location = new System.Drawing.Point(139, 330);
             this.label_trabajo_artistas.Name = "label_trabajo_artistas";
             this.label_trabajo_artistas.Size = new System.Drawing.Size(209, 23);
@@ -2099,6 +2414,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_info_artista_seguidores.AutoSize = true;
             this.label_info_artista_seguidores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_info_artista_seguidores.ForeColor = System.Drawing.Color.White;
             this.label_info_artista_seguidores.Location = new System.Drawing.Point(139, 225);
             this.label_info_artista_seguidores.Name = "label_info_artista_seguidores";
             this.label_info_artista_seguidores.Size = new System.Drawing.Size(128, 23);
@@ -2111,6 +2427,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_info_edad_Artista.AutoSize = true;
             this.label_info_edad_Artista.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_info_edad_Artista.ForeColor = System.Drawing.Color.White;
             this.label_info_edad_Artista.Location = new System.Drawing.Point(139, 190);
             this.label_info_edad_Artista.Name = "label_info_edad_Artista";
             this.label_info_edad_Artista.Size = new System.Drawing.Size(67, 23);
@@ -2123,6 +2440,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_info_ocupacion_artista.AutoSize = true;
             this.label_info_ocupacion_artista.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_info_ocupacion_artista.ForeColor = System.Drawing.Color.White;
             this.label_info_ocupacion_artista.Location = new System.Drawing.Point(137, 154);
             this.label_info_ocupacion_artista.Name = "label_info_ocupacion_artista";
             this.label_info_ocupacion_artista.Size = new System.Drawing.Size(122, 23);
@@ -2133,6 +2451,7 @@ namespace Spotflex
             // 
             this.label_info_nombre_artista.AutoSize = true;
             this.label_info_nombre_artista.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_info_nombre_artista.ForeColor = System.Drawing.Color.White;
             this.label_info_nombre_artista.Location = new System.Drawing.Point(135, 100);
             this.label_info_nombre_artista.Name = "label_info_nombre_artista";
             this.label_info_nombre_artista.Size = new System.Drawing.Size(224, 32);
@@ -2157,6 +2476,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_archivos_subidos_por_usuario.AutoSize = true;
             this.label_archivos_subidos_por_usuario.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_archivos_subidos_por_usuario.ForeColor = System.Drawing.Color.White;
             this.label_archivos_subidos_por_usuario.Location = new System.Drawing.Point(91, 391);
             this.label_archivos_subidos_por_usuario.Name = "label_archivos_subidos_por_usuario";
             this.label_archivos_subidos_por_usuario.Size = new System.Drawing.Size(358, 23);
@@ -2169,6 +2489,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_info_usuario.AutoSize = true;
             this.label_info_usuario.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_info_usuario.ForeColor = System.Drawing.Color.White;
             this.label_info_usuario.Location = new System.Drawing.Point(91, 294);
             this.label_info_usuario.Name = "label_info_usuario";
             this.label_info_usuario.Size = new System.Drawing.Size(254, 23);
@@ -2193,6 +2514,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_seguidores.AutoSize = true;
             this.label_seguidores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_seguidores.ForeColor = System.Drawing.Color.White;
             this.label_seguidores.Location = new System.Drawing.Point(288, 175);
             this.label_seguidores.Name = "label_seguidores";
             this.label_seguidores.Size = new System.Drawing.Size(133, 23);
@@ -2203,6 +2525,7 @@ namespace Spotflex
             // 
             this.label_nickname_usuario.AutoSize = true;
             this.label_nickname_usuario.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nickname_usuario.ForeColor = System.Drawing.Color.White;
             this.label_nickname_usuario.Location = new System.Drawing.Point(281, 122);
             this.label_nickname_usuario.Name = "label_nickname_usuario";
             this.label_nickname_usuario.Size = new System.Drawing.Size(239, 32);
@@ -2235,6 +2558,7 @@ namespace Spotflex
             // 
             this.label_resultados_busquedas_general.AutoSize = true;
             this.label_resultados_busquedas_general.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_resultados_busquedas_general.ForeColor = System.Drawing.Color.White;
             this.label_resultados_busquedas_general.Location = new System.Drawing.Point(155, 50);
             this.label_resultados_busquedas_general.Name = "label_resultados_busquedas_general";
             this.label_resultados_busquedas_general.Size = new System.Drawing.Size(358, 28);
@@ -2272,7 +2596,7 @@ namespace Spotflex
             this.button_comentar_cancion.Location = new System.Drawing.Point(156, 206);
             this.button_comentar_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_comentar_cancion.Name = "button_comentar_cancion";
-            this.button_comentar_cancion.Size = new System.Drawing.Size(466, 32);
+            this.button_comentar_cancion.Size = new System.Drawing.Size(432, 32);
             this.button_comentar_cancion.TabIndex = 2;
             this.button_comentar_cancion.Text = "Comentar";
             this.button_comentar_cancion.UseVisualStyleBackColor = true;
@@ -2282,10 +2606,11 @@ namespace Spotflex
             // 
             this.richTextBox_caja_de_comentarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox_caja_de_comentarios.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox_caja_de_comentarios.Location = new System.Drawing.Point(100, 83);
             this.richTextBox_caja_de_comentarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox_caja_de_comentarios.Name = "richTextBox_caja_de_comentarios";
-            this.richTextBox_caja_de_comentarios.Size = new System.Drawing.Size(570, 100);
+            this.richTextBox_caja_de_comentarios.Size = new System.Drawing.Size(526, 100);
             this.richTextBox_caja_de_comentarios.TabIndex = 1;
             this.richTextBox_caja_de_comentarios.Text = "";
             // 
@@ -2293,6 +2618,7 @@ namespace Spotflex
             // 
             this.label_subtitulo_comentarios_Cancion.AutoSize = true;
             this.label_subtitulo_comentarios_Cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_subtitulo_comentarios_Cancion.ForeColor = System.Drawing.Color.White;
             this.label_subtitulo_comentarios_Cancion.Location = new System.Drawing.Point(33, 262);
             this.label_subtitulo_comentarios_Cancion.Name = "label_subtitulo_comentarios_Cancion";
             this.label_subtitulo_comentarios_Cancion.Size = new System.Drawing.Size(283, 23);
@@ -2333,6 +2659,8 @@ namespace Spotflex
             this.label_recomendaciones.TabIndex = 10;
             this.label_recomendaciones.Text = "Me gustaria";
             this.label_recomendaciones.Click += new System.EventHandler(this.label_recomendaciones_Click);
+            this.label_recomendaciones.MouseLeave += new System.EventHandler(this.label_recomendaciones_MouseLeave);
+            this.label_recomendaciones.MouseHover += new System.EventHandler(this.label_recomendaciones_MouseHover);
             // 
             // label_ranking
             // 
@@ -2348,6 +2676,8 @@ namespace Spotflex
             this.label_ranking.TabIndex = 9;
             this.label_ranking.Text = "Ranking";
             this.label_ranking.Click += new System.EventHandler(this.label_ranking_Click);
+            this.label_ranking.MouseLeave += new System.EventHandler(this.label_ranking_MouseLeave);
+            this.label_ranking.MouseHover += new System.EventHandler(this.label_ranking_MouseHover);
             // 
             // label_cerrar_sesion
             // 
@@ -2363,6 +2693,8 @@ namespace Spotflex
             this.label_cerrar_sesion.TabIndex = 8;
             this.label_cerrar_sesion.Text = "Cerrar Sesion";
             this.label_cerrar_sesion.Click += new System.EventHandler(this.label_cerrar_sesion_Click);
+            this.label_cerrar_sesion.MouseLeave += new System.EventHandler(this.label_cerrar_sesion_MouseLeave);
+            this.label_cerrar_sesion.MouseHover += new System.EventHandler(this.label_cerrar_sesion_MouseHover);
             // 
             // Opciones
             // 
@@ -2378,6 +2710,8 @@ namespace Spotflex
             this.Opciones.TabIndex = 7;
             this.Opciones.Text = "Opciones";
             this.Opciones.Click += new System.EventHandler(this.label_ajuste_usuario_Click);
+            this.Opciones.MouseLeave += new System.EventHandler(this.Opciones_MouseLeave);
+            this.Opciones.MouseHover += new System.EventHandler(this.Opciones_MouseHover);
             // 
             // pictureBox_Favoritos
             // 
@@ -2413,6 +2747,8 @@ namespace Spotflex
             this.label_Favoritos.TabIndex = 4;
             this.label_Favoritos.Text = "Favoritos";
             this.label_Favoritos.Click += new System.EventHandler(this.label_Favoritos_Click);
+            this.label_Favoritos.MouseLeave += new System.EventHandler(this.label_Favoritos_MouseLeave);
+            this.label_Favoritos.MouseHover += new System.EventHandler(this.label_Favoritos_MouseHover);
             // 
             // label_Playlist_Usuario
             // 
@@ -2428,12 +2764,11 @@ namespace Spotflex
             this.label_Playlist_Usuario.TabIndex = 3;
             this.label_Playlist_Usuario.Text = "Playlists";
             this.label_Playlist_Usuario.Click += new System.EventHandler(this.label_Playlist_Usuario_Click);
+            this.label_Playlist_Usuario.MouseLeave += new System.EventHandler(this.label_Playlist_Usuario_MouseLeave);
+            this.label_Playlist_Usuario.MouseHover += new System.EventHandler(this.label_Playlist_Usuario_MouseHover);
             // 
             // panel_galeria
             // 
-            this.panel_galeria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_galeria.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel_galeria.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_galeria.BackgroundImage")));
             this.panel_galeria.Controls.Add(this.panel_ajustes);
@@ -2452,7 +2787,7 @@ namespace Spotflex
             // 
             // panel_ajustes
             // 
-            this.panel_ajustes.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel_ajustes.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_ajustes.Controls.Add(this.panel_informacion);
             this.panel_ajustes.Controls.Add(this.label_error_config);
             this.panel_ajustes.Controls.Add(this.label_ver_info);
@@ -2475,17 +2810,16 @@ namespace Spotflex
             this.panel_ajustes.Controls.Add(this.label_cambiar_nickname);
             this.panel_ajustes.Controls.Add(this.label_cambiar_datos);
             this.panel_ajustes.Controls.Add(this.BorrarVidYCan);
-            this.panel_ajustes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_ajustes.Location = new System.Drawing.Point(0, 0);
             this.panel_ajustes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_ajustes.Name = "panel_ajustes";
-            this.panel_ajustes.Size = new System.Drawing.Size(744, 719);
+            this.panel_ajustes.Size = new System.Drawing.Size(748, 721);
             this.panel_ajustes.TabIndex = 3;
             this.panel_ajustes.Visible = false;
             // 
             // panel_informacion
             // 
-            this.panel_informacion.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel_informacion.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_informacion.Controls.Add(this.panel_datos_add_cancion);
             this.panel_informacion.Controls.Add(this.label_info_tipo_usuario);
             this.panel_informacion.Controls.Add(this.label_infoPrivate);
@@ -2493,21 +2827,18 @@ namespace Spotflex
             this.panel_informacion.Controls.Add(this.label_infoEdad);
             this.panel_informacion.Controls.Add(this.label_infoSeguidores);
             this.panel_informacion.Controls.Add(this.pictureBox_backtoconfig);
-            this.panel_informacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_informacion.Location = new System.Drawing.Point(0, 0);
             this.panel_informacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_informacion.Name = "panel_informacion";
-            this.panel_informacion.Size = new System.Drawing.Size(744, 719);
+            this.panel_informacion.Size = new System.Drawing.Size(748, 721);
             this.panel_informacion.TabIndex = 20;
             this.panel_informacion.Visible = false;
             // 
             // panel_datos_add_cancion
             // 
-            this.panel_datos_add_cancion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_datos_add_cancion.Controls.Add(this.panel_De_Agregar_Video);
+            this.panel_datos_add_cancion.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_datos_add_cancion.Controls.Add(this.panel3);
+            this.panel_datos_add_cancion.Controls.Add(this.panel_De_Agregar_Video);
             this.panel_datos_add_cancion.Controls.Add(this.label_add_genero);
             this.panel_datos_add_cancion.Controls.Add(this.pictureBox_back_create_music);
             this.panel_datos_add_cancion.Controls.Add(this.button_add_more_artists);
@@ -2544,15 +2875,113 @@ namespace Spotflex
             this.panel_datos_add_cancion.Location = new System.Drawing.Point(0, 0);
             this.panel_datos_add_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_datos_add_cancion.Name = "panel_datos_add_cancion";
-            this.panel_datos_add_cancion.Size = new System.Drawing.Size(744, 719);
+            this.panel_datos_add_cancion.Size = new System.Drawing.Size(748, 719);
             this.panel_datos_add_cancion.TabIndex = 24;
             this.panel_datos_add_cancion.Visible = false;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackgroundImage = global::Spotflex.Properties.Resources.sky;
+            this.panel3.Controls.Add(this.Volver_de_Borrar_VidYCan);
+            this.panel3.Controls.Add(this.panel_label_borrar_video);
+            this.panel3.Controls.Add(this.panel_label_borrar_Cancion);
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Location = new System.Drawing.Point(1, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(751, 721);
+            this.panel3.TabIndex = 57;
+            this.panel3.Visible = false;
+            // 
+            // Volver_de_Borrar_VidYCan
+            // 
+            this.Volver_de_Borrar_VidYCan.Image = ((System.Drawing.Image)(resources.GetObject("Volver_de_Borrar_VidYCan.Image")));
+            this.Volver_de_Borrar_VidYCan.Location = new System.Drawing.Point(11, 630);
+            this.Volver_de_Borrar_VidYCan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Volver_de_Borrar_VidYCan.Name = "Volver_de_Borrar_VidYCan";
+            this.Volver_de_Borrar_VidYCan.Size = new System.Drawing.Size(87, 53);
+            this.Volver_de_Borrar_VidYCan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Volver_de_Borrar_VidYCan.TabIndex = 4;
+            this.Volver_de_Borrar_VidYCan.TabStop = false;
+            this.Volver_de_Borrar_VidYCan.Click += new System.EventHandler(this.Volver_de_Borrar_VidYCan_Click);
+            // 
+            // panel_label_borrar_video
+            // 
+            this.panel_label_borrar_video.BackColor = System.Drawing.Color.DarkRed;
+            this.panel_label_borrar_video.Controls.Add(this.label5);
+            this.panel_label_borrar_video.Location = new System.Drawing.Point(1, 322);
+            this.panel_label_borrar_video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel_label_borrar_video.Name = "panel_label_borrar_video";
+            this.panel_label_borrar_video.Size = new System.Drawing.Size(745, 38);
+            this.panel_label_borrar_video.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(192, 28);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Videos Subidas";
+            // 
+            // panel_label_borrar_Cancion
+            // 
+            this.panel_label_borrar_Cancion.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel_label_borrar_Cancion.Controls.Add(this.label4);
+            this.panel_label_borrar_Cancion.Location = new System.Drawing.Point(3, 0);
+            this.panel_label_borrar_Cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel_label_borrar_Cancion.Name = "panel_label_borrar_Cancion";
+            this.panel_label_borrar_Cancion.Size = new System.Drawing.Size(745, 38);
+            this.panel_label_borrar_Cancion.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(11, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(234, 28);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Canciones Subidas";
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.AutoScroll = true;
+            this.panel5.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel5.Location = new System.Drawing.Point(0, 358);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(748, 268);
+            this.panel5.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.AutoScroll = true;
+            this.panel4.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel4.Location = new System.Drawing.Point(3, 42);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(745, 281);
+            this.panel4.TabIndex = 0;
             // 
             // panel_De_Agregar_Video
             // 
             this.panel_De_Agregar_Video.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_De_Agregar_Video.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_De_Agregar_Video.Controls.Add(this.panel_info_cancion);
             this.panel_De_Agregar_Video.Controls.Add(this.label_error_add_video);
             this.panel_De_Agregar_Video.Controls.Add(this.label_error_add_actor);
@@ -2592,10 +3021,10 @@ namespace Spotflex
             this.panel_De_Agregar_Video.Controls.Add(this.lblDirector_vid);
             this.panel_De_Agregar_Video.Controls.Add(this.lblTitulo_vid);
             this.panel_De_Agregar_Video.Controls.Add(this.lblEjemploVideo);
-            this.panel_De_Agregar_Video.Location = new System.Drawing.Point(0, 46);
+            this.panel_De_Agregar_Video.Location = new System.Drawing.Point(0, 47);
             this.panel_De_Agregar_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_De_Agregar_Video.Name = "panel_De_Agregar_Video";
-            this.panel_De_Agregar_Video.Size = new System.Drawing.Size(746, 673);
+            this.panel_De_Agregar_Video.Size = new System.Drawing.Size(747, 672);
             this.panel_De_Agregar_Video.TabIndex = 35;
             // 
             // panel_info_cancion
@@ -2626,10 +3055,10 @@ namespace Spotflex
             this.panel_info_cancion.Controls.Add(this.label_cancion_Artistas);
             this.panel_info_cancion.Controls.Add(this.pictureBox_foto_cancion);
             this.panel_info_cancion.Controls.Add(this.label_info_nombre_cancion);
-            this.panel_info_cancion.Location = new System.Drawing.Point(0, 0);
+            this.panel_info_cancion.Location = new System.Drawing.Point(0, -1);
             this.panel_info_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_info_cancion.Name = "panel_info_cancion";
-            this.panel_info_cancion.Size = new System.Drawing.Size(746, 622);
+            this.panel_info_cancion.Size = new System.Drawing.Size(747, 669);
             this.panel_info_cancion.TabIndex = 37;
             this.panel_info_cancion.Visible = false;
             // 
@@ -2638,10 +3067,10 @@ namespace Spotflex
             this.panel_fijar_add_cancion.Controls.Add(this.panel_fijar_reproducir_cancion);
             this.panel_fijar_add_cancion.Controls.Add(this.pictureBox_reproducir_cancion);
             this.panel_fijar_add_cancion.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel_fijar_add_cancion.Location = new System.Drawing.Point(602, 0);
+            this.panel_fijar_add_cancion.Location = new System.Drawing.Point(603, 0);
             this.panel_fijar_add_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_fijar_add_cancion.Name = "panel_fijar_add_cancion";
-            this.panel_fijar_add_cancion.Size = new System.Drawing.Size(144, 622);
+            this.panel_fijar_add_cancion.Size = new System.Drawing.Size(144, 669);
             this.panel_fijar_add_cancion.TabIndex = 1;
             this.panel_fijar_add_cancion.Visible = false;
             this.panel_fijar_add_cancion.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_fijar_add_cancion_Paint);
@@ -2670,6 +3099,7 @@ namespace Spotflex
             // 
             this.label_size_cancion.AutoSize = true;
             this.label_size_cancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_size_cancion.ForeColor = System.Drawing.Color.White;
             this.label_size_cancion.Location = new System.Drawing.Point(60, 15);
             this.label_size_cancion.Name = "label_size_cancion";
             this.label_size_cancion.Size = new System.Drawing.Size(85, 24);
@@ -2712,7 +3142,7 @@ namespace Spotflex
             this.panel_reproductor_cancion.Location = new System.Drawing.Point(35, 52);
             this.panel_reproductor_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_reproductor_cancion.Name = "panel_reproductor_cancion";
-            this.panel_reproductor_cancion.Size = new System.Drawing.Size(571, 382);
+            this.panel_reproductor_cancion.Size = new System.Drawing.Size(747, 382);
             this.panel_reproductor_cancion.TabIndex = 55;
             this.panel_reproductor_cancion.Visible = false;
             // 
@@ -2737,7 +3167,7 @@ namespace Spotflex
             this.ReproductorCancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReproductorCancion.Name = "ReproductorCancion";
             this.ReproductorCancion.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ReproductorCancion.OcxState")));
-            this.ReproductorCancion.Size = new System.Drawing.Size(571, 382);
+            this.ReproductorCancion.Size = new System.Drawing.Size(747, 382);
             this.ReproductorCancion.TabIndex = 0;
             // 
             // pictureBox_5star_Canciones
@@ -2799,6 +3229,7 @@ namespace Spotflex
             // 
             this.label_calificacion.AutoSize = true;
             this.label_calificacion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_calificacion.ForeColor = System.Drawing.Color.White;
             this.label_calificacion.Location = new System.Drawing.Point(253, 594);
             this.label_calificacion.Name = "label_calificacion";
             this.label_calificacion.Size = new System.Drawing.Size(124, 23);
@@ -2848,6 +3279,7 @@ namespace Spotflex
             // 
             this.label_cancion_descripcion.AutoSize = true;
             this.label_cancion_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cancion_descripcion.ForeColor = System.Drawing.Color.White;
             this.label_cancion_descripcion.Location = new System.Drawing.Point(43, 345);
             this.label_cancion_descripcion.Name = "label_cancion_descripcion";
             this.label_cancion_descripcion.Size = new System.Drawing.Size(109, 20);
@@ -2858,6 +3290,7 @@ namespace Spotflex
             // 
             this.label_visitas_cancion.AutoSize = true;
             this.label_visitas_cancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_visitas_cancion.ForeColor = System.Drawing.Color.White;
             this.label_visitas_cancion.Location = new System.Drawing.Point(447, 306);
             this.label_visitas_cancion.Name = "label_visitas_cancion";
             this.label_visitas_cancion.Size = new System.Drawing.Size(70, 20);
@@ -2868,6 +3301,7 @@ namespace Spotflex
             // 
             this.label_calificacion_cancion.AutoSize = true;
             this.label_calificacion_cancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_calificacion_cancion.ForeColor = System.Drawing.Color.White;
             this.label_calificacion_cancion.Location = new System.Drawing.Point(240, 309);
             this.label_calificacion_cancion.Name = "label_calificacion_cancion";
             this.label_calificacion_cancion.Size = new System.Drawing.Size(49, 20);
@@ -2898,7 +3332,8 @@ namespace Spotflex
             // 
             this.label_info_cancion_estudio.AutoSize = true;
             this.label_info_cancion_estudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_info_cancion_estudio.Location = new System.Drawing.Point(304, 226);
+            this.label_info_cancion_estudio.ForeColor = System.Drawing.Color.White;
+            this.label_info_cancion_estudio.Location = new System.Drawing.Point(283, 226);
             this.label_info_cancion_estudio.Name = "label_info_cancion_estudio";
             this.label_info_cancion_estudio.Size = new System.Drawing.Size(70, 20);
             this.label_info_cancion_estudio.TabIndex = 40;
@@ -2908,7 +3343,8 @@ namespace Spotflex
             // 
             this.label_info_cancion_duracion.AutoSize = true;
             this.label_info_cancion_duracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_info_cancion_duracion.Location = new System.Drawing.Point(304, 255);
+            this.label_info_cancion_duracion.ForeColor = System.Drawing.Color.White;
+            this.label_info_cancion_duracion.Location = new System.Drawing.Point(283, 255);
             this.label_info_cancion_duracion.Name = "label_info_cancion_duracion";
             this.label_info_cancion_duracion.Size = new System.Drawing.Size(82, 20);
             this.label_info_cancion_duracion.TabIndex = 39;
@@ -2918,7 +3354,8 @@ namespace Spotflex
             // 
             this.label_info_genero_cancion.AutoSize = true;
             this.label_info_genero_cancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_info_genero_cancion.Location = new System.Drawing.Point(304, 199);
+            this.label_info_genero_cancion.ForeColor = System.Drawing.Color.White;
+            this.label_info_genero_cancion.Location = new System.Drawing.Point(283, 199);
             this.label_info_genero_cancion.Name = "label_info_genero_cancion";
             this.label_info_genero_cancion.Size = new System.Drawing.Size(69, 20);
             this.label_info_genero_cancion.TabIndex = 38;
@@ -2928,7 +3365,8 @@ namespace Spotflex
             // 
             this.label_cancion_info_album.AutoSize = true;
             this.label_cancion_info_album.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cancion_info_album.Location = new System.Drawing.Point(304, 174);
+            this.label_cancion_info_album.ForeColor = System.Drawing.Color.White;
+            this.label_cancion_info_album.Location = new System.Drawing.Point(283, 174);
             this.label_cancion_info_album.Name = "label_cancion_info_album";
             this.label_cancion_info_album.Size = new System.Drawing.Size(61, 20);
             this.label_cancion_info_album.TabIndex = 37;
@@ -2938,7 +3376,8 @@ namespace Spotflex
             // 
             this.label_cancion_Artistas.AutoSize = true;
             this.label_cancion_Artistas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cancion_Artistas.Location = new System.Drawing.Point(299, 71);
+            this.label_cancion_Artistas.ForeColor = System.Drawing.Color.White;
+            this.label_cancion_Artistas.Location = new System.Drawing.Point(283, 71);
             this.label_cancion_Artistas.Name = "label_cancion_Artistas";
             this.label_cancion_Artistas.Size = new System.Drawing.Size(72, 20);
             this.label_cancion_Artistas.TabIndex = 36;
@@ -2958,6 +3397,7 @@ namespace Spotflex
             // 
             this.label_info_nombre_cancion.AutoSize = true;
             this.label_info_nombre_cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.label_info_nombre_cancion.ForeColor = System.Drawing.Color.White;
             this.label_info_nombre_cancion.Location = new System.Drawing.Point(35, 16);
             this.label_info_nombre_cancion.Name = "label_info_nombre_cancion";
             this.label_info_nombre_cancion.Size = new System.Drawing.Size(218, 29);
@@ -2968,7 +3408,7 @@ namespace Spotflex
             // 
             this.label_error_add_video.AutoSize = true;
             this.label_error_add_video.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_error_add_video.ForeColor = System.Drawing.Color.DarkRed;
+            this.label_error_add_video.ForeColor = System.Drawing.Color.Red;
             this.label_error_add_video.Location = new System.Drawing.Point(341, 15);
             this.label_error_add_video.Name = "label_error_add_video";
             this.label_error_add_video.Size = new System.Drawing.Size(244, 17);
@@ -2980,7 +3420,7 @@ namespace Spotflex
             // 
             this.label_error_add_actor.AutoSize = true;
             this.label_error_add_actor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_error_add_actor.ForeColor = System.Drawing.Color.DarkRed;
+            this.label_error_add_actor.ForeColor = System.Drawing.Color.Red;
             this.label_error_add_actor.Location = new System.Drawing.Point(384, 284);
             this.label_error_add_actor.Name = "label_error_add_actor";
             this.label_error_add_actor.Size = new System.Drawing.Size(201, 17);
@@ -2992,7 +3432,7 @@ namespace Spotflex
             // 
             this.label_error_video_director.AutoSize = true;
             this.label_error_video_director.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_error_video_director.ForeColor = System.Drawing.Color.DarkRed;
+            this.label_error_video_director.ForeColor = System.Drawing.Color.Red;
             this.label_error_video_director.Location = new System.Drawing.Point(384, 185);
             this.label_error_video_director.Name = "label_error_video_director";
             this.label_error_video_director.Size = new System.Drawing.Size(201, 17);
@@ -3036,21 +3476,23 @@ namespace Spotflex
             // 
             // textBoxDirecorio_nuevovid
             // 
+            this.textBoxDirecorio_nuevovid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDirecorio_nuevovid.Location = new System.Drawing.Point(244, 588);
             this.textBoxDirecorio_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDirecorio_nuevovid.Name = "textBoxDirecorio_nuevovid";
             this.textBoxDirecorio_nuevovid.ReadOnly = true;
-            this.textBoxDirecorio_nuevovid.Size = new System.Drawing.Size(221, 22);
+            this.textBoxDirecorio_nuevovid.Size = new System.Drawing.Size(221, 27);
             this.textBoxDirecorio_nuevovid.TabIndex = 30;
             // 
             // richTextBoxDescripcion_Nuevovid
             // 
             this.richTextBoxDescripcion_Nuevovid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBoxDescripcion_Nuevovid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxDescripcion_Nuevovid.Location = new System.Drawing.Point(244, 435);
             this.richTextBoxDescripcion_Nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBoxDescripcion_Nuevovid.Name = "richTextBoxDescripcion_Nuevovid";
-            this.richTextBoxDescripcion_Nuevovid.Size = new System.Drawing.Size(418, 46);
+            this.richTextBoxDescripcion_Nuevovid.Size = new System.Drawing.Size(399, 46);
             this.richTextBoxDescripcion_Nuevovid.TabIndex = 29;
             this.richTextBoxDescripcion_Nuevovid.Text = "";
             // 
@@ -3058,16 +3500,18 @@ namespace Spotflex
             // 
             this.textBoxGenero_nuevovid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxGenero_nuevovid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxGenero_nuevovid.Location = new System.Drawing.Point(246, 391);
             this.textBoxGenero_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxGenero_nuevovid.Name = "textBoxGenero_nuevovid";
-            this.textBoxGenero_nuevovid.Size = new System.Drawing.Size(465, 22);
+            this.textBoxGenero_nuevovid.Size = new System.Drawing.Size(449, 27);
             this.textBoxGenero_nuevovid.TabIndex = 28;
             // 
             // lblDirectorio_nuevovid
             // 
             this.lblDirectorio_nuevovid.AutoSize = true;
             this.lblDirectorio_nuevovid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDirectorio_nuevovid.ForeColor = System.Drawing.Color.White;
             this.lblDirectorio_nuevovid.Location = new System.Drawing.Point(53, 586);
             this.lblDirectorio_nuevovid.Name = "lblDirectorio_nuevovid";
             this.lblDirectorio_nuevovid.Size = new System.Drawing.Size(92, 20);
@@ -3078,6 +3522,7 @@ namespace Spotflex
             // 
             this.lblPortada_nuevovid.AutoSize = true;
             this.lblPortada_nuevovid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPortada_nuevovid.ForeColor = System.Drawing.Color.White;
             this.lblPortada_nuevovid.Location = new System.Drawing.Point(56, 489);
             this.lblPortada_nuevovid.Name = "lblPortada_nuevovid";
             this.lblPortada_nuevovid.Size = new System.Drawing.Size(74, 20);
@@ -3088,6 +3533,7 @@ namespace Spotflex
             // 
             this.lblDescripcion_Nuevovid.AutoSize = true;
             this.lblDescripcion_Nuevovid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion_Nuevovid.ForeColor = System.Drawing.Color.White;
             this.lblDescripcion_Nuevovid.Location = new System.Drawing.Point(56, 434);
             this.lblDescripcion_Nuevovid.Name = "lblDescripcion_Nuevovid";
             this.lblDescripcion_Nuevovid.Size = new System.Drawing.Size(109, 20);
@@ -3098,6 +3544,7 @@ namespace Spotflex
             // 
             this.lblGeneros_nuevovid.AutoSize = true;
             this.lblGeneros_nuevovid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGeneros_nuevovid.ForeColor = System.Drawing.Color.White;
             this.lblGeneros_nuevovid.Location = new System.Drawing.Point(56, 391);
             this.lblGeneros_nuevovid.Name = "lblGeneros_nuevovid";
             this.lblGeneros_nuevovid.Size = new System.Drawing.Size(78, 20);
@@ -3107,6 +3554,7 @@ namespace Spotflex
             // checkBoxMActores_nuevovid
             // 
             this.checkBoxMActores_nuevovid.AutoSize = true;
+            this.checkBoxMActores_nuevovid.ForeColor = System.Drawing.Color.White;
             this.checkBoxMActores_nuevovid.Location = new System.Drawing.Point(471, 247);
             this.checkBoxMActores_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxMActores_nuevovid.Name = "checkBoxMActores_nuevovid";
@@ -3119,6 +3567,7 @@ namespace Spotflex
             // checkBoxHActor_nuevovid
             // 
             this.checkBoxHActor_nuevovid.AutoSize = true;
+            this.checkBoxHActor_nuevovid.ForeColor = System.Drawing.Color.White;
             this.checkBoxHActor_nuevovid.Location = new System.Drawing.Point(425, 247);
             this.checkBoxHActor_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxHActor_nuevovid.Name = "checkBoxHActor_nuevovid";
@@ -3130,26 +3579,29 @@ namespace Spotflex
             // 
             // textBoxEdadActor_nuevovid
             // 
+            this.textBoxEdadActor_nuevovid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEdadActor_nuevovid.Location = new System.Drawing.Point(248, 247);
             this.textBoxEdadActor_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEdadActor_nuevovid.Name = "textBoxEdadActor_nuevovid";
-            this.textBoxEdadActor_nuevovid.Size = new System.Drawing.Size(99, 22);
+            this.textBoxEdadActor_nuevovid.Size = new System.Drawing.Size(99, 27);
             this.textBoxEdadActor_nuevovid.TabIndex = 21;
             // 
             // textBoxNombreActor_nuevovid
             // 
             this.textBoxNombreActor_nuevovid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNombreActor_nuevovid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNombreActor_nuevovid.Location = new System.Drawing.Point(244, 212);
             this.textBoxNombreActor_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNombreActor_nuevovid.Name = "textBoxNombreActor_nuevovid";
-            this.textBoxNombreActor_nuevovid.Size = new System.Drawing.Size(467, 22);
+            this.textBoxNombreActor_nuevovid.Size = new System.Drawing.Size(449, 27);
             this.textBoxNombreActor_nuevovid.TabIndex = 20;
             // 
             // lblSexoActores_nuevovid
             // 
             this.lblSexoActores_nuevovid.AutoSize = true;
             this.lblSexoActores_nuevovid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSexoActores_nuevovid.ForeColor = System.Drawing.Color.White;
             this.lblSexoActores_nuevovid.Location = new System.Drawing.Point(351, 247);
             this.lblSexoActores_nuevovid.Name = "lblSexoActores_nuevovid";
             this.lblSexoActores_nuevovid.Size = new System.Drawing.Size(70, 20);
@@ -3160,6 +3612,7 @@ namespace Spotflex
             // 
             this.lblNombreActores_nuevovid.AutoSize = true;
             this.lblNombreActores_nuevovid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreActores_nuevovid.ForeColor = System.Drawing.Color.White;
             this.lblNombreActores_nuevovid.Location = new System.Drawing.Point(145, 217);
             this.lblNombreActores_nuevovid.Name = "lblNombreActores_nuevovid";
             this.lblNombreActores_nuevovid.Size = new System.Drawing.Size(86, 20);
@@ -3170,6 +3623,7 @@ namespace Spotflex
             // 
             this.lblEdadActores_Nuevovid.AutoSize = true;
             this.lblEdadActores_Nuevovid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEdadActores_Nuevovid.ForeColor = System.Drawing.Color.White;
             this.lblEdadActores_Nuevovid.Location = new System.Drawing.Point(145, 247);
             this.lblEdadActores_Nuevovid.Name = "lblEdadActores_Nuevovid";
             this.lblEdadActores_Nuevovid.Size = new System.Drawing.Size(68, 20);
@@ -3191,6 +3645,7 @@ namespace Spotflex
             // 
             this.lblActores_nuevoVid.AutoSize = true;
             this.lblActores_nuevoVid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActores_nuevoVid.ForeColor = System.Drawing.Color.White;
             this.lblActores_nuevoVid.Location = new System.Drawing.Point(56, 210);
             this.lblActores_nuevoVid.Name = "lblActores_nuevoVid";
             this.lblActores_nuevoVid.Size = new System.Drawing.Size(73, 20);
@@ -3201,10 +3656,11 @@ namespace Spotflex
             // 
             this.textBoxEstudio_nuevovid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxEstudio_nuevovid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEstudio_nuevovid.Location = new System.Drawing.Point(245, 310);
             this.textBoxEstudio_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEstudio_nuevovid.Name = "textBoxEstudio_nuevovid";
-            this.textBoxEstudio_nuevovid.Size = new System.Drawing.Size(466, 22);
+            this.textBoxEstudio_nuevovid.Size = new System.Drawing.Size(449, 27);
             this.textBoxEstudio_nuevovid.TabIndex = 14;
             // 
             // dateTimePickerNuevoVid
@@ -3219,6 +3675,7 @@ namespace Spotflex
             // 
             this.lblFechaPublicacionNuevoVid.AutoSize = true;
             this.lblFechaPublicacionNuevoVid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaPublicacionNuevoVid.ForeColor = System.Drawing.Color.White;
             this.lblFechaPublicacionNuevoVid.Location = new System.Drawing.Point(53, 351);
             this.lblFechaPublicacionNuevoVid.Name = "lblFechaPublicacionNuevoVid";
             this.lblFechaPublicacionNuevoVid.Size = new System.Drawing.Size(185, 20);
@@ -3229,6 +3686,7 @@ namespace Spotflex
             // 
             this.lblEstudio_nuevovid.AutoSize = true;
             this.lblEstudio_nuevovid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstudio_nuevovid.ForeColor = System.Drawing.Color.White;
             this.lblEstudio_nuevovid.Location = new System.Drawing.Point(53, 320);
             this.lblEstudio_nuevovid.Name = "lblEstudio_nuevovid";
             this.lblEstudio_nuevovid.Size = new System.Drawing.Size(71, 20);
@@ -3249,6 +3707,7 @@ namespace Spotflex
             // checkBoxM_direcvid
             // 
             this.checkBoxM_direcvid.AutoSize = true;
+            this.checkBoxM_direcvid.ForeColor = System.Drawing.Color.White;
             this.checkBoxM_direcvid.Location = new System.Drawing.Point(471, 146);
             this.checkBoxM_direcvid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxM_direcvid.Name = "checkBoxM_direcvid";
@@ -3262,6 +3721,7 @@ namespace Spotflex
             // checkbtnHdirec_vid
             // 
             this.checkbtnHdirec_vid.AutoSize = true;
+            this.checkbtnHdirec_vid.ForeColor = System.Drawing.Color.White;
             this.checkbtnHdirec_vid.Location = new System.Drawing.Point(425, 146);
             this.checkbtnHdirec_vid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkbtnHdirec_vid.Name = "checkbtnHdirec_vid";
@@ -3273,36 +3733,40 @@ namespace Spotflex
             // 
             // textBoxEdadDirector_nuevovid
             // 
+            this.textBoxEdadDirector_nuevovid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEdadDirector_nuevovid.Location = new System.Drawing.Point(245, 143);
             this.textBoxEdadDirector_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEdadDirector_nuevovid.Name = "textBoxEdadDirector_nuevovid";
-            this.textBoxEdadDirector_nuevovid.Size = new System.Drawing.Size(99, 22);
+            this.textBoxEdadDirector_nuevovid.Size = new System.Drawing.Size(100, 27);
             this.textBoxEdadDirector_nuevovid.TabIndex = 7;
             // 
             // textBoxnombreDirector_nuevovid
             // 
             this.textBoxnombreDirector_nuevovid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxnombreDirector_nuevovid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxnombreDirector_nuevovid.Location = new System.Drawing.Point(244, 108);
             this.textBoxnombreDirector_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxnombreDirector_nuevovid.Name = "textBoxnombreDirector_nuevovid";
-            this.textBoxnombreDirector_nuevovid.Size = new System.Drawing.Size(395, 22);
+            this.textBoxnombreDirector_nuevovid.Size = new System.Drawing.Size(449, 27);
             this.textBoxnombreDirector_nuevovid.TabIndex = 6;
             // 
             // textBoxtitulo_nuevovid
             // 
             this.textBoxtitulo_nuevovid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxtitulo_nuevovid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxtitulo_nuevovid.Location = new System.Drawing.Point(246, 68);
             this.textBoxtitulo_nuevovid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxtitulo_nuevovid.Name = "textBoxtitulo_nuevovid";
-            this.textBoxtitulo_nuevovid.Size = new System.Drawing.Size(416, 22);
+            this.textBoxtitulo_nuevovid.Size = new System.Drawing.Size(449, 27);
             this.textBoxtitulo_nuevovid.TabIndex = 5;
             // 
             // lblSexo_direc_vid
             // 
             this.lblSexo_direc_vid.AutoSize = true;
             this.lblSexo_direc_vid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSexo_direc_vid.ForeColor = System.Drawing.Color.White;
             this.lblSexo_direc_vid.Location = new System.Drawing.Point(351, 145);
             this.lblSexo_direc_vid.Name = "lblSexo_direc_vid";
             this.lblSexo_direc_vid.Size = new System.Drawing.Size(70, 20);
@@ -3313,6 +3777,7 @@ namespace Spotflex
             // 
             this.lblEdad_direc_vid.AutoSize = true;
             this.lblEdad_direc_vid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEdad_direc_vid.ForeColor = System.Drawing.Color.White;
             this.lblEdad_direc_vid.Location = new System.Drawing.Point(145, 145);
             this.lblEdad_direc_vid.Name = "lblEdad_direc_vid";
             this.lblEdad_direc_vid.Size = new System.Drawing.Size(68, 20);
@@ -3323,6 +3788,7 @@ namespace Spotflex
             // 
             this.lblNombre_direc_vid.AutoSize = true;
             this.lblNombre_direc_vid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre_direc_vid.ForeColor = System.Drawing.Color.White;
             this.lblNombre_direc_vid.Location = new System.Drawing.Point(145, 110);
             this.lblNombre_direc_vid.Name = "lblNombre_direc_vid";
             this.lblNombre_direc_vid.Size = new System.Drawing.Size(86, 20);
@@ -3333,6 +3799,7 @@ namespace Spotflex
             // 
             this.lblDirector_vid.AutoSize = true;
             this.lblDirector_vid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDirector_vid.ForeColor = System.Drawing.Color.White;
             this.lblDirector_vid.Location = new System.Drawing.Point(53, 110);
             this.lblDirector_vid.Name = "lblDirector_vid";
             this.lblDirector_vid.Size = new System.Drawing.Size(77, 20);
@@ -3343,7 +3810,8 @@ namespace Spotflex
             // 
             this.lblTitulo_vid.AutoSize = true;
             this.lblTitulo_vid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo_vid.Location = new System.Drawing.Point(53, 47);
+            this.lblTitulo_vid.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo_vid.Location = new System.Drawing.Point(55, 55);
             this.lblTitulo_vid.Name = "lblTitulo_vid";
             this.lblTitulo_vid.Size = new System.Drawing.Size(56, 20);
             this.lblTitulo_vid.TabIndex = 0;
@@ -3353,113 +3821,18 @@ namespace Spotflex
             // 
             this.lblEjemploVideo.AutoSize = true;
             this.lblEjemploVideo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEjemploVideo.ForeColor = System.Drawing.Color.White;
             this.lblEjemploVideo.Location = new System.Drawing.Point(70, 410);
             this.lblEjemploVideo.Name = "lblEjemploVideo";
             this.lblEjemploVideo.Size = new System.Drawing.Size(139, 16);
             this.lblEjemploVideo.TabIndex = 38;
             this.lblEjemploVideo.Text = "(Trailer,Acción,Etc)";
             // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackgroundImage = global::Spotflex.Properties.Resources.sky;
-            this.panel3.Controls.Add(this.Volver_de_Borrar_VidYCan);
-            this.panel3.Controls.Add(this.panel_label_borrar_video);
-            this.panel3.Controls.Add(this.panel_label_borrar_Cancion);
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(-2, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(750, 717);
-            this.panel3.TabIndex = 57;
-            this.panel3.Visible = false;
-            // 
-            // Volver_de_Borrar_VidYCan
-            // 
-            this.Volver_de_Borrar_VidYCan.Image = ((System.Drawing.Image)(resources.GetObject("Volver_de_Borrar_VidYCan.Image")));
-            this.Volver_de_Borrar_VidYCan.Location = new System.Drawing.Point(11, 630);
-            this.Volver_de_Borrar_VidYCan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Volver_de_Borrar_VidYCan.Name = "Volver_de_Borrar_VidYCan";
-            this.Volver_de_Borrar_VidYCan.Size = new System.Drawing.Size(87, 53);
-            this.Volver_de_Borrar_VidYCan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Volver_de_Borrar_VidYCan.TabIndex = 4;
-            this.Volver_de_Borrar_VidYCan.TabStop = false;
-            this.Volver_de_Borrar_VidYCan.Click += new System.EventHandler(this.Volver_de_Borrar_VidYCan_Click);
-            // 
-            // panel_label_borrar_video
-            // 
-            this.panel_label_borrar_video.BackColor = System.Drawing.Color.DarkRed;
-            this.panel_label_borrar_video.Controls.Add(this.label5);
-            this.panel_label_borrar_video.Location = new System.Drawing.Point(1, 322);
-            this.panel_label_borrar_video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel_label_borrar_video.Name = "panel_label_borrar_video";
-            this.panel_label_borrar_video.Size = new System.Drawing.Size(745, 38);
-            this.panel_label_borrar_video.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(192, 28);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Videos Subidas";
-            // 
-            // panel_label_borrar_Cancion
-            // 
-            this.panel_label_borrar_Cancion.BackColor = System.Drawing.Color.DarkGreen;
-            this.panel_label_borrar_Cancion.Controls.Add(this.label4);
-            this.panel_label_borrar_Cancion.Location = new System.Drawing.Point(3, 0);
-            this.panel_label_borrar_Cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel_label_borrar_Cancion.Name = "panel_label_borrar_Cancion";
-            this.panel_label_borrar_Cancion.Size = new System.Drawing.Size(733, 38);
-            this.panel_label_borrar_Cancion.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(11, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(234, 28);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Canciones Subidas";
-            // 
-            // panel5
-            // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.AutoScroll = true;
-            this.panel5.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panel5.Location = new System.Drawing.Point(0, 358);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1016, 268);
-            this.panel5.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.AutoScroll = true;
-            this.panel4.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panel4.Location = new System.Drawing.Point(3, 42);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1012, 281);
-            this.panel4.TabIndex = 0;
-            // 
             // label_add_genero
             // 
             this.label_add_genero.AutoSize = true;
             this.label_add_genero.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_add_genero.ForeColor = System.Drawing.Color.White;
             this.label_add_genero.Location = new System.Drawing.Point(45, 368);
             this.label_add_genero.Name = "label_add_genero";
             this.label_add_genero.Size = new System.Drawing.Size(78, 20);
@@ -3491,6 +3864,7 @@ namespace Spotflex
             // checkBox_sexo_mujer
             // 
             this.checkBox_sexo_mujer.AutoSize = true;
+            this.checkBox_sexo_mujer.ForeColor = System.Drawing.Color.White;
             this.checkBox_sexo_mujer.Location = new System.Drawing.Point(487, 183);
             this.checkBox_sexo_mujer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox_sexo_mujer.Name = "checkBox_sexo_mujer";
@@ -3503,6 +3877,7 @@ namespace Spotflex
             // checkBox_sexo_hombre
             // 
             this.checkBox_sexo_hombre.AutoSize = true;
+            this.checkBox_sexo_hombre.ForeColor = System.Drawing.Color.White;
             this.checkBox_sexo_hombre.Location = new System.Drawing.Point(416, 183);
             this.checkBox_sexo_hombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox_sexo_hombre.Name = "checkBox_sexo_hombre";
@@ -3514,16 +3889,18 @@ namespace Spotflex
             // 
             // textBox_add_edad_artista
             // 
+            this.textBox_add_edad_artista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_add_edad_artista.Location = new System.Drawing.Point(237, 183);
             this.textBox_add_edad_artista.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_add_edad_artista.Name = "textBox_add_edad_artista";
-            this.textBox_add_edad_artista.Size = new System.Drawing.Size(68, 22);
+            this.textBox_add_edad_artista.Size = new System.Drawing.Size(68, 27);
             this.textBox_add_edad_artista.TabIndex = 26;
             // 
             // label_add_artista_sexo
             // 
             this.label_add_artista_sexo.AutoSize = true;
             this.label_add_artista_sexo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_add_artista_sexo.ForeColor = System.Drawing.Color.White;
             this.label_add_artista_sexo.Location = new System.Drawing.Point(325, 185);
             this.label_add_artista_sexo.Name = "label_add_artista_sexo";
             this.label_add_artista_sexo.Size = new System.Drawing.Size(74, 20);
@@ -3534,6 +3911,7 @@ namespace Spotflex
             // 
             this.label_add_edad_artista_cancion.AutoSize = true;
             this.label_add_edad_artista_cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_add_edad_artista_cancion.ForeColor = System.Drawing.Color.White;
             this.label_add_edad_artista_cancion.Location = new System.Drawing.Point(125, 185);
             this.label_add_edad_artista_cancion.Name = "label_add_edad_artista_cancion";
             this.label_add_edad_artista_cancion.Size = new System.Drawing.Size(72, 20);
@@ -3542,6 +3920,7 @@ namespace Spotflex
             // 
             // richTextBox_add_descripcion_cancion
             // 
+            this.richTextBox_add_descripcion_cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox_add_descripcion_cancion.Location = new System.Drawing.Point(239, 402);
             this.richTextBox_add_descripcion_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox_add_descripcion_cancion.Name = "richTextBox_add_descripcion_cancion";
@@ -3562,11 +3941,12 @@ namespace Spotflex
             // 
             // textBox_add_directorio_cancion
             // 
+            this.textBox_add_directorio_cancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_add_directorio_cancion.Location = new System.Drawing.Point(179, 634);
             this.textBox_add_directorio_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_add_directorio_cancion.Name = "textBox_add_directorio_cancion";
             this.textBox_add_directorio_cancion.ReadOnly = true;
-            this.textBox_add_directorio_cancion.Size = new System.Drawing.Size(243, 22);
+            this.textBox_add_directorio_cancion.Size = new System.Drawing.Size(243, 27);
             this.textBox_add_directorio_cancion.TabIndex = 20;
             // 
             // button_examinar_letra
@@ -3582,11 +3962,12 @@ namespace Spotflex
             // 
             // textBox_add_letra_cancion
             // 
+            this.textBox_add_letra_cancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_add_letra_cancion.Location = new System.Drawing.Point(179, 587);
             this.textBox_add_letra_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_add_letra_cancion.Name = "textBox_add_letra_cancion";
             this.textBox_add_letra_cancion.ReadOnly = true;
-            this.textBox_add_letra_cancion.Size = new System.Drawing.Size(243, 22);
+            this.textBox_add_letra_cancion.Size = new System.Drawing.Size(243, 27);
             this.textBox_add_letra_cancion.TabIndex = 18;
             // 
             // pictureBox_add_portada_cancion
@@ -3614,46 +3995,51 @@ namespace Spotflex
             // 
             this.textBox_add_estudio_cancion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_add_estudio_cancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_add_estudio_cancion.Location = new System.Drawing.Point(237, 291);
             this.textBox_add_estudio_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_add_estudio_cancion.Name = "textBox_add_estudio_cancion";
-            this.textBox_add_estudio_cancion.Size = new System.Drawing.Size(472, 22);
+            this.textBox_add_estudio_cancion.Size = new System.Drawing.Size(450, 27);
             this.textBox_add_estudio_cancion.TabIndex = 14;
             // 
             // textBox_add_album_artist
             // 
             this.textBox_add_album_artist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_add_album_artist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_add_album_artist.Location = new System.Drawing.Point(238, 259);
             this.textBox_add_album_artist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_add_album_artist.Name = "textBox_add_album_artist";
-            this.textBox_add_album_artist.Size = new System.Drawing.Size(471, 22);
+            this.textBox_add_album_artist.Size = new System.Drawing.Size(450, 27);
             this.textBox_add_album_artist.TabIndex = 13;
             // 
             // textBox_add_nombre_artista_cancion
             // 
             this.textBox_add_nombre_artista_cancion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_add_nombre_artista_cancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_add_nombre_artista_cancion.Location = new System.Drawing.Point(237, 142);
             this.textBox_add_nombre_artista_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_add_nombre_artista_cancion.Name = "textBox_add_nombre_artista_cancion";
-            this.textBox_add_nombre_artista_cancion.Size = new System.Drawing.Size(472, 22);
+            this.textBox_add_nombre_artista_cancion.Size = new System.Drawing.Size(450, 27);
             this.textBox_add_nombre_artista_cancion.TabIndex = 12;
             // 
             // textBox_add_titulo_cancion
             // 
             this.textBox_add_titulo_cancion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_add_titulo_cancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_add_titulo_cancion.Location = new System.Drawing.Point(237, 97);
             this.textBox_add_titulo_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_add_titulo_cancion.Name = "textBox_add_titulo_cancion";
-            this.textBox_add_titulo_cancion.Size = new System.Drawing.Size(472, 22);
+            this.textBox_add_titulo_cancion.Size = new System.Drawing.Size(450, 27);
             this.textBox_add_titulo_cancion.TabIndex = 11;
             // 
             // label_add_directorio_cancion
             // 
             this.label_add_directorio_cancion.AutoSize = true;
             this.label_add_directorio_cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_add_directorio_cancion.ForeColor = System.Drawing.Color.White;
             this.label_add_directorio_cancion.Location = new System.Drawing.Point(45, 636);
             this.label_add_directorio_cancion.Name = "label_add_directorio_cancion";
             this.label_add_directorio_cancion.Size = new System.Drawing.Size(92, 20);
@@ -3664,6 +4050,7 @@ namespace Spotflex
             // 
             this.label_add_letra_cancion.AutoSize = true;
             this.label_add_letra_cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_add_letra_cancion.ForeColor = System.Drawing.Color.White;
             this.label_add_letra_cancion.Location = new System.Drawing.Point(45, 590);
             this.label_add_letra_cancion.Name = "label_add_letra_cancion";
             this.label_add_letra_cancion.Size = new System.Drawing.Size(52, 20);
@@ -3674,6 +4061,7 @@ namespace Spotflex
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(45, 468);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 20);
@@ -3684,6 +4072,7 @@ namespace Spotflex
             // 
             this.label_add_descripcion_cancion.AutoSize = true;
             this.label_add_descripcion_cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_add_descripcion_cancion.ForeColor = System.Drawing.Color.White;
             this.label_add_descripcion_cancion.Location = new System.Drawing.Point(47, 402);
             this.label_add_descripcion_cancion.Name = "label_add_descripcion_cancion";
             this.label_add_descripcion_cancion.Size = new System.Drawing.Size(109, 20);
@@ -3694,6 +4083,7 @@ namespace Spotflex
             // 
             this.label_add_fecha_cancion.AutoSize = true;
             this.label_add_fecha_cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_add_fecha_cancion.ForeColor = System.Drawing.Color.White;
             this.label_add_fecha_cancion.Location = new System.Drawing.Point(45, 330);
             this.label_add_fecha_cancion.Name = "label_add_fecha_cancion";
             this.label_add_fecha_cancion.Size = new System.Drawing.Size(185, 20);
@@ -3704,6 +4094,7 @@ namespace Spotflex
             // 
             this.label_add_estudio_cancion.AutoSize = true;
             this.label_add_estudio_cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_add_estudio_cancion.ForeColor = System.Drawing.Color.White;
             this.label_add_estudio_cancion.Location = new System.Drawing.Point(45, 295);
             this.label_add_estudio_cancion.Name = "label_add_estudio_cancion";
             this.label_add_estudio_cancion.Size = new System.Drawing.Size(71, 20);
@@ -3714,6 +4105,7 @@ namespace Spotflex
             // 
             this.label_add_album_cancion.AutoSize = true;
             this.label_add_album_cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_add_album_cancion.ForeColor = System.Drawing.Color.White;
             this.label_add_album_cancion.Location = new System.Drawing.Point(45, 263);
             this.label_add_album_cancion.Name = "label_add_album_cancion";
             this.label_add_album_cancion.Size = new System.Drawing.Size(62, 20);
@@ -3724,6 +4116,7 @@ namespace Spotflex
             // 
             this.label_add_Artistas_cancion.AutoSize = true;
             this.label_add_Artistas_cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_add_Artistas_cancion.ForeColor = System.Drawing.Color.White;
             this.label_add_Artistas_cancion.Location = new System.Drawing.Point(43, 149);
             this.label_add_Artistas_cancion.Name = "label_add_Artistas_cancion";
             this.label_add_Artistas_cancion.Size = new System.Drawing.Size(170, 20);
@@ -3734,6 +4127,7 @@ namespace Spotflex
             // 
             this.label_add_titulo_cancion.AutoSize = true;
             this.label_add_titulo_cancion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_add_titulo_cancion.ForeColor = System.Drawing.Color.White;
             this.label_add_titulo_cancion.Location = new System.Drawing.Point(43, 100);
             this.label_add_titulo_cancion.Name = "label_add_titulo_cancion";
             this.label_add_titulo_cancion.Size = new System.Drawing.Size(56, 20);
@@ -3742,7 +4136,7 @@ namespace Spotflex
             // 
             // panel_title_add_cancion
             // 
-            this.panel_title_add_cancion.BackColor = System.Drawing.Color.Green;
+            this.panel_title_add_cancion.BackColor = System.Drawing.Color.DarkGreen;
             this.panel_title_add_cancion.Controls.Add(this.panelAgregarunVid);
             this.panel_title_add_cancion.Controls.Add(this.pictureBox_add_song_to_data);
             this.panel_title_add_cancion.Controls.Add(this.label_add_cancion);
@@ -3750,7 +4144,7 @@ namespace Spotflex
             this.panel_title_add_cancion.Location = new System.Drawing.Point(0, 0);
             this.panel_title_add_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_title_add_cancion.Name = "panel_title_add_cancion";
-            this.panel_title_add_cancion.Size = new System.Drawing.Size(744, 42);
+            this.panel_title_add_cancion.Size = new System.Drawing.Size(748, 42);
             this.panel_title_add_cancion.TabIndex = 0;
             this.panel_title_add_cancion.Visible = false;
             // 
@@ -3765,12 +4159,12 @@ namespace Spotflex
             this.panelAgregarunVid.Location = new System.Drawing.Point(0, -2);
             this.panelAgregarunVid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelAgregarunVid.Name = "panelAgregarunVid";
-            this.panelAgregarunVid.Size = new System.Drawing.Size(749, 46);
+            this.panelAgregarunVid.Size = new System.Drawing.Size(753, 46);
             this.panelAgregarunVid.TabIndex = 2;
             // 
             // panel_fijar_info_cancion
             // 
-            this.panel_fijar_info_cancion.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel_fijar_info_cancion.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel_fijar_info_cancion.Controls.Add(this.pictureBox_atras_cancion);
             this.panel_fijar_info_cancion.Controls.Add(this.label_mensaje_cancion_descargada);
             this.panel_fijar_info_cancion.Location = new System.Drawing.Point(0, 2);
@@ -3809,13 +4203,15 @@ namespace Spotflex
             this.pictureBoxAgregarElVIdeo_enNuevoVId.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBoxAgregarElVIdeo_enNuevoVId.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxAgregarElVIdeo_enNuevoVId.ErrorImage")));
             this.pictureBoxAgregarElVIdeo_enNuevoVId.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAgregarElVIdeo_enNuevoVId.Image")));
-            this.pictureBoxAgregarElVIdeo_enNuevoVId.Location = new System.Drawing.Point(689, 0);
+            this.pictureBoxAgregarElVIdeo_enNuevoVId.Location = new System.Drawing.Point(693, 0);
             this.pictureBoxAgregarElVIdeo_enNuevoVId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxAgregarElVIdeo_enNuevoVId.Name = "pictureBoxAgregarElVIdeo_enNuevoVId";
             this.pictureBoxAgregarElVIdeo_enNuevoVId.Size = new System.Drawing.Size(60, 46);
             this.pictureBoxAgregarElVIdeo_enNuevoVId.TabIndex = 34;
             this.pictureBoxAgregarElVIdeo_enNuevoVId.TabStop = false;
             this.pictureBoxAgregarElVIdeo_enNuevoVId.Click += new System.EventHandler(this.pictureBoxAgregarElVIdeo_enNuevoVId_Click);
+            this.pictureBoxAgregarElVIdeo_enNuevoVId.MouseLeave += new System.EventHandler(this.pictureBoxAgregarElVIdeo_enNuevoVId_MouseLeave);
+            this.pictureBoxAgregarElVIdeo_enNuevoVId.MouseHover += new System.EventHandler(this.pictureBoxAgregarElVIdeo_enNuevoVId_MouseHover);
             // 
             // lblAgregarNuevoVid
             // 
@@ -3831,13 +4227,15 @@ namespace Spotflex
             // 
             this.pictureBox_add_song_to_data.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox_add_song_to_data.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_add_song_to_data.Image")));
-            this.pictureBox_add_song_to_data.Location = new System.Drawing.Point(701, 0);
+            this.pictureBox_add_song_to_data.Location = new System.Drawing.Point(705, 0);
             this.pictureBox_add_song_to_data.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox_add_song_to_data.Name = "pictureBox_add_song_to_data";
             this.pictureBox_add_song_to_data.Size = new System.Drawing.Size(43, 42);
             this.pictureBox_add_song_to_data.TabIndex = 1;
             this.pictureBox_add_song_to_data.TabStop = false;
             this.pictureBox_add_song_to_data.Click += new System.EventHandler(this.pictureBox_add_song_to_data_Click);
+            this.pictureBox_add_song_to_data.MouseLeave += new System.EventHandler(this.pictureBox_add_song_to_data_MouseLeave);
+            this.pictureBox_add_song_to_data.MouseHover += new System.EventHandler(this.pictureBox_add_song_to_data_MouseHover);
             // 
             // label_add_cancion
             // 
@@ -3877,6 +4275,7 @@ namespace Spotflex
             // 
             this.lblEjemploCanciones.AutoSize = true;
             this.lblEjemploCanciones.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
+            this.lblEjemploCanciones.ForeColor = System.Drawing.Color.White;
             this.lblEjemploCanciones.Location = new System.Drawing.Point(128, 368);
             this.lblEjemploCanciones.Name = "lblEjemploCanciones";
             this.lblEjemploCanciones.Size = new System.Drawing.Size(103, 16);
@@ -3887,10 +4286,11 @@ namespace Spotflex
             // 
             this.textBox_add_generos_cancion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_add_generos_cancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_add_generos_cancion.Location = new System.Drawing.Point(237, 366);
             this.textBox_add_generos_cancion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_add_generos_cancion.Name = "textBox_add_generos_cancion";
-            this.textBox_add_generos_cancion.Size = new System.Drawing.Size(472, 22);
+            this.textBox_add_generos_cancion.Size = new System.Drawing.Size(450, 27);
             this.textBox_add_generos_cancion.TabIndex = 34;
             // 
             // label_info_tipo_usuario
@@ -3899,6 +4299,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_info_tipo_usuario.AutoSize = true;
             this.label_info_tipo_usuario.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_info_tipo_usuario.ForeColor = System.Drawing.Color.White;
             this.label_info_tipo_usuario.Location = new System.Drawing.Point(36, 350);
             this.label_info_tipo_usuario.Name = "label_info_tipo_usuario";
             this.label_info_tipo_usuario.Size = new System.Drawing.Size(175, 23);
@@ -3911,6 +4312,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_infoPrivate.AutoSize = true;
             this.label_infoPrivate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_infoPrivate.ForeColor = System.Drawing.Color.White;
             this.label_infoPrivate.Location = new System.Drawing.Point(36, 286);
             this.label_infoPrivate.Name = "label_infoPrivate";
             this.label_infoPrivate.Size = new System.Drawing.Size(121, 23);
@@ -3922,7 +4324,9 @@ namespace Spotflex
             this.label_info_Nombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_info_Nombre.AutoSize = true;
+            this.label_info_Nombre.BackColor = System.Drawing.Color.MidnightBlue;
             this.label_info_Nombre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_info_Nombre.ForeColor = System.Drawing.Color.White;
             this.label_info_Nombre.Location = new System.Drawing.Point(36, 167);
             this.label_info_Nombre.Name = "label_info_Nombre";
             this.label_info_Nombre.Size = new System.Drawing.Size(100, 23);
@@ -3935,6 +4339,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_infoEdad.AutoSize = true;
             this.label_infoEdad.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_infoEdad.ForeColor = System.Drawing.Color.White;
             this.label_infoEdad.Location = new System.Drawing.Point(36, 225);
             this.label_infoEdad.Name = "label_infoEdad";
             this.label_infoEdad.Size = new System.Drawing.Size(67, 23);
@@ -3947,6 +4352,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_infoSeguidores.AutoSize = true;
             this.label_infoSeguidores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_infoSeguidores.ForeColor = System.Drawing.Color.White;
             this.label_infoSeguidores.Location = new System.Drawing.Point(36, 407);
             this.label_infoSeguidores.Name = "label_infoSeguidores";
             this.label_infoSeguidores.Size = new System.Drawing.Size(128, 23);
@@ -3984,7 +4390,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_ver_info.AutoSize = true;
             this.label_ver_info.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ver_info.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label_ver_info.ForeColor = System.Drawing.Color.White;
             this.label_ver_info.Location = new System.Drawing.Point(44, 530);
             this.label_ver_info.Name = "label_ver_info";
             this.label_ver_info.Size = new System.Drawing.Size(164, 20);
@@ -4009,7 +4415,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_borrar_usuario.AutoSize = true;
             this.label_borrar_usuario.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_borrar_usuario.ForeColor = System.Drawing.Color.DarkRed;
+            this.label_borrar_usuario.ForeColor = System.Drawing.Color.Red;
             this.label_borrar_usuario.Location = new System.Drawing.Point(44, 574);
             this.label_borrar_usuario.Name = "label_borrar_usuario";
             this.label_borrar_usuario.Size = new System.Drawing.Size(130, 20);
@@ -4045,6 +4451,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_cambiar_plan.AutoSize = true;
             this.label_cambiar_plan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cambiar_plan.ForeColor = System.Drawing.Color.White;
             this.label_cambiar_plan.Location = new System.Drawing.Point(44, 431);
             this.label_cambiar_plan.Name = "label_cambiar_plan";
             this.label_cambiar_plan.Size = new System.Drawing.Size(236, 22);
@@ -4090,6 +4497,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_cambiar_tipoUsuario.AutoSize = true;
             this.label_cambiar_tipoUsuario.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cambiar_tipoUsuario.ForeColor = System.Drawing.Color.White;
             this.label_cambiar_tipoUsuario.Location = new System.Drawing.Point(44, 348);
             this.label_cambiar_tipoUsuario.Name = "label_cambiar_tipoUsuario";
             this.label_cambiar_tipoUsuario.Size = new System.Drawing.Size(236, 22);
@@ -4100,40 +4508,44 @@ namespace Spotflex
             // 
             this.textBox_cambiar_edad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_cambiar_edad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_cambiar_edad.Location = new System.Drawing.Point(205, 224);
             this.textBox_cambiar_edad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_cambiar_edad.Name = "textBox_cambiar_edad";
-            this.textBox_cambiar_edad.Size = new System.Drawing.Size(432, 22);
+            this.textBox_cambiar_edad.Size = new System.Drawing.Size(450, 27);
             this.textBox_cambiar_edad.TabIndex = 8;
             // 
             // textBox_cambiar_nombre
             // 
             this.textBox_cambiar_nombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_cambiar_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_cambiar_nombre.Location = new System.Drawing.Point(205, 186);
             this.textBox_cambiar_nombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_cambiar_nombre.Name = "textBox_cambiar_nombre";
-            this.textBox_cambiar_nombre.Size = new System.Drawing.Size(432, 22);
+            this.textBox_cambiar_nombre.Size = new System.Drawing.Size(450, 27);
             this.textBox_cambiar_nombre.TabIndex = 7;
             // 
             // textBox_cambiar_clave
             // 
             this.textBox_cambiar_clave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_cambiar_clave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_cambiar_clave.Location = new System.Drawing.Point(205, 148);
             this.textBox_cambiar_clave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_cambiar_clave.Name = "textBox_cambiar_clave";
-            this.textBox_cambiar_clave.Size = new System.Drawing.Size(432, 22);
+            this.textBox_cambiar_clave.Size = new System.Drawing.Size(450, 27);
             this.textBox_cambiar_clave.TabIndex = 6;
             // 
             // textBox_cambiarNick
             // 
             this.textBox_cambiarNick.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_cambiarNick.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_cambiarNick.Location = new System.Drawing.Point(205, 107);
             this.textBox_cambiarNick.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_cambiarNick.Name = "textBox_cambiarNick";
-            this.textBox_cambiarNick.Size = new System.Drawing.Size(432, 22);
+            this.textBox_cambiarNick.Size = new System.Drawing.Size(450, 27);
             this.textBox_cambiarNick.TabIndex = 5;
             // 
             // label_cambiar_Edad
@@ -4142,6 +4554,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_cambiar_Edad.AutoSize = true;
             this.label_cambiar_Edad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cambiar_Edad.ForeColor = System.Drawing.Color.White;
             this.label_cambiar_Edad.Location = new System.Drawing.Point(77, 226);
             this.label_cambiar_Edad.Name = "label_cambiar_Edad";
             this.label_cambiar_Edad.Size = new System.Drawing.Size(47, 20);
@@ -4154,6 +4567,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_cambiar_nombre.AutoSize = true;
             this.label_cambiar_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cambiar_nombre.ForeColor = System.Drawing.Color.White;
             this.label_cambiar_nombre.Location = new System.Drawing.Point(77, 186);
             this.label_cambiar_nombre.Name = "label_cambiar_nombre";
             this.label_cambiar_nombre.Size = new System.Drawing.Size(68, 20);
@@ -4166,6 +4580,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_cambiar_password.AutoSize = true;
             this.label_cambiar_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cambiar_password.ForeColor = System.Drawing.Color.White;
             this.label_cambiar_password.Location = new System.Drawing.Point(77, 148);
             this.label_cambiar_password.Name = "label_cambiar_password";
             this.label_cambiar_password.Size = new System.Drawing.Size(95, 20);
@@ -4178,6 +4593,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_cambiar_nickname.AutoSize = true;
             this.label_cambiar_nickname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cambiar_nickname.ForeColor = System.Drawing.Color.White;
             this.label_cambiar_nickname.Location = new System.Drawing.Point(77, 113);
             this.label_cambiar_nickname.Name = "label_cambiar_nickname";
             this.label_cambiar_nickname.Size = new System.Drawing.Size(83, 20);
@@ -4190,6 +4606,7 @@ namespace Spotflex
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_cambiar_datos.AutoSize = true;
             this.label_cambiar_datos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cambiar_datos.ForeColor = System.Drawing.Color.White;
             this.label_cambiar_datos.Location = new System.Drawing.Point(44, 64);
             this.label_cambiar_datos.Name = "label_cambiar_datos";
             this.label_cambiar_datos.Size = new System.Drawing.Size(249, 22);
@@ -4200,7 +4617,7 @@ namespace Spotflex
             // 
             this.BorrarVidYCan.AutoSize = true;
             this.BorrarVidYCan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F);
-            this.BorrarVidYCan.ForeColor = System.Drawing.Color.DarkRed;
+            this.BorrarVidYCan.ForeColor = System.Drawing.Color.Red;
             this.BorrarVidYCan.Location = new System.Drawing.Point(44, 620);
             this.BorrarVidYCan.Name = "BorrarVidYCan";
             this.BorrarVidYCan.Size = new System.Drawing.Size(227, 20);
@@ -4255,6 +4672,8 @@ namespace Spotflex
             this.picture_buscar.TabIndex = 1;
             this.picture_buscar.TabStop = false;
             this.picture_buscar.Click += new System.EventHandler(this.picture_buscar_Click);
+            this.picture_buscar.MouseLeave += new System.EventHandler(this.picture_buscar_MouseLeave);
+            this.picture_buscar.MouseHover += new System.EventHandler(this.picture_buscar_MouseHover);
             // 
             // button_buscar_filtro
             // 
@@ -4274,10 +4693,11 @@ namespace Spotflex
             // 
             // textBox_Buscar
             // 
+            this.textBox_Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Buscar.Location = new System.Drawing.Point(16, 7);
             this.textBox_Buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_Buscar.Name = "textBox_Buscar";
-            this.textBox_Buscar.Size = new System.Drawing.Size(344, 22);
+            this.textBox_Buscar.Size = new System.Drawing.Size(344, 27);
             this.textBox_Buscar.TabIndex = 0;
             // 
             // panel_secc_video
@@ -4304,6 +4724,8 @@ namespace Spotflex
             this.pictureBox_add_video.TabIndex = 2;
             this.pictureBox_add_video.TabStop = false;
             this.pictureBox_add_video.Click += new System.EventHandler(this.pictureBox_add_video_Click);
+            this.pictureBox_add_video.MouseLeave += new System.EventHandler(this.pictureBox_add_video_MouseLeave);
+            this.pictureBox_add_video.MouseHover += new System.EventHandler(this.pictureBox_add_video_MouseHover);
             // 
             // label_indicador_Videos
             // 
@@ -4325,10 +4747,10 @@ namespace Spotflex
             this.panel_galeria_videos.AutoScroll = true;
             this.panel_galeria_videos.BackgroundImage = global::Spotflex.Properties.Resources.GaleriaFV;
             this.panel_galeria_videos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel_galeria_videos.Location = new System.Drawing.Point(1, 409);
+            this.panel_galeria_videos.Location = new System.Drawing.Point(0, 405);
             this.panel_galeria_videos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_galeria_videos.Name = "panel_galeria_videos";
-            this.panel_galeria_videos.Size = new System.Drawing.Size(747, 308);
+            this.panel_galeria_videos.Size = new System.Drawing.Size(748, 312);
             this.panel_galeria_videos.TabIndex = 2;
             this.panel_galeria_videos.Visible = false;
             // 
@@ -4371,6 +4793,8 @@ namespace Spotflex
             this.pictureBox_add_music.TabIndex = 1;
             this.pictureBox_add_music.TabStop = false;
             this.pictureBox_add_music.Click += new System.EventHandler(this.pictureBox_add_music_Click);
+            this.pictureBox_add_music.MouseLeave += new System.EventHandler(this.pictureBox_add_music_MouseLeave);
+            this.pictureBox_add_music.MouseHover += new System.EventHandler(this.pictureBox_add_music_MouseHover);
             // 
             // label_indicador_Canciones_Disp
             // 
@@ -4406,7 +4830,7 @@ namespace Spotflex
             this.label_error_registro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_error_registro.AutoSize = true;
-            this.label_error_registro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label_error_registro.BackColor = System.Drawing.Color.Linen;
             this.label_error_registro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_error_registro.ForeColor = System.Drawing.Color.Red;
             this.label_error_registro.Location = new System.Drawing.Point(160, 510);
@@ -4535,20 +4959,22 @@ namespace Spotflex
             // 
             this.textBox_IngreseClave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_IngreseClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_IngreseClave.Location = new System.Drawing.Point(481, 458);
             this.textBox_IngreseClave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_IngreseClave.Name = "textBox_IngreseClave";
-            this.textBox_IngreseClave.Size = new System.Drawing.Size(308, 22);
+            this.textBox_IngreseClave.Size = new System.Drawing.Size(450, 27);
             this.textBox_IngreseClave.TabIndex = 13;
             // 
             // textBox_IngreseNick
             // 
             this.textBox_IngreseNick.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_IngreseNick.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_IngreseNick.Location = new System.Drawing.Point(481, 385);
             this.textBox_IngreseNick.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_IngreseNick.Name = "textBox_IngreseNick";
-            this.textBox_IngreseNick.Size = new System.Drawing.Size(308, 22);
+            this.textBox_IngreseNick.Size = new System.Drawing.Size(450, 27);
             this.textBox_IngreseNick.TabIndex = 12;
             // 
             // button_Premium
@@ -4599,20 +5025,22 @@ namespace Spotflex
             // 
             this.textBox_Ingrese_Edad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Ingrese_Edad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Ingrese_Edad.Location = new System.Drawing.Point(481, 181);
             this.textBox_Ingrese_Edad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_Ingrese_Edad.Name = "textBox_Ingrese_Edad";
-            this.textBox_Ingrese_Edad.Size = new System.Drawing.Size(308, 22);
+            this.textBox_Ingrese_Edad.Size = new System.Drawing.Size(450, 27);
             this.textBox_Ingrese_Edad.TabIndex = 7;
             // 
             // textBox_Ingrese_Nombre
             // 
             this.textBox_Ingrese_Nombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Ingrese_Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Ingrese_Nombre.Location = new System.Drawing.Point(481, 103);
             this.textBox_Ingrese_Nombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_Ingrese_Nombre.Name = "textBox_Ingrese_Nombre";
-            this.textBox_Ingrese_Nombre.Size = new System.Drawing.Size(308, 22);
+            this.textBox_Ingrese_Nombre.Size = new System.Drawing.Size(450, 27);
             this.textBox_Ingrese_Nombre.TabIndex = 6;
             // 
             // label_tipo_usuario
@@ -4620,9 +5048,9 @@ namespace Spotflex
             this.label_tipo_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_tipo_usuario.AutoSize = true;
-            this.label_tipo_usuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label_tipo_usuario.BackColor = System.Drawing.Color.Chocolate;
             this.label_tipo_usuario.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_tipo_usuario.ForeColor = System.Drawing.Color.Green;
+            this.label_tipo_usuario.ForeColor = System.Drawing.Color.White;
             this.label_tipo_usuario.Location = new System.Drawing.Point(192, 254);
             this.label_tipo_usuario.Name = "label_tipo_usuario";
             this.label_tipo_usuario.Size = new System.Drawing.Size(239, 23);
@@ -4634,9 +5062,9 @@ namespace Spotflex
             this.label_premium_user.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_premium_user.AutoSize = true;
-            this.label_premium_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label_premium_user.BackColor = System.Drawing.Color.Chocolate;
             this.label_premium_user.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_premium_user.ForeColor = System.Drawing.Color.Green;
+            this.label_premium_user.ForeColor = System.Drawing.Color.White;
             this.label_premium_user.Location = new System.Drawing.Point(219, 320);
             this.label_premium_user.Name = "label_premium_user";
             this.label_premium_user.Size = new System.Drawing.Size(201, 23);
@@ -4648,9 +5076,9 @@ namespace Spotflex
             this.label_ingrese_nickname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_ingrese_nickname.AutoSize = true;
-            this.label_ingrese_nickname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label_ingrese_nickname.BackColor = System.Drawing.Color.Chocolate;
             this.label_ingrese_nickname.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ingrese_nickname.ForeColor = System.Drawing.Color.Green;
+            this.label_ingrese_nickname.ForeColor = System.Drawing.Color.White;
             this.label_ingrese_nickname.Location = new System.Drawing.Point(203, 382);
             this.label_ingrese_nickname.Name = "label_ingrese_nickname";
             this.label_ingrese_nickname.Size = new System.Drawing.Size(218, 23);
@@ -4662,9 +5090,9 @@ namespace Spotflex
             this.label_ingrese_clave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_ingrese_clave.AutoSize = true;
-            this.label_ingrese_clave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label_ingrese_clave.BackColor = System.Drawing.Color.Chocolate;
             this.label_ingrese_clave.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ingrese_clave.ForeColor = System.Drawing.Color.Green;
+            this.label_ingrese_clave.ForeColor = System.Drawing.Color.White;
             this.label_ingrese_clave.Location = new System.Drawing.Point(180, 455);
             this.label_ingrese_clave.Name = "label_ingrese_clave";
             this.label_ingrese_clave.Size = new System.Drawing.Size(240, 23);
@@ -4676,9 +5104,9 @@ namespace Spotflex
             this.label_ingrese_nombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_ingrese_nombre.AutoSize = true;
-            this.label_ingrese_nombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label_ingrese_nombre.BackColor = System.Drawing.Color.Chocolate;
             this.label_ingrese_nombre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ingrese_nombre.ForeColor = System.Drawing.Color.Green;
+            this.label_ingrese_nombre.ForeColor = System.Drawing.Color.White;
             this.label_ingrese_nombre.Location = new System.Drawing.Point(220, 106);
             this.label_ingrese_nombre.Name = "label_ingrese_nombre";
             this.label_ingrese_nombre.Size = new System.Drawing.Size(200, 23);
@@ -4690,9 +5118,9 @@ namespace Spotflex
             this.label_ingrese_edad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_ingrese_edad.AutoSize = true;
-            this.label_ingrese_edad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label_ingrese_edad.BackColor = System.Drawing.Color.Chocolate;
             this.label_ingrese_edad.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ingrese_edad.ForeColor = System.Drawing.Color.Green;
+            this.label_ingrese_edad.ForeColor = System.Drawing.Color.White;
             this.label_ingrese_edad.Location = new System.Drawing.Point(245, 183);
             this.label_ingrese_edad.Name = "label_ingrese_edad";
             this.label_ingrese_edad.Size = new System.Drawing.Size(174, 23);
@@ -4746,20 +5174,22 @@ namespace Spotflex
             // 
             this.PasswordText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordText.Location = new System.Drawing.Point(481, 287);
             this.PasswordText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PasswordText.Name = "PasswordText";
-            this.PasswordText.Size = new System.Drawing.Size(265, 22);
+            this.PasswordText.Size = new System.Drawing.Size(265, 27);
             this.PasswordText.TabIndex = 4;
             // 
             // NicknameText
             // 
             this.NicknameText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.NicknameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NicknameText.Location = new System.Drawing.Point(481, 229);
             this.NicknameText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NicknameText.Name = "NicknameText";
-            this.NicknameText.Size = new System.Drawing.Size(265, 22);
+            this.NicknameText.Size = new System.Drawing.Size(265, 27);
             this.NicknameText.TabIndex = 3;
             this.NicknameText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NicknameText_KeyDown);
             // 
@@ -4791,89 +5221,16 @@ namespace Spotflex
             this.NicknameLabel.TabIndex = 0;
             this.NicknameLabel.Text = "Nickname";
             // 
-            // tier_list
+            // pictureBox11
             // 
-            this.tier_list.Controls.Add(this.tier_list_foto_panel);
-            this.tier_list.Controls.Add(this.panel9);
-            this.tier_list.Location = new System.Drawing.Point(0, 0);
-            this.tier_list.Name = "tier_list";
-            this.tier_list.Size = new System.Drawing.Size(746, 719);
-            this.tier_list.TabIndex = 6;
-            this.tier_list.Visible = false;
-            // 
-            // tier_list_foto_panel
-            // 
-            this.tier_list_foto_panel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tier_list_foto_panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tier_list_foto_panel.BackgroundImage")));
-            this.tier_list_foto_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tier_list_foto_panel.Location = new System.Drawing.Point(0, -1);
-            this.tier_list_foto_panel.Name = "tier_list_foto_panel";
-            this.tier_list_foto_panel.Size = new System.Drawing.Size(746, 421);
-            this.tier_list_foto_panel.TabIndex = 2;
-            // 
-            // panel9
-            // 
-            this.panel9.AutoScroll = true;
-            this.panel9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel9.Controls.Add(this.Videos);
-            this.panel9.Controls.Add(this.Canciones);
-            this.panel9.Controls.Add(this.panel_imagenes_tier);
-            this.panel9.Controls.Add(this.Download);
-            this.panel9.Location = new System.Drawing.Point(0, 421);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(747, 300);
-            this.panel9.TabIndex = 3;
-            // 
-            // Canciones
-            // 
-            this.Canciones.Location = new System.Drawing.Point(125, 232);
-            this.Canciones.Name = "Canciones";
-            this.Canciones.Size = new System.Drawing.Size(99, 27);
-            this.Canciones.TabIndex = 2;
-            this.Canciones.Text = "Canciones";
-            this.Canciones.UseVisualStyleBackColor = true;
-            this.Canciones.Click += new System.EventHandler(this.Canciones_Click);
-            // 
-            // panel_imagenes_tier
-            // 
-            this.panel_imagenes_tier.AutoScroll = true;
-            this.panel_imagenes_tier.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.panel_imagenes_tier.Location = new System.Drawing.Point(12, 15);
-            this.panel_imagenes_tier.Name = "panel_imagenes_tier";
-            this.panel_imagenes_tier.Size = new System.Drawing.Size(708, 179);
-            this.panel_imagenes_tier.TabIndex = 1;
-            // 
-            // Download
-            // 
-            this.Download.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Download.Location = new System.Drawing.Point(14, 233);
-            this.Download.Name = "Download";
-            this.Download.Size = new System.Drawing.Size(102, 27);
-            this.Download.TabIndex = 0;
-            this.Download.Text = "Download";
-            this.Download.UseVisualStyleBackColor = true;
-            this.Download.Click += new System.EventHandler(this.Download_Click);
-            // 
-            // go_to_tier_list
-            // 
-            this.go_to_tier_list.Image = ((System.Drawing.Image)(resources.GetObject("go_to_tier_list.Image")));
-            this.go_to_tier_list.Location = new System.Drawing.Point(17, 653);
-            this.go_to_tier_list.Name = "go_to_tier_list";
-            this.go_to_tier_list.Size = new System.Drawing.Size(58, 48);
-            this.go_to_tier_list.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.go_to_tier_list.TabIndex = 8;
-            this.go_to_tier_list.TabStop = false;
-            this.go_to_tier_list.Click += new System.EventHandler(this.go_to_tier_list_Click);
-            // 
-            // Videos
-            // 
-            this.Videos.Location = new System.Drawing.Point(233, 232);
-            this.Videos.Name = "Videos";
-            this.Videos.Size = new System.Drawing.Size(97, 28);
-            this.Videos.TabIndex = 3;
-            this.Videos.Text = "Videos";
-            this.Videos.UseVisualStyleBackColor = true;
-            this.Videos.Click += new System.EventHandler(this.Videos_Click);
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(291, 126);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(460, 240);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 3;
+            this.pictureBox11.TabStop = false;
             // 
             // Form1
             // 
@@ -4886,6 +5243,7 @@ namespace Spotflex
             this.Controls.Add(this.panel_iniciar_sesion);
             this.Controls.Add(this.button_crear_sesion);
             this.Controls.Add(this.button_iniciar_sesion);
+            this.Controls.Add(this.pictureBox11);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(1023, 766);
             this.Name = "Form1";
@@ -4929,12 +5287,25 @@ namespace Spotflex
             this.panelRecomendaciones.PerformLayout();
             this.panel_eliminar_usuario.ResumeLayout(false);
             this.panel_eliminar_usuario.PerformLayout();
+            this.tier_list.ResumeLayout(false);
+            this.tier_list_foto_panel.ResumeLayout(false);
+            this.panel_reproductor_bonus_game.ResumeLayout(false);
+            this.panel_reproductor_bonus_game.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.reproductor_bonus)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel_hud_bonus_game.ResumeLayout(false);
+            this.panel_hud_bonus_game.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_atras_bonus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_corazon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atras_tier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_atras_eliminar_usuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturelogoRecomendados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRetroceder_Recomendaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Volver_Ranking_video_y_canciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mostrar_Ranking_Video)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.go_to_tier_list)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mostrar_Ranking_Musica)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VolverDeBorrarPlaylist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -4979,6 +5350,12 @@ namespace Spotflex
             this.panel_informacion.PerformLayout();
             this.panel_datos_add_cancion.ResumeLayout(false);
             this.panel_datos_add_cancion.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Volver_de_Borrar_VidYCan)).EndInit();
+            this.panel_label_borrar_video.ResumeLayout(false);
+            this.panel_label_borrar_video.PerformLayout();
+            this.panel_label_borrar_Cancion.ResumeLayout(false);
+            this.panel_label_borrar_Cancion.PerformLayout();
             this.panel_De_Agregar_Video.ResumeLayout(false);
             this.panel_De_Agregar_Video.PerformLayout();
             this.panel_info_cancion.ResumeLayout(false);
@@ -5002,12 +5379,6 @@ namespace Spotflex
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_foto_cancion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureboxAtras_nuevovid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto_NuevoVid)).EndInit();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Volver_de_Borrar_VidYCan)).EndInit();
-            this.panel_label_borrar_video.ResumeLayout(false);
-            this.panel_label_borrar_video.PerformLayout();
-            this.panel_label_borrar_Cancion.ResumeLayout(false);
-            this.panel_label_borrar_Cancion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_back_create_music)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_add_portada_cancion)).EndInit();
             this.panel_title_add_cancion.ResumeLayout(false);
@@ -5031,9 +5402,7 @@ namespace Spotflex
             this.panel_secc_cancion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_add_music)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FotoPerfil)).EndInit();
-            this.tier_list.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.go_to_tier_list)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -5401,6 +5770,21 @@ namespace Spotflex
         private Panel panel_imagenes_tier;
         private Button Download;
         private Button Videos;
+        private Panel panel_reproductor_bonus_game;
+        private Panel panel_hud_bonus_game;
+        private Panel panel8;
+        private AxWMPLib.AxWindowsMediaPlayer reproductor_bonus;
+        private Label label_bonus_game;
+        private Label label_intentos;
+        private PictureBox pictureBox_corazon;
+        private Label label_pista;
+        private Button button_pista_adivinar;
+        private Button button_confirmar_adivinar;
+        private Label label_adivina_label;
+        private TextBox textBox_cancion_adivinar;
+        private PictureBox pictureBox_atras_bonus;
+        private PictureBox atras_tier;
+        private PictureBox pictureBox11;
     }
 }
 

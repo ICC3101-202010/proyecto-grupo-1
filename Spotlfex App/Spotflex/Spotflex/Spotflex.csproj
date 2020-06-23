@@ -36,6 +36,7 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -69,6 +70,7 @@
     <Compile Include="Eventos\AddMultimediaEventArgs.cs" />
     <Compile Include="Eventos\AddSongUserDataEventArgs.cs" />
     <Compile Include="Eventos\AddVideoUserDataEventArgs.cs" />
+    <Compile Include="Eventos\BonusGameEventArgs.cs" />
     <Compile Include="Eventos\ChangePhotoEventArgs.cs" />
     <Compile Include="Eventos\ChangeUserDataEventArgs.cs" />
     <Compile Include="Eventos\AddPlaylistEventArgs.cs" />
@@ -186,6 +188,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\176-1768859_myeong-hwan-yoo-unknown-profile-picture-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plus_Hover.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hover.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c76ee72de9a5b980c5f0e0d6b7bac0e0-cruz-m--s-a--adir-by-vexels.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa_buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\158241d2079a635fb0cae49accb56da5-icono-de-lupa-by-vexels.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa_buscar2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

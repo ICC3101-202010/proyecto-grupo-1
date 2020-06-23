@@ -199,4 +199,22 @@
   <data name="foto_perfil_base" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\176-1768859_myeong-hwan-yoo-unknown-profile-picture-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="c76ee72de9a5b980c5f0e0d6b7bac0e0_cruz_m__s_a__adir_by_vexels" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\c76ee72de9a5b980c5f0e0d6b7bac0e0-cruz-m--s-a--adir-by-vexels.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hover.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lupa_buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lupa_buscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lupa_buscar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lupa_buscar2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plus_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plus_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_158241d2079a635fb0cae49accb56da5_icono_de_lupa_by_vexels" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\158241d2079a635fb0cae49accb56da5-icono-de-lupa-by-vexels.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

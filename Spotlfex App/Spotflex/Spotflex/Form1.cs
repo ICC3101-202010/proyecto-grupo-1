@@ -17,6 +17,8 @@ using System.Windows.Forms.VisualStyles;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Org.BouncyCastle.Asn1.Cms;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Spotflex
 {
@@ -41,6 +43,8 @@ namespace Spotflex
         List<string> nicknames_photos_actuales = new List<string>();
         bool reproduciendo;
         string multimedia_playing;
+        string bonus_playing_url;
+        string premium_password = "pollo";
 
         List<PictureBox> lista_fotos_comentarios_a_mostrar = new List<PictureBox>();
         List<Label> lista_labels_comentarios_a_mostrar = new List<Label>();
@@ -65,7 +69,9 @@ namespace Spotflex
         public event LoginEventHandler CanAddSong;
         public event LoginEventHandler CanAddVideo;
         public event LoginEventHandler DetectPrivate;
+        public event LoginEventHandler DetectPremium;
         public event LoginEventHandler Admin;
+        public event LoginEventHandler CanPlay;
 
         public event EventHandler<LoginEventArgs> DeleteSong;
         public event EventHandler<LoginEventArgs> DeleteVideo;
@@ -75,6 +81,7 @@ namespace Spotflex
         public event EventHandler<LoginEventArgs> EraseUser;
         public event EventHandler<LoginEventArgs> SearchedUserInfo;
         public event EventHandler<LoginEventArgs> SearchedPersonInfo;
+        public event EventHandler<LoginEventArgs> MyLives;
 
         public delegate Usuario GetUsuarioHandler(object source, LoginEventArgs args);
         public event GetUsuarioHandler UsuarioGet;
@@ -121,6 +128,9 @@ namespace Spotflex
         public event AddMultimediaEventHandler PutColaCancion;
         public event AddMultimediaEventHandler DeleteFavoriteSong;
         public event AddMultimediaEventHandler DeleteFavoriteVideo;
+
+        public delegate string GetLetraSongEventHandler(object source, AddMultimediaEventArgs args);
+        public event GetLetraSongEventHandler GetHint;
 
 
         public delegate bool CheckFavoriteEventHandler(object source, AddMultimediaEventArgs e);
@@ -220,8 +230,14 @@ namespace Spotflex
         public delegate void ChangingAllDataEventHandler(object source, ChangeUserDataEventArgs args);
         public ChangingAllDataEventHandler OnChangingAllData;
 
-        public delegate void GetUsersEventHandler(object source, MyUsersEventArgs e);
+        public delegate void GetUsersEventHandler(object source, MyUsersEventArgs args);
         public GetUsersEventHandler GetUsers;
+
+        public delegate bool BonusGameCheckEventHandler(object source, BonusGameEventArgs args);
+        public BonusGameCheckEventHandler CheckWin;
+
+        public delegate string RandomSongEventHandler(object source, EventArgs e);
+        public RandomSongEventHandler RandomSong;
 
 
         public Form1()
@@ -267,9 +283,12 @@ namespace Spotflex
             //label_ranking_canciones.BackColor = Color.FromArgb(70, 88, 44, 55);
             Volver_Ranking_video_y_canciones.BackColor = Color.FromArgb(10, 88, 44, 55);
             panel_Ranking_de_Canciones.BackColor = Color.FromArgb(60, 88, 44, 55);
-            pictureBox10.BackColor = Color.FromArgb(10, 88, 44, 55);
+            pictureBox10.BackColor = Color.FromArgb(100, 88, 44, 55);
+            label_tus_favoritos.BackColor = Color.FromArgb(10, 88, 44, 55);
+            pictureBox_atras_favs.BackColor = Color.FromArgb(10, 88, 44, 55);
+            pictureBox_tus_favoritos.BackColor = Color.FromArgb(10, 88, 44, 55);
 
-            
+
 
 
         }
@@ -374,24 +393,28 @@ namespace Spotflex
         {
             private_opt = false;
             clicked_private = true;
+            MessageBox.Show("Tu usuario va a ser publico");
         }
 
         private void button_privado_Click(object sender, EventArgs e)
         {
             private_opt = true;
             clicked_private = true;
+            MessageBox.Show("Tu usuario va a ser privado");
         }
 
         private void button_Gratuito_Click(object sender, EventArgs e)
         {
             premium_opt = false;
             clicked_premium = true;
+            MessageBox.Show("Tu usuario va a ser gratuito");
         }
 
         private void button_Premium_Click(object sender, EventArgs e)
         {
             premium_opt = true;
             clicked_premium = true;
+            MessageBox.Show("Tu usuario va a ser premium");
         }
 
         private void button_registrar_Click(object sender, EventArgs e)
@@ -537,12 +560,43 @@ namespace Spotflex
         private void button_cmabiar_premium_Click(object sender, EventArgs e)
         {
             bool new_premium = true;
-            OnChangePremium(new_premium);
-            MessageBox.Show("Ahora es un usuario premium, esperemos que disfrute el servicio", "CAMBIO DE PLAN", MessageBoxButtons.OK);
+            bool confirm = DetectPremium(this, new LoginEventArgs() { Nickname = user_enter });
+            if (!confirm)
+            {
+                DialogResult d = MessageBox.Show("Se requiere de una clave para ser premium, ¿Tiene la clave?", "CONFIRMAR CLAVE", MessageBoxButtons.YesNo);
+                if (d == DialogResult.Yes)
+                {
+                    string pass = Interaction.InputBox("", "Ingrese Contraseña", "");
+                    if(pass == premium_password)
+                    {
+                        OnChangePremium(new_premium);
+                        MessageBox.Show("Ahora es un usuario premium, esperemos que disfrute el servicio", "CAMBIO DE PLAN", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Clave incorrecta, sigue siendo Free", "CAMBIO DE PLAN", MessageBoxButtons.OK);
+                    }
+                }
+                else if (d == DialogResult.No)
+                {
+                    DialogResult enter_bonus = MessageBox.Show("Puede ser premium si gana un minijuego, ¿Quiere jugar?", "BONUS GAME",MessageBoxButtons.YesNo);
+                    if(enter_bonus == DialogResult.Yes)
+                    {
+                        OnShowBonusGame();
+                    }
+                }   
+            }
+            else
+            {
+                MessageBox.Show("Usted ya es premium, agradezco que le guste el servicio", "CAMBIO DE PLAN", MessageBoxButtons.OK);
+            }
         }
 
         private void label_cerrar_sesion_Click(object sender, EventArgs e)
         {
+            ReproductorCancion.Ctlcontrols.stop();
+            ReproductorVideo.Ctlcontrols.stop();
+            Reproductor_de_Playlist.Ctlcontrols.stop();
             textBox_Buscar.ResetText();
             panel_crear_sesion.Visible = false;
             panel_datos_usuario.Visible = false;
@@ -826,6 +880,7 @@ namespace Spotflex
                     string album_song = textBox_add_album_artist.Text;
                     string estudio_song = textBox_add_estudio_cancion.Text;
                     string fecha_publicacion_song = dateTimePicker_add_fecha_publicacion_cancion.Text;
+                    fecha_publicacion_song = fecha_publicacion_song.Substring(fecha_publicacion_song.IndexOf(',') + 2);
                     string descripcion_song = richTextBox_add_descripcion_cancion.Text;
                     string photo_song = pictureBox_add_portada_cancion.ImageLocation;
 
@@ -914,6 +969,8 @@ namespace Spotflex
                                 name_artists.Clear();
                                 gender_artist.Clear();
                                 age_artist.Clear();
+                                checkBox_sexo_hombre.Checked = false;
+                                checkBox_sexo_mujer.Checked = false;
                                 textBox_add_directorio_cancion.ResetText();
                                 textBox_add_album_artist.ResetText();
                                 textBox_add_edad_artista.ResetText();
@@ -1208,6 +1265,7 @@ namespace Spotflex
                     string title_song = textBoxtitulo_nuevovid.Text;
                     string estudio_song = textBoxEstudio_nuevovid.Text;
                     string fecha_publicacion_song = dateTimePickerNuevoVid.Text;
+                    fecha_publicacion_song = fecha_publicacion_song.Substring(fecha_publicacion_song.IndexOf(',') + 2);
                     string descripcion_song = richTextBoxDescripcion_Nuevovid.Text;
                     string photo_song = pictureBoxFoto_NuevoVid.ImageLocation;
                     string directory_song = textBoxDirecorio_nuevovid.Text;
@@ -1323,6 +1381,10 @@ namespace Spotflex
                                 gender_director.Clear();
                                 name_director.Clear();
                                 age_director.Clear();
+                                checkBoxHActor_nuevovid.Checked = false;
+                                checkBoxMActores_nuevovid.Checked = false;
+                                checkBoxM_direcvid.Checked = false;
+                                checkbtnHdirec_vid.Checked = false;
                                 SaveData(this, new EventArgs());
                                 MostrarInformacionMultimedia();
                                 label_error_add_video.Visible = false;
@@ -1399,7 +1461,7 @@ namespace Spotflex
                 lista_fotos_biblioteca.Add(pict);
                 pict.Click += new System.EventHandler(this.OnSongClick);
                 Label l = add_multimedia_label(cancion_pos_x, cancion_pos_y + 115, nombre_canciones[i]);
-                l.BackColor = Color.FromArgb(10, 88, 44, 55);
+                l.BackColor = Color.Black;
                 label_Galeria_Canciones.Add(l);
                 panel_galeria_canciones.Controls.Add(l);
                 lista_labels_biblioteca.Add(l);
@@ -1415,7 +1477,7 @@ namespace Spotflex
 
                 pict.Click += new System.EventHandler(this.OnVideoClick);
                 Label l = add_multimedia_label(video_pos_x, video_pos_y + 145, nombre_videos[i]);
-                l.BackColor = Color.FromArgb(10, 88, 44, 55);
+                l.BackColor = Color.Black;
                 label_Galeria_Video.Add(l);
                 panel_galeria_videos.Controls.Add(l);
                 lista_labels_biblioteca.Add(l);
@@ -1620,6 +1682,7 @@ namespace Spotflex
                         panel_playlist_mostrar.Controls.Add(pict);
                         Label l = new Label();
                         l.Text = item.Name;
+                        l.Font = new Font("Arial Rounded MT", 9, FontStyle.Regular);
                         l.Location = new Point(x + 50, yPV + 140);
                         panel_playlist_mostrar.Controls.Add(l);
                         List<Canciones> AllCanciones = GetAllSongs(this, new GetMultimediaDataEventArgs());
@@ -2272,6 +2335,7 @@ namespace Spotflex
             pictureBox_reproducir_cancion.Visible = true;
             pictureBox_download.Visible = true;
             label_size_cancion.Visible = true;
+            label_calificacion.Text = "Calificacion";
             pictureBox_1star_Canciones.Image = Properties.Resources.nostar;
             pictureBox_2star_Canciones.Image = Properties.Resources.nostar;
             pictureBox_3star_Canciones.Image = Properties.Resources.nostar;
@@ -2318,6 +2382,8 @@ namespace Spotflex
             pictureBoxEstrellaVideo3.Image = Properties.Resources.nostar;
             pictureBoxEstrellaVideo4.Image = Properties.Resources.nostar;
             pictureBoxEstrellaVideo5.Image = Properties.Resources.nostar;
+
+            lblCalificacion_ReproducirVideo.Text = "Calificacion";
 
             PictureBox currentable = (PictureBox)sender;
             string name_Video = currentable.Name.Remove(0, 11);
@@ -3048,6 +3114,8 @@ namespace Spotflex
             pictureBox_4star_Canciones.Image = Properties.Resources.nostar;
             pictureBox_5star_Canciones.Image = Properties.Resources.nostar;
 
+            label_calificacion.Text = "Calificacion";
+
             Label currentable = (Label)sender;
             string name_cancion = currentable.Name.Remove(0, 14);
             ShowInfoCancion(this, new AddMultimediaEventArgs() { name_multimedia_file = name_cancion });
@@ -3056,6 +3124,50 @@ namespace Spotflex
             {
                 panel_reproductor_cancion.Visible = true;
             }
+        }
+
+        public void Show_Lives(int intentos)
+        {
+            label_intentos.Text = Convert.ToString(intentos);
+        }
+
+        public void OnShowBonusGame() //BONUS GAME
+        {
+            panel_ajustes.Visible = true;
+            panel_informacion.Visible = true;
+            panel_title_add_cancion.Visible = true;
+            panel_datos_add_cancion.Visible = true;
+            panel_fijar_add_cancion.Visible = true;
+            panel_De_Agregar_Video.Visible = true;
+            panelAgregarunVid.Visible = true;
+            panel_info_cancion.Visible = true;
+            panel_fijar_info_cancion.Visible = true;
+            panel3.Visible = true;
+            panel_comentarios_cancion.Visible = true;
+            panel_resultado_busqueda_general.Visible = true;
+            panel_usuario_buscado.Visible = true;
+            panel_info_artista.Visible = true;
+            panel_busqueda_avanzada.Visible = true;
+            panelReproducirVideo.Visible = true;
+            panel_playlist.Visible = true;
+            panel_playlist_mostrar.Visible = true;
+            panel_resultado_busqueda_avanzada.Visible = true;
+            ReproducirPlaylist.Visible = true;
+            panel_favoritos.Visible = true;
+            panelComentarios_Video.Visible = true;
+            panel_Eliminar_Playlist.Visible = true;
+            Mis_Playlist_Eliminar.Visible = true;
+            panel_de_rankings.Visible = true;
+            panel_Ranking_de_Canciones.Visible = true;
+            panelRecomendaciones.Visible = true;
+            panel_eliminar_usuario.Visible = true;
+            tier_list.Visible = true;
+            panel_reproductor_bonus_game.Visible = true;
+            panel_hud_bonus_game.Visible = true;
+            bonus_playing_url = RandomSong(this, new EventArgs());
+            MyLives(this, new LoginEventArgs() { Nickname = user_enter });
+            reproductor_bonus.URL = bonus_playing_url;
+            
         }
 
         public void OnUserClicked(object sender, EventArgs e)
@@ -3234,7 +3346,7 @@ namespace Spotflex
             Label label_multimedia = new Label();
             label_multimedia.Name = "label_" + nombre;
             label_multimedia.Text = nombre;
-            label_multimedia.ForeColor = Color.Black;
+            label_multimedia.ForeColor = Color.White;
             label_multimedia.Width = 140;
             label_multimedia.Font = new Font("Arial Rounded MT", 10, FontStyle.Bold);
             label_multimedia.Location = new Point(x, y);
@@ -3245,7 +3357,7 @@ namespace Spotflex
         {
             Label label_coment = new Label();
             label_coment.Text = user + ":\n" + comentario;
-            label_coment.ForeColor = Color.Black;
+            label_coment.ForeColor = Color.White;
             label_coment.Width = 300;
             label_coment.Height = 40;
             label_coment.Font = new Font("Arial Rounded MT", 10, FontStyle.Bold);
@@ -3265,7 +3377,7 @@ namespace Spotflex
             {
                 label_subtitle.Text += " encontradas";
             }
-            label_subtitle.ForeColor = Color.Black;
+            label_subtitle.ForeColor = Color.White;
             label_subtitle.Width = 300;
             label_subtitle.Height = 30;
             label_subtitle.Font = new Font("Arial Rounded MT", 10, FontStyle.Bold);
@@ -3278,7 +3390,7 @@ namespace Spotflex
             Label label_buscado = new Label(); 
             label_buscado.Name = "label_buscado_" + titulo;
             label_buscado.Text = titulo;
-            label_buscado.ForeColor = Color.Black;
+            label_buscado.ForeColor = Color.White;
             label_buscado.Width = 300;
             label_buscado.Height = 45;
             label_buscado.Font = new Font("Arial Rounded MT", 10, FontStyle.Bold);
@@ -3534,6 +3646,7 @@ namespace Spotflex
             textBox_buscar_duracion.ResetText();
             textBox_palabras_clave_buscar.ResetText();
             textBox_buscar_Calidad.ResetText();
+            textBox_buscar_ranking.ResetText();
             checkBox_buscar_hombre.Checked = false;
             checkBox_buscar_mujer.Checked = false;
         }
@@ -3855,6 +3968,7 @@ namespace Spotflex
             panelReproducirVideo.Visible = false;
             panel_busqueda_avanzada.Visible = false;
             panel_playlist.Visible = false;
+            
         }
 
         private void button_busqueda_or_Click(object sender, EventArgs e)
@@ -4578,6 +4692,8 @@ namespace Spotflex
 
                 Label l = add_name_busqueda_label(150, pp +20, can.Titulo);
                 Label l2 = add_name_busqueda_label(150, pp + 40,"Ranking: " + can.Get_Mean_Tier().ToString());
+                l.ForeColor = System.Drawing.Color.Black;
+                l2.ForeColor = System.Drawing.Color.Black;
                 pp += 75;
                 panel_Mostrar_Ranking_Canciones.Controls.Add(l2);
                 panel_Mostrar_Ranking_Canciones.Controls.Add(l);
@@ -4621,6 +4737,8 @@ namespace Spotflex
 
                 Label l = add_name_busqueda_label(150, pp + 20, can.Titulo);
                 Label l2 = add_name_busqueda_label(150, pp + 40, "Ranking: " + can.Get_Mean_Tier().ToString());
+                l.ForeColor = System.Drawing.Color.Black;
+                l2.ForeColor = System.Drawing.Color.Black;
                 pp += 75;
                 panel_Mostrar_Ranking_Canciones.Controls.Add(l2);
                 panel_Mostrar_Ranking_Canciones.Controls.Add(l);
@@ -4689,6 +4807,8 @@ namespace Spotflex
             pictureBoxEstrellaVideo3.Image = Properties.Resources.nostar;
             pictureBoxEstrellaVideo4.Image = Properties.Resources.nostar;
             pictureBoxEstrellaVideo5.Image = Properties.Resources.nostar;
+
+            lblCalificacion_ReproducirVideo.Text = "Calificacion";
 
             Label currentable = (Label)sender;
             string name_video = currentable.Name.Remove(0, 14);
@@ -5264,11 +5384,223 @@ namespace Spotflex
 
 
         }
-        
+
+        private void button_confirmar_adivinar_Click(object sender, EventArgs e)
+        {
+            string adivina = textBox_cancion_adivinar.Text;
+            bool can_play = CanPlay(this, new LoginEventArgs() { Nickname = user_enter });
+            label_pista.Visible = true;
+            if (can_play)
+            {
+                bool result = CheckWin(this, new BonusGameEventArgs() { name_song = adivina, song_url = bonus_playing_url });
+                if (result)
+                {
+                    label_pista.ForeColor = Color.DarkGreen;
+                    label_pista.Text = "Has adivinado la cancion";
+                    OnChangePremium(true);
+                }
+                else
+                {
+                    label_pista.ForeColor = Color.DarkRed;
+                    label_pista.Text = "La cancion es incorrecta";
+                }
+            }
+            else
+            {
+                label_pista.ForeColor = Color.DarkRed;
+                label_pista.Text = "No te quedan intentos, lastima";
+            }
+
+
+        }
+
+        private void button_pista_adivinar_Click(object sender, EventArgs e)
+        {
+            string letra = GetHint(this, new AddMultimediaEventArgs() { name_multimedia_file = bonus_playing_url});
+            label_pista.Visible = true;
+            label_pista.ForeColor = Color.Black;
+            label_pista.Text = "Pista: La letra de la cancion empieza asi: ";
+            string ev;
+            try
+            {
+                ev = letra.Substring(0, letra.IndexOf('\n'));
+            }
+            catch
+            {
+                ev = letra;
+            }
+
+            if (ev.Length < 20)
+            {
+                label_pista.Text += ev;
+            }
+            else
+            {
+                label_pista.Text += ev.Substring(0,25) + "...";
+            }
+        }
+
+        private void pictureBox_atras_bonus_Click(object sender, EventArgs e)
+        {
+            label_pista.Visible = false;
+            panel_ajustes.Visible = false;
+            panel_informacion.Visible = false;
+            panel_title_add_cancion.Visible = false;
+            panel_datos_add_cancion.Visible = false;
+            panel_fijar_add_cancion.Visible = false;
+            panel_De_Agregar_Video.Visible = false;
+            panelAgregarunVid.Visible = false;
+            panel_info_cancion.Visible = false;
+            panel_fijar_info_cancion.Visible = false;
+            panel3.Visible = false;
+            panel_comentarios_cancion.Visible = false;
+            panel_resultado_busqueda_general.Visible = false;
+            panel_usuario_buscado.Visible = false;
+            panel_info_artista.Visible = false;
+            panel_busqueda_avanzada.Visible = false;
+            panelReproducirVideo.Visible = false;
+            panel_playlist.Visible = false;
+            panel_playlist_mostrar.Visible = false;
+            panel_resultado_busqueda_avanzada.Visible = false;
+            ReproducirPlaylist.Visible = false;
+            panel_favoritos.Visible = false;
+            panelComentarios_Video.Visible = false;
+            panel_Eliminar_Playlist.Visible = false;
+            Mis_Playlist_Eliminar.Visible = false;
+            panel_de_rankings.Visible = false;
+            panel_Ranking_de_Canciones.Visible = false;
+            panelRecomendaciones.Visible = false;
+            panel_eliminar_usuario.Visible = false;
+            tier_list.Visible = false;
+            panel_reproductor_bonus_game.Visible = false;
+            panel_hud_bonus_game.Visible = false;
+            reproductor_bonus.Ctlcontrols.pause();
+        }
+
+        private void atras_tier_Click(object sender, EventArgs e)
+        {
+            tier_list.Visible = false;
+            panel_eliminar_usuario.Visible = false;
+            panelRecomendaciones.Visible = false;
+            panel_Ranking_de_Canciones.Visible = false;
+
+        }
+
+        private void label_Playlist_Usuario_MouseHover(object sender, EventArgs e)
+        {
+            label_Playlist_Usuario.ForeColor = Color.DarkRed;
+        }
+
+        private void label_Playlist_Usuario_MouseLeave(object sender, EventArgs e)
+        {
+            label_Playlist_Usuario.ForeColor = Color.White;
+        }
+
+        private void label_Favoritos_MouseLeave(object sender, EventArgs e)
+        {
+            label_Favoritos.ForeColor = Color.White;
+        }
+
+        private void label_Favoritos_MouseHover(object sender, EventArgs e)
+        {
+            label_Favoritos.ForeColor = Color.DarkRed;
+        }
+
+        private void label_ranking_MouseHover(object sender, EventArgs e)
+        {
+            label_ranking.ForeColor = Color.DarkRed;
+        }
+
+        private void label_ranking_MouseLeave(object sender, EventArgs e)
+        {
+            label_ranking.ForeColor = Color.White;
+        }
+
+        private void label_recomendaciones_MouseHover(object sender, EventArgs e)
+        {
+            label_recomendaciones.ForeColor = Color.DarkRed;
+        }
+
+        private void label_recomendaciones_MouseLeave(object sender, EventArgs e)
+        {
+            label_recomendaciones.ForeColor = Color.White;
+        }
+
+        private void Opciones_MouseHover(object sender, EventArgs e)
+        {
+            Opciones.ForeColor = Color.DarkRed;
+        }
+
+        private void Opciones_MouseLeave(object sender, EventArgs e)
+        {
+            Opciones.ForeColor = Color.White;
+        }
+
+        private void label_cerrar_sesion_MouseHover(object sender, EventArgs e)
+        {
+            label_cerrar_sesion.ForeColor = Color.DarkRed;
+        }
+
+        private void label_cerrar_sesion_MouseLeave(object sender, EventArgs e)
+        {
+            label_cerrar_sesion.ForeColor = Color.White;
+        }
+
+        private void pictureBox_add_music_MouseHover(object sender, EventArgs e)
+        {
+            pictureBox_add_music.Image = Properties.Resources.plus_hover;
+        }
+
+        private void pictureBox_add_music_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox_add_music.Image = Properties.Resources.c76ee72de9a5b980c5f0e0d6b7bac0e0_cruz_m__s_a__adir_by_vexels;
+        }
+
+        private void pictureBox_add_song_to_data_MouseHover(object sender, EventArgs e)
+        {
+            pictureBox_add_song_to_data.Image = Properties.Resources.plus_hover;
+        }
+
+        private void pictureBox_add_song_to_data_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox_add_song_to_data.Image = Properties.Resources.c76ee72de9a5b980c5f0e0d6b7bac0e0_cruz_m__s_a__adir_by_vexels;
+        }
+
+        private void pictureBox_add_video_MouseHover(object sender, EventArgs e)
+        {
+            pictureBox_add_video.Image = Properties.Resources.plus_hover;
+        }
+
+        private void pictureBox_add_video_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox_add_video.Image = Properties.Resources.c76ee72de9a5b980c5f0e0d6b7bac0e0_cruz_m__s_a__adir_by_vexels;
+        }
+
+        private void pictureBoxAgregarElVIdeo_enNuevoVId_MouseHover(object sender, EventArgs e)
+        {
+            pictureBoxAgregarElVIdeo_enNuevoVId.Image = Properties.Resources.plus_hover;
+        }
+
+        private void pictureBoxAgregarElVIdeo_enNuevoVId_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBoxAgregarElVIdeo_enNuevoVId.Image = Properties.Resources.c76ee72de9a5b980c5f0e0d6b7bac0e0_cruz_m__s_a__adir_by_vexels;
+        }
+
+        private void picture_buscar_MouseHover(object sender, EventArgs e)
+        {
+            picture_buscar.Image = Properties.Resources.lupa_buscar2;
+        }
+
+        private void picture_buscar_MouseLeave(object sender, EventArgs e)
+        {
+            picture_buscar.Image = Properties.Resources._158241d2079a635fb0cae49accb56da5_icono_de_lupa_by_vexels;
+        }
+
+
         ///        using (Stream s = File.Open(saveFileDialog.FileName, FileMode.CreateNew))
         ///using (StreamWriter sw = new StreamWriter(s))
         ///{
-           /// MessageBox.Show(s);
+        /// MessageBox.Show(s);
         ///}///
     }
 }

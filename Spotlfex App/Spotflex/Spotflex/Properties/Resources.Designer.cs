@@ -63,6 +63,16 @@ namespace Spotflex.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _158241d2079a635fb0cae49accb56da5_icono_de_lupa_by_vexels {
+            get {
+                object obj = ResourceManager.GetObject("_158241d2079a635fb0cae49accb56da5_icono_de_lupa_by_vexels", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _25618 {
             get {
                 object obj = ResourceManager.GetObject("25618", resourceCulture);
@@ -96,6 +106,16 @@ namespace Spotflex.Properties {
         internal static System.Drawing.Bitmap back {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap c76ee72de9a5b980c5f0e0d6b7bac0e0_cruz_m__s_a__adir_by_vexels {
+            get {
+                object obj = ResourceManager.GetObject("c76ee72de9a5b980c5f0e0d6b7bac0e0_cruz_m__s_a__adir_by_vexels", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +203,39 @@ namespace Spotflex.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Hover {
+            get {
+                object obj = ResourceManager.GetObject("Hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_cancion {
             get {
                 object obj = ResourceManager.GetObject("icon_cancion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lupa_buscar {
+            get {
+                object obj = ResourceManager.GetObject("lupa_buscar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lupa_buscar2 {
+            get {
+                object obj = ResourceManager.GetObject("lupa_buscar2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +256,16 @@ namespace Spotflex.Properties {
         internal static System.Drawing.Bitmap playback {
             get {
                 object obj = ResourceManager.GetObject("playback", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_hover {
+            get {
+                object obj = ResourceManager.GetObject("plus_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
